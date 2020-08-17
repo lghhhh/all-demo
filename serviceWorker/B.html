@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service Worker</title>
+</head>
+
+<body>
+
+    <div>im B</div>
+    <script>
+        window.onbeforeunload=function(e){
+            window.open('A.html#close','A');
+            return 'Are you sure you want to go back to the home page?'
+        }
+    </script>
+</body>
+
+</html>

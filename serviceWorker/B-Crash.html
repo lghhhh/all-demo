@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service Worker</title>
+</head>
+
+<body>
+
+    <div>im B crash</div>
+    <button type="handleCrash()">一触及溃</button>
+    <script>
+        function handleCrash() {
+            var total = '';
+            for (var i = 0; i < 1000000; i++) {
+                var dom = document.createElement('span');
+                dom.innerHTML = "crash！";
+                document.getElementsByTagName("body")[0].appendChild(dom)
+            }
+        }
+        // 添加serviceWorker
+        if (navigator.serviceWorker) {
+            navigator.serviceWorker.register('./sw.js', { scope: '/' })
+                .then(function (register) {
+                    if (navigator.serviceWorker.controller !== null) {
+                        let HEARTBEAT_INTERVAL = 5 * 1000;
+                        let sessionId = "uuid()";
+                        let bearbeat = function () {
+                            console.log('页面发送 state：running');
+                            navigator.serviceWorker.controller.postMessage({
+                                type: "running",
+                                id: sessionId,
+                                data: {}
+                            })
+
+                        }
+
+                    }
+                    window.addEventListener('onbeforeunload',function(){
+                        console.log('页面发送 state：clear')
+                        navigator.serviceWorker.controller.postMessage({
+                            type:'clear',
+                            id:sessionId
+                        })
+                    })
+                    setInterval(bearbeat,HEARTBEAT_INTERVAL);
+                    bearbeat();
+
+                }).catch(function(){
+                    
+                })
+        }
+    </script>
+</body>
+
+</html>

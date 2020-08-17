@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> draw point</title>
+</head>
+
+<body onload="main()">
+
+    <canvas id="webgl" width="400px" height="400px">
+    </canvas>
+    <script>
+        // 顶点着色器
+        var VSHADER_SOURCE = ` 
+            void main(){
+                gl_Position = vec4(0.0 , 0.0 , 0.0 , 1.0); // 设置坐标
+                gl_PointSize =10.0 //设置尺寸
+            }`;
+        // 片段着色器程序
+        var FSHADER_SOURCE = `
+            void main(){
+                gl_FragColor =vec4(1.0 , 0.0 , 0.0 , 1.0) // 设置颜色
+            }`;
+        // 初始化着色程序，让WebGl知道怎么绘制我们的数据
+        function initShaderProgram(gl, vsSource, fsSource) {
+            const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+            const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+
+            // 创建着色器程序
+            const shaderProgram = gl.createProgram();
+            gl.attachShader(shaderProgram, vertexShader);
+            gl.attachShader(shaderProgram, fragmentShader);
+            gl.linkProgram(shaderProgram);
+
+            // 创建失败， alert
+            if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+                alert('Unable to initialize the shader program: ' + gl.getProgramInfoLog(shaderProgram));
+                return null;
+            }
+
+            return shaderProgram;
+
+
+        }
+        // 创建指定类型的着色器，上传源码并编译
+        function loadShader( gl,type,source){
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader,source);
+            gl.compilerShader(shader);
+
+            if(!gl.getProgramParameter(shader,gl.COMPLIE_STATUS)){
+                alert('An error occurred  compiling the shaders'+gl.getShaderInfoLog(shader))
+                gl.deleteShader(shader)
+                return null
+            }
+            return shader
+        }
+
+        function main() {
+            const canvas = document.getElementById('webgl');
+            if (!canvas) {
+                console.log('failed to retrieve the canvas element');
+                return;
+            }
+            const gl = canvas.getContext('webgl');
+            if (!gl) {
+                consloe.log('Failed to get the rendering context for WebGL');
+                return;
+            }
+            // 初始化着色器
+            if (!initShaderProgram(gl, VSHADER_SOURCE, FSHADER_SOURCE)) {
+                consloe.log('Failed to initialize shaders.');
+                return;
+            }
+
+            gl.clearColor(0, 0, 0, 1);
+
+            gl.chlear(gl.COLOR_BUFFER_BIT);
+
+            gl.drawArrays(gl.POINTS, 0, 1);
+        }
+    </script>
+</body>
+
+</html>

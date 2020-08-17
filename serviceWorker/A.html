@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service Worker</title>
+</head>
+
+<body>
+
+    <div>im A</div>
+    <button onclick='toB()'>打开B</button>
+    <script>
+        window.name="A"
+        function toB(){
+            window.open('B.html','B')
+        }
+        window.addEventListener('hashchange',function(){
+            debugger
+            alert(window.location.hash)
+        },false)
+
+        // if (navigator.serviceWorker) {
+        //     navigator.serviceWorker
+        //         .register('./sw.js', { scope: '/' })
+        //         .then((register) => {
+        //             console.log('注册成功')
+        //         })
+        //         .catch((err) => {
+        //             console.log('注册失败')
+        //         })
+        // }
+
+    </script>
+</body>
+
+</html>
