@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .my-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* width: 300px;
+            height: 300px; */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" class="my-canvas" width="300px" height="300px"></canvas>
+    <script>
+        let canvas = document.getElementById("mycanvas");
+        if (canvas.getContext) {
+            let ctx = canvas.getContext('2d');
+            // 矩形
+            // ctx.fillStyle = 'rgb(200,0,0)';
+            // ctx.fillRect(10, 10, 55, 50);
+            // ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            // ctx.fillRect(30, 30, 55, 50);
+            // ctx.clearRect(20, 20, 10, 10)
+
+            // 贝塞尔曲线
+            ctx.beginPath();
+            ctx.moveTo(75, 25);
+            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            ctx.fillRect(75, 25, 5, 5);
+            ctx.quadraticCurveTo(25, 25, 25, 62.5);
+            ctx.quadraticCurveTo(25, 100, 50, 100);
+            ctx.quadraticCurveTo(50, 120, 30, 125);
+            ctx.quadraticCurveTo(60, 120, 65, 100);
+            ctx.quadraticCurveTo(125, 100, 125, 62.5);
+            ctx.quadraticCurveTo(125, 25, 75, 25);
+            ctx.stroke();
+
+        } else {
+            console.log('unsupport canvas!')
+        }
+
+    </script>
+</body>
+
+</html>
