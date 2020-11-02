@@ -12,15 +12,17 @@
     <div>im A</div>
     <button onclick='toB()'>打开B</button>
     <script>
-        window.name="A"
-        function toB(){
-            window.open('B.html','B')
+        window.name = "A"
+        function toB() {
+            window.open('B-Crash.html', 'B')
         }
-        window.addEventListener('hashchange',function(){
+        window.addEventListener('hashchange', function () {
             debugger
             alert(window.location.hash)
-        },false)
-
+        }, false)
+        navigator.serviceWorker.onmessage = ({ data }) => {
+            console.log('client heard:', data);
+        };
         // if (navigator.serviceWorker) {
         //     navigator.serviceWorker
         //         .register('./sw.js', { scope: '/' })

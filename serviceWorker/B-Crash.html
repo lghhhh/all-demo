@@ -1,56 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>service Worker</title>
 </head>
 
 <body>
-
-    <div>im B crash</div>
-    <button type="handleCrash()">一触及溃</button>
+    <div>这是 B crash 页面</div>
+    <button onclick='handleCrash()'>点击我使页面崩溃</button>
     <script>
         function handleCrash() {
-            var total = '';
+            var total = "";
             for (var i = 0; i < 1000000; i++) {
                 var dom = document.createElement('span');
-                dom.innerHTML = "crash！";
+                dom.innerHTML = "崩溃";
                 document.getElementsByTagName("body")[0].appendChild(dom)
             }
         }
-        // 添加serviceWorker
-        if (navigator.serviceWorker) {
-            navigator.serviceWorker.register('./sw.js', { scope: '/' })
-                .then(function (register) {
-                    if (navigator.serviceWorker.controller !== null) {
-                        let HEARTBEAT_INTERVAL = 5 * 1000;
-                        let sessionId = "uuid()";
-                        let bearbeat = function () {
-                            console.log('页面发送 state：running');
-                            navigator.serviceWorker.controller.postMessage({
-                                type: "running",
-                                id: sessionId,
-                                data: {}
-                            })
-
-                        }
-
-                    }
-                    window.addEventListener('onbeforeunload',function(){
-                        console.log('页面发送 state：clear')
+        debugger
+        if ('serviceWorker' in navigator) {
+            console.log('start')
+            navigator.serviceWorker.register('sw.js', {
+                scope: './'
+            }).then(function (registration) {
+                if (navigator.serviceWorker.controller !== null) {
+                    let HEARTBEAT_INTERVAL = 5 * 1000; // 每五秒发一次心跳
+                    let sessionId = "uuid()";
+                    let heartbeat = function () {
+                        console.log("页面发送 state:running") // running
                         navigator.serviceWorker.controller.postMessage({
-                            type:'clear',
-                            id:sessionId
-                        })
-                    })
-                    setInterval(bearbeat,HEARTBEAT_INTERVAL);
-                    bearbeat();
-
-                }).catch(function(){
-                    
-                })
+                            type: 'running',
+                            id: sessionId,
+                            data: {} // 附加信息，如果页面 crash，上报的附加数据
+                        });
+                    }
+                    window.addEventListener("beforeunload", function () {
+                        console.log("页面发送 state:clear") // clear
+                        navigator.serviceWorker.controller.postMessage({
+                            type: 'clear',
+                            id: sessionId
+                        });
+                    });
+                    setInterval(heartbeat, HEARTBEAT_INTERVAL);
+                    heartbeat();
+                }
+            }).catch(function (error) {
+                // Something went wrong during registration. The service-worker.js file
+                // might be unavailable or contain a syntax error.
+            });
+        } else {
+            // The current browser doesn't support service workers.
         }
     </script>
 </body>
