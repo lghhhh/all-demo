@@ -5,6 +5,7 @@
 const { RoadNetworkModel } = require('./DAO/mongooseDAO.js');
 const CoordinatesConvert = require('./util/CoordinatesConvert');
 const Api = require('./util/api');
+const ImgApi = require('./util/mergeImg');
 
 
 // 获取全部路网原始数据
@@ -23,47 +24,6 @@ function mongoCb(err, docs) {
   }
   console.log('爬取结束。');
 }
-// function mongoCb(err, docs) {
-//     if (err) {
-//         console.log(err)
-//     } else if (docs) {
-//         console.log('====================query complete')
-//         mainStart(docs)
-//     }
-//     console.log('爬取结束。')
-// }
-
-// // 根据路网线段坐标(84坐标 转百度坐标)获取两个端点数据 判断是否有街景
-
-// 根据获得的百度 地点id 判断 街景时间是否大于2019
-
-// 符合采集规范 获取前后八张图
-
-// 合并图片入库本地 数据图片id存入数据库
-
-
-// // 下载图片
-// async function getimg() {
-//     const fileName = path.resolve(__dirname, './originImg', '22.jpeg')
-//     const wStream = fs.createWriteStream(fileName)
-
-//     const response = await Axios({
-//         url: imgurl2,
-//         method: 'GET',
-//         responseType: 'stream' //使用返回的数据是字节流的形式。
-//     })
-//     response.data.pipe(wStream)
-//     return new Promise((resolve, reject) => {
-//         wStream.on('finish', resolve);
-//         wStream.on('error', reject);
-//     })
-// }
-
-// // 合成街景 前/后视图
-// async function mergeIma() {
-
-// }
-
 
 // 开始一段道路节点街景采集 该方法不可为异步
 async function mainStart(data) {
@@ -83,7 +43,7 @@ async function mainStart(data) {
   // let sid2 = await Api.getRoadInfoByXY(p2[0], p2[1])
 
 
-  // 1. 判断首尾是否有街景，全没有判断该路没有街景
+  // 1. 判断首尾是否有街景，全没有判断该路没有街景  范围30个一的 国测局坐标点
   const coordinateArrs = await Promise.all([ Api.getRoadInfoByXY(p1mc[0], p1mc[1]), Api.getRoadInfoByXY(p2mc[0], p2mc[1]) ])
     .then(sidArrs => {
       const [ sid1, sid2 ] = sidArrs;
@@ -93,24 +53,57 @@ async function mainStart(data) {
         return coordinateArrs;
       }
       return [];
-
     });
 
-
-  const promises = coordinateArrs.map(data => Api.getRoadInfoByXY(data[0], data[1]));
+  // 2.根据分割的 mc坐标 获取对应的sid 并去重
+  const promises = coordinateArrs.map(data => {
+    const [ x, y ] = CoordinatesConvert.mars2DBMC(data[0], data[1]);
+    Api.getRoadInfoByXY(x, y);
+  });
   const streetIds = await Promise.all(promises);
-  // 街景id去重
+  // id去重
   const streetDeduplication = Array.from(new Set(streetIds));
-  // 查询时间是否大于2019    后续判断
-  const timeIsGt2019s = streetDeduplication.map(id => Api.getRoadDetalInfoById(id));
+  // 3. 查询时间是否大于2019    过滤时间小于2019的数据
+  // const timeIsGt2019s = await streetDeduplication.filter(async id => {
+  //   const gt2019 = await Api.getRoadDetalInfoById(id);
+  //   return gt2019;
+  // });
+  const idGt2019 = [];
+  for (let i = 0; i < streetDeduplication.length; i++) {
+    const id = streetDeduplication[i];
+    const isGt2019 = await Api.getRoadDetalInfoById(id);
+    if (isGt2019) {
+      idGt2019.push(id);
+    }
+  }
   // 第一个reject的实例返回只返回给 timeGt2019
-  const timeGt2019 = await Promise.all(timeIsGt2019s);
+  // const timeGt2019 = await Promise.all(timeIsGt2019s);
 
-  // ？？？ id 处理逻辑 未完
+  console.log('=====获取街景图片start======', idGt2019);
+  // idGt2019.forEach(id => downloadMergeImgBySid(id));
+  streetDeduplication.forEach(id => downloadMergeImgBySid(id));
+  console.log('=====获取街景图片END======');
 
-  // 09005700011608231314358109P
+  // 完成合成 数据写入库
+}
+
+
+// 下载、合并图片
+async function downloadMergeImgBySid(id) {
   // 同段道路并发请求，并过滤相同街景sid
-  const downloadFinish = await Api.getImageById('09005700011608231314358109P');
-
-
+  const frontArrs = [ '1_0', '1_1', '1_2', '1_3', '1_4', '1_5', '1_6', '1_7', '2_0', '2_1', '2_2', '2_3', '2_4', '2_5', '2_6', '2_7' ];
+  const imgRequests = frontArrs.map(pos => Api.getImageByIdPos(id, pos));
+  // 获取图片流
+  const imgStreams = await Promise.all(imgRequests);
+  const saveImgStatus = imgStreams.map(dataObj => ImgApi.saveImg(id, dataObj.pos, dataObj.data));
+  // 保存图片
+  const saveStatus = await Promise.all(saveImgStatus);
+  const saveAllImg = saveStatus.find(e => e !== true);
+  // 所有图片下载完成才进行合成
+  if (!saveAllImg) {
+    console.log('开始合并图片=====id：', id);
+    const mergeStatus = await ImgApi.mergeImg(id);
+    return mergeStatus;
+  }
+  console.log('保存图片失败====id：', id);
 }

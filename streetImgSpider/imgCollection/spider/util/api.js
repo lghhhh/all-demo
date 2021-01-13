@@ -1,5 +1,7 @@
 'use strict';
 const Axios = require('axios');
+
+
 // 百度地图鉴权token
 const authToken = 'QJJJMcUNGR1zDgXx%403LxTAKEvWUORI%3DyuxLVRNNRHTHtykiOxAXXwy1uVt1GgvPUDZYOYIZuVt1cv3uztHee%40ewWvPWv3GuRtVcOC%40BUvhgMZSguxzBEHLNRTVtcEWe1GD8zv7u%40ZPuVtcvY1SGpuxztpFcEegvcguxLVRNNLTLxtfiKKv7urZZWuB';
 
@@ -78,6 +80,7 @@ async function getRoadDetalInfoById(id) {
     },
   });
   if (result.data.content[0] && typeof result.data.content[0].Time === 'string') {
+
     return result.data.content[0].Time.substring(0, 4) >= 2019;
   }
   return false;
@@ -85,8 +88,9 @@ async function getRoadDetalInfoById(id) {
 }
 
 // 获取具体位置图像
-function getImageByIdPos(id) {
-  const frontArrs = [ '1_0', '1_1', '1_2', '1_3', '1_4', '1_5', '1_7', '2_0', '2_1', '2_2', '2_3', '2_4', '2_5', '2_6', '2_7' ];
+// const frontArrs = [ '1_0', '1_1', '1_2', '1_3', '1_4', '1_5', '1_7', '2_0', '2_1', '2_2', '2_3', '2_4', '2_5', '2_6', '2_7' ];
+
+async function getImageByIdPos(id, pos) {
   const params = {
     qt: 'pdata',
     sid: id,
@@ -95,7 +99,7 @@ function getImageByIdPos(id) {
     auth: authToken,
     udt: 20200825,
   };
-  const result = Axios.get(UrlGetImg, {
+  const result = await Axios.get(UrlGetImg, {
     params,
     headers: {
       Connection: 'keep-alive',
@@ -107,13 +111,10 @@ function getImageByIdPos(id) {
       Referer: 'https://map.baidu.com/',
       'Accept-Language': 'zh-CN,zh;q=0.9',
     },
+    responseType: 'stream', // 使用返回的数据是字节流的形式。
   });
-  return result.data;
+  return { pos, data: result.data };
 }
-
-//
-
-// getInfoByXY('12694958.162865594', '2572923.21752623').then(data => console.log(data))
 
 
 module.exports = { getRoadInfoByXY, getRoadDetalInfoById, getImageByIdPos }

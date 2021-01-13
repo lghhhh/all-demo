@@ -121,11 +121,11 @@ function getDistance(p1, p2) { // 角度转换为弧度
 
 
 /**
- * 坐标段转成15米一个的坐标点集合  输入mars坐标
+ * 坐标段转成15米一个的坐标点集合  输入国测局坐标
  * @param {*} p1  {lng:x,lat:y } 经纬度 作为起始点
  * @param {*} p2  {lng:x,lat:y } 经纬度 作为结束点
  * @param {*} splitLength  分割距离 30米左右 非精确值
- * @return {Array} 返回分割后bdmc 坐标数组
+ * @return {Array} 返回分割后国测局 坐标数组 数组项为 经纬度坐标数组
  */
 function coordinatesSplit(p1, p2, splitLength = 30) {
 
@@ -140,18 +140,15 @@ function coordinatesSplit(p1, p2, splitLength = 30) {
   const addX = x / (divisionsCount + 1);
   // 每段纬度度差值
   const addY = y / (divisionsCount + 1);
-  console.log('=====', addX, addY);
   const result = [];
   for (let i = 0; i <= divisionsCount; i++) {
-    const item = mars2DBMC((p1.lng + addX * i), (p1.lat + addY * i));
-    // result.push({ lng: p1.lng + addX * i, lat: p1.lat + addY * i })
-    result.push(item);
+    // const item = mars2DBMC((p1.lng + addX * i), (p1.lat + addY * i));
+    result.push([ p1.lng + addX * i, p1.lat + addY * i ]);
+    // result.push(item);
   }
-  result.push(mars2DBMC((p2.lng), (p2.lat)));
+  // result.push(mars2DBMC((p2.lng), (p2.lat)));
+  result.push([ p2.lng, p2.lat ]);
   return result;
 }
 
 module.exports = { mars2DBMC, coordinatesSplit };
-
-coordinatesSplit({ lng: 113.90052, lat: 22.52438 }, { lng: 113.90063, lat: 22.52455 })
-;
