@@ -2,34 +2,61 @@
 // const fs = require('fs');
 // const path = require('path');
 // const Axios = require('axios');
-const { RoadNetworkModel } = require('./DAO/mongooseDAO.js');
+const mongoose = require('mongoose');
+const { RoadNetworkModel, StreetImgInfoModel } = require('./DAO/mongooseDAO.js');
 const CoordinatesConvert = require('./util/CoordinatesConvert');
 const Api = require('./util/api');
 const ImgApi = require('./util/mergeImg');
 
 
 // 获取全部路网原始数据
-RoadNetworkModel.find({ LinkName: /滨海/ }).limit(1).lean()
+// RoadNetworkModel.find({ LinkName: /深南/, CollectionStatus: '0' }).limit().lean()
+RoadNetworkModel.find({ CollectionStatus: '0' }).limit().lean()
   .exec(mongoCb);
 
-function mongoCb(err, docs) {
+async function mongoCb(err, docs) {
   if (err) {
-    console.log(err);
+    console.log('====== 路网数据获取失败  ======', err);
   } else if (docs.length > 0) {
-    console.log('====================query complete');
-    docs.forEach((element, index) => {
-      console.log('====================mainStart', index);
-      mainStart(element);
-    });
+    console.log('====== 路网数据获取完成  ======');
+    const sum = docs.length;
+    let count = 0;
+    // 继发执行
+    for (const doc of docs) {
+      console.log(`************************************************************路网数据采集开始 总数${sum}-当前序号:${count} **********`);
+      await mainStart(doc);
+      count++;
+      // 休眠10秒
+      await new Promise((resolve, reject) => {
+        try {
+          setTimeout(() => {
+            resolve();
+          }, 1000);
+        } catch (error) {
+          reject(error);
+        }
+      });
+    }
+    console.log('！！！！！！！！！！！！！！----爬取结束----！！！！！！！！！！！！！！！');
+    // 并发执行
+    // docs.forEach((element, index) => {
+
+    //   mainStart(element);
+    // });
   }
-  console.log('爬取结束。');
 }
 
 // 开始一段道路节点街景采集 该方法不可为异步
 async function mainStart(data) {
 
-  if (!data) return;
+  if (!data) {
+    console.log('无数据跳过', data);
+    return;
+  }
   const coordinates = data.GeometryCoordinates;
+  const RoadNetworkId = data._id;
+  const CityId = data.CityId;
+  const BlockId = data.BlockId;
   const p1Marsx = coordinates[0][0];
   const p1Marsy = coordinates[0][1];
   const p2Marsx = coordinates[1][0];
@@ -55,41 +82,90 @@ async function mainStart(data) {
       return [];
     });
 
-  // 2.根据分割的 mc坐标 获取对应的sid 并去重
-  const promises = coordinateArrs.map(data => {
+
+  if (coordinateArrs.length === 0) {
+    RoadNetworkModel.findOneAndUpdate({ _id: mongoose.Types.ObjectId(RoadNetworkId).toString() }, { $set: { CollectionStatus: '-1' } }, { new: true, upsert: true })
+      .lean().exec(err => {
+        if (err) console.log('路网数据更新失败id:', mongoose.Types.ObjectId(RoadNetworkId).toString(), err);
+        console.log('路网信息更新完成， 路网id', mongoose.Types.ObjectId(RoadNetworkId).toString());
+      });
+  }
+  // 2.根据分割的 mc坐标 获取对应的sid和对应的原始国测局坐标
+  const promises = coordinateArrs.map(async data => {
     const [ x, y ] = CoordinatesConvert.mars2DBMC(data[0], data[1]);
-    Api.getRoadInfoByXY(x, y);
+    const sid = await Api.getRoadInfoByXY(x, y);
+    if (sid) {
+      const result = {};
+      // result[sid] = [ data[0], data[1] ];  //国测局坐标
+      result[sid] = CoordinatesConvert.gcj02towgs84(data[0], data[1]); // 存储84坐标
+      return result;
+    }
+    return null;
   });
+  // 返回一个对象数组， 对象以sid为key、84XY为value
   const streetIds = await Promise.all(promises);
-  // id去重
-  const streetDeduplication = Array.from(new Set(streetIds));
-  // 3. 查询时间是否大于2019    过滤时间小于2019的数据
-  // const timeIsGt2019s = await streetDeduplication.filter(async id => {
-  //   const gt2019 = await Api.getRoadDetalInfoById(id);
-  //   return gt2019;
-  // });
-  const idGt2019 = [];
-  for (let i = 0; i < streetDeduplication.length; i++) {
-    const id = streetDeduplication[i];
-    const isGt2019 = await Api.getRoadDetalInfoById(id);
-    if (isGt2019) {
-      idGt2019.push(id);
+  // sid去重
+  const sidSet = new Set(); // 用于记录以存在的sid
+  const streetDeduplication = {}; // 存储去重后的对象 街景曲线入库需要
+  // if()
+  for (const obj of streetIds) {
+    if (obj === null) continue;
+    const sid = Object.getOwnPropertyNames(obj)[0];
+    if (!sidSet.has(sid)) {
+      sidSet.add(sid);
+      streetDeduplication[sid] = { XY: obj[sid] };
     }
   }
-  // 第一个reject的实例返回只返回给 timeGt2019
-  // const timeGt2019 = await Promise.all(timeIsGt2019s);
 
-  console.log('=====获取街景图片start======', idGt2019);
-  // idGt2019.forEach(id => downloadMergeImgBySid(id));
-  streetDeduplication.forEach(id => downloadMergeImgBySid(id));
-  console.log('=====获取街景图片END======');
 
-  // 完成合成 数据写入库
+  const idGt2019 = [];// 存放时间大于2019的sid
+  const sidDeDuplicate = Array.from(sidSet);
+  for (let i = 0; i < sidDeDuplicate.length; i++) {
+    const id = sidDeDuplicate[i];
+    const result = await Api.getRoadDetalInfoById(id);
+    if (result) {
+      idGt2019.push(id);
+      streetDeduplication[id].Time = result;
+    }
+  }
+  const roadInfo = {};
+  if (idGt2019.length > 0) {
+    console.log('==获取街景图片开始====未获取sid：', idGt2019);
+    // 返回idGt2019 数组sid图像的合成情况
+    const mergeStatus = await Promise.all(idGt2019.map(id => downloadMergeImgBySid(id, CityId, BlockId, streetDeduplication[id].Time)));
+    idGt2019.forEach((sid, index) => {
+      if (mergeStatus[index]) {
+        saveImgData2Mongodb(RoadNetworkId, sid, CityId, BlockId, streetDeduplication[sid].Time, streetDeduplication[sid].XY);
+      }
+    });
+    console.log('=====================街景数据入库开始');
+
+    if (mergeStatus.findIndex(data => data === false) === -1) {
+      roadInfo.CollectionStatus = '1'; // 采集完成
+    } else {
+      roadInfo.CollectionStatus = '2'; // 采集未完整
+    }
+  } else {
+    roadInfo.CollectionStatus = '-2'; // 无符合要求街景
+  }
+  RoadNetworkModel.findOneAndUpdate({ _id: mongoose.Types.ObjectId(RoadNetworkId).toString() }, { $set: roadInfo }, { new: true, upsert: true })
+    .lean().exec(err => {
+      if (err) console.log('路网数据更新失败id:', mongoose.Types.ObjectId(RoadNetworkId).toString(), err);
+      console.log('路网信息更新完成， 路网id', mongoose.Types.ObjectId(RoadNetworkId).toString());
+    });
 }
 
 
 // 下载、合并图片
-async function downloadMergeImgBySid(id) {
+/**
+ *传入sid 下载并合并图片
+ * @param {*} id sid
+ * @param {*} CityId  城市id
+ * @param {*} BlockId 图幅id
+ * @param {*} Time 时间
+ * @return {*} 返回
+ */
+async function downloadMergeImgBySid(id, CityId, BlockId, Time) {
   // 同段道路并发请求，并过滤相同街景sid
   const frontArrs = [ '1_0', '1_1', '1_2', '1_3', '1_4', '1_5', '1_6', '1_7', '2_0', '2_1', '2_2', '2_3', '2_4', '2_5', '2_6', '2_7' ];
   const imgRequests = frontArrs.map(pos => Api.getImageByIdPos(id, pos));
@@ -101,9 +177,30 @@ async function downloadMergeImgBySid(id) {
   const saveAllImg = saveStatus.find(e => e !== true);
   // 所有图片下载完成才进行合成
   if (!saveAllImg) {
-    console.log('开始合并图片=====id：', id);
-    const mergeStatus = await ImgApi.mergeImg(id);
+    console.log('开始合并图片=============================================id：', id);
+    const mergeStatus = await ImgApi.mergeImg(id, CityId, BlockId, Time);
     return mergeStatus;
   }
   console.log('保存图片失败====id：', id);
+}
+
+
+//  完成合成数据入库
+function saveImgData2Mongodb(RoadId, Sid, CityId, BlockId, Time, obj) {
+
+  const data = {
+    RoadId: mongoose.Types.ObjectId(RoadId).toString(), // RoadNetwork collection中对应的id
+    Sid,
+    CityId,
+    BlockId,
+    Time,
+    X: obj[0], // 国策局经纬度
+    Y: obj[1],
+  };
+  console.log('');
+  StreetImgInfoModel.findOneAndUpdate({ Sid }, { $set: data }, { upsert: true })
+    .lean().exec(err => {
+      if (err) console.log(`街景图像相关信息入库失败，sid:${Sid}, 路网id:${mongoose.Types.ObjectId(RoadId).toString()} 错误信息===>`, err);
+      console.log(`街景图像相关信息入库成功， 路网id:${mongoose.Types.ObjectId(RoadId).toString()}--sid:${Sid}`);
+    });
 }

@@ -20,7 +20,7 @@ const RoadNetwork = new mongoose.Schema(
     Level: { type: String, required: true },
     GeometryType: { type: String, required: true },
     GeometryCoordinates: { type: Array, required: true },
-    CollectionStatus: { type: String, required: true }, // 0：未采集  1：采集成功 2：采集失败
+    CollectionStatus: { type: String, required: true }, // -2:无符合要求街景 -1:无街景 0：未采集  1：采集成功 2：采集未完整
   },
   {
     timestamps: { createdAt: 'created_at', updatedAt: 'update_at' },

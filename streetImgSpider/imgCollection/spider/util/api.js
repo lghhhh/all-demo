@@ -3,7 +3,7 @@ const Axios = require('axios');
 
 
 // 百度地图鉴权token
-const authToken = 'QJJJMcUNGR1zDgXx%403LxTAKEvWUORI%3DyuxLVRNNRHTHtykiOxAXXwy1uVt1GgvPUDZYOYIZuVt1cv3uztHee%40ewWvPWv3GuRtVcOC%40BUvhgMZSguxzBEHLNRTVtcEWe1GD8zv7u%40ZPuVtcvY1SGpuxztpFcEegvcguxLVRNNLTLxtfiKKv7urZZWuB';
+const authToken = 'CMdXcONx9PNSdVz5ZP2=Tw8Ia4vKQKD7uxLxVTBxxERtDpnSCE@@By1uVt1GgvPUDZYOYIZuVt1cv3uVtGccZcuVtPWv3GuztQZ3wWvUvhgMZSguxzBEHLNRTVtcEWe1GD8zv7u@ZPuVteuztexZFTHrwzDvqs2osGIVIdbLII3@Flp55C@BrZZWuz';
 
 // 获取路信息 根据坐标
 const UrlHasStreetInfo = 'https://mapsv0.bdimg.com/';
@@ -56,6 +56,7 @@ async function getRoadInfoByXY(X, Y) {
 /**
  * 根据SID获得信息（包含时间）
  * @param {*} id 百度街景的Sid
+ * @return {*} 时间符合规则 返回时间不符合返回false
  */
 async function getRoadDetalInfoById(id) {
 
@@ -81,7 +82,7 @@ async function getRoadDetalInfoById(id) {
   });
   if (result.data.content[0] && typeof result.data.content[0].Time === 'string') {
 
-    return result.data.content[0].Time.substring(0, 4) >= 2019;
+    return result.data.content[0].Time.substring(0, 4) >= 2019 ? result.data.content[0].Time : false;
   }
   return false;
 

@@ -12,7 +12,7 @@ async function saveImg(id, pos, data) {
   data.on('end', () => {
     wStream.end();
   });
-  const result = await new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     wStream.on('finish', () => {
 
       resolve(true);
@@ -21,11 +21,10 @@ async function saveImg(id, pos, data) {
 
 
   });
-  return result;
 }
 
 
-async function mergeImgF(id) {
+async function mergeImgF(id, CityId, BlockId, Time) {
   console.log('开始合并前视图， id：', id);
   const filename14 = path.resolve(__dirname, '../originImg', `${id}_${'1_4'}.jpeg`);
   const filename15 = path.resolve(__dirname, '../originImg', `${id}_${'1_5'}.jpeg`);
@@ -35,7 +34,7 @@ async function mergeImgF(id) {
   const filename25 = path.resolve(__dirname, '../originImg', `${id}_${'2_5'}.jpeg`);
   const filename26 = path.resolve(__dirname, '../originImg', `${id}_${'2_6'}.jpeg`);
   const filename27 = path.resolve(__dirname, '../originImg', `${id}_${'2_7'}.jpeg`);
-  const outputImg = path.resolve(__dirname, '../mergeImg', `${id}_F.jpeg`);
+  const outputImg = path.resolve(__dirname, `../mergeImg/${CityId}/${Time}/${BlockId}`, `${id}_F.jpeg`);
   const base = Sharp({
     create: {
       width: 2048,
@@ -64,7 +63,7 @@ async function mergeImgF(id) {
   return result;
 }
 
-async function mergeImgE(id) {
+async function mergeImgE(id, CityId, BlockId, Time) {
   console.log('开始合并后视图， id：', id);
   const filename10 = path.resolve(__dirname, '../originImg', `${id}_${'1_0'}.jpeg`);
   const filename11 = path.resolve(__dirname, '../originImg', `${id}_${'1_1'}.jpeg`);
@@ -74,7 +73,7 @@ async function mergeImgE(id) {
   const filename21 = path.resolve(__dirname, '../originImg', `${id}_${'2_1'}.jpeg`);
   const filename22 = path.resolve(__dirname, '../originImg', `${id}_${'2_2'}.jpeg`);
   const filename23 = path.resolve(__dirname, '../originImg', `${id}_${'2_3'}.jpeg`);
-  const outputImg = path.resolve(__dirname, '../mergeImg', `${id}_E.jpeg`);
+  const outputImg = path.resolve(__dirname, `../mergeImg/${CityId}/${Time}/${BlockId}`, `${id}_E.jpeg`);
 
   const base = Sharp({
     create: {
@@ -104,15 +103,49 @@ async function mergeImgE(id) {
   return result;
 }
 
-async function mergeImg(id) {
+/**
+* 传入合并图形的sid
+ * @param {*} id sid
+ * @param {*} CityId  城市id
+ * @param {*} BlockId 图幅id
+ * @param {*} TimeMonth   街景照片时间
+ * @return {Boolean} 返回前后图 合成  完成返回 true  失败返回false
+ */
+async function mergeImg(id, CityId, BlockId, TimeMonth) {
   try {
-    const f = mergeImgF(id);
-    const e = mergeImgE(id);
+    const Time = TimeMonth.substring(0, 4);
+    // 创建城市文件夹
+    const outputdirCity = path.resolve(__dirname, `../mergeImg/${CityId}`);
+    try {
+      fs.accessSync(outputdirCity);
+    } catch (e) {
+      fs.mkdirSync(outputdirCity);
+    }
+    // 创建时间文件夹
+    const outputdirTime = path.resolve(__dirname, `../mergeImg/${CityId}/${Time}`);
+    try {
+      fs.accessSync(outputdirTime);
+    } catch (e) {
+      fs.mkdirSync(outputdirTime);
+    }
+    // 创建图幅
+    const outputdirBlock = path.resolve(__dirname, `../mergeImg/${CityId}/${Time}/${BlockId}`);
+    try {
+      fs.accessSync(outputdirBlock);
+    } catch (e) {
+      fs.mkdirSync(outputdirBlock);
+    }
+
+    const f = mergeImgF(id, CityId, BlockId, Time);
+    const e = mergeImgE(id, CityId, BlockId, Time);
 
     const result = await Promise.all([ f, e ]);
-    return result;
+    // 判断 前后识图是否合成 完成
+    if (result[0].premultiplied === result[1].premultiplied === true) { return true; }
+    return false;
   } catch (e) {
-    return e;
+    console.log(e);
+    return false;
   }
 }
 module.exports = { saveImg, mergeImg };
