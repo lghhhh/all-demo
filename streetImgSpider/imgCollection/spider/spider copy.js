@@ -41,6 +41,11 @@ async function mongoCb (err, docs) {
       })
     }
     console.log('！！！！！！！！！！！！！！----爬取结束----！！！！！！！！！！！！！！！')
+    // 并发执行
+    // docs.forEach((element, index) => {
+
+    //   mainStart(element);
+    // });
   }
 }
 
@@ -208,6 +213,3 @@ function sendheartBeat () {
   }
   process.send(JSON.stringify(msg))
 }
-
-// =======开始主程序======
-main()

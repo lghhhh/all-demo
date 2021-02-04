@@ -1,74 +1,71 @@
-'use strict';
-const fs = require('fs');
-const path = require('path');
-const { StreetImgInfoModel } = require('./DAO/mongooseDAO.js');
-
+'use strict'
+const fs = require('fs')
+const path = require('path')
+const { StreetImgInfoModel } = require('./DAO/mongooseDAO.js')
 
 // 遍历mergeImg文件夹名;
-function readFileDirList(dir, fileDirList = {}) {
-  const files = fs.readdirSync(dir);
+function readFileDirList (dir, fileDirList = {}) {
+  const files = fs.readdirSync(dir)
   //   console.log(files);
   files.forEach(item => {
-    const fullPath = path.join(dir, item);
-    const stat = fs.statSync(fullPath);
+    const fullPath = path.join(dir, item)
+    const stat = fs.statSync(fullPath)
     if (stat.isDirectory()) {
-      fileDirList[item] = readFileDirList(fullPath);
+      fileDirList[item] = readFileDirList(fullPath)
     }
-  });
-  return fileDirList;
+  })
+  return fileDirList
 }
 // 根据遍历出来的文件夹结果 获得cityId+time+blockid的字符串 数组
-function flatDeepObj(obj, flatArrs = []) {
-  if (typeof obj === 'object' && !(Object.keys(obj).length)) return null;
+function flatDeepObj (obj, flatArrs = []) {
+  if (typeof obj === 'object' && !(Object.keys(obj).length)) return null
+
   for (const key of Object.keys(obj)) {
-    const faltarr = flatDeepObj(obj[key]);
+    const faltarr = flatDeepObj(obj[key])
     if (!faltarr) {
-      flatArrs.push(`${key}`);
+      flatArrs.push(`${key}`)
     } else {
       faltarr.forEach(item => {
-        flatArrs.push(`${key}+${item}`);
-      });
+        flatArrs.push(`${key}+${item}`)
+      })
     }
   }
-  return flatArrs;
-
+  return flatArrs
 }
 
-async function gengCSV(condition) {
+async function gengCSV (condition) {
   const searchCondition = {
     CityId: condition.CityId,
     BlockId: condition.BlockId,
-    Time: { $lt: `${condition.Time + 1}00`, $gt: `${condition.Time}00` },
-  };
+    Time: { $lt: `${condition.Time + 1}00`, $gt: `${condition.Time}00` }
+  }
 
   // CityId  Time BlockId 拆分导csv到 对应文件夹
-  const resultData = await StreetImgInfoModel.find(searchCondition).lean();
+  const resultData = await StreetImgInfoModel.find(searchCondition).lean()
   //   console.log('查询的数据集', resultData);
-  const csvFilename = `${condition.CityId}-${condition.Time}-${condition.BlockId}.csv`;
-  const csvdir = path.resolve(__dirname, './mergeImg', condition.CityId, condition.Time, condition.BlockId, csvFilename);
+  const csvFilename = `${condition.CityId}-${condition.Time}-${condition.BlockId}.csv`
+  const csvdir = path.resolve(__dirname, './mergeImg', condition.CityId, condition.Time, condition.BlockId, csvFilename)
 
-  let csvContent = '\ufeff设备名,经度,纬度,时间戳,图片名\n';
+  let csvContent = '\ufeff设备名,经度,纬度,时间戳,图片名\n'
 
   resultData.forEach(item => {
-    csvContent += `${item.BlockId},${item.X},${item.Y},${item.Time},${item.Sid}\n`;
-  });
-  fs.writeFileSync(csvdir, csvContent);
-  console.log(`File generated successfully. cityId:${condition.CityId} --- time:${condition.Time} ----BlockId:${condition.BlockId}`);
+    csvContent += `${item.BlockId},${item.X},${item.Y},${item.Time},${item.Sid}\n`
+  })
+  fs.writeFileSync(csvdir, csvContent)
+  console.log(`File generated successfully. cityId:${condition.CityId} --- time:${condition.Time} ----BlockId:${condition.BlockId}`)
 }
 
-
-const mergeImgDirPath = path.resolve(__dirname, './mergeImg');
-const mergeDirObj = readFileDirList(mergeImgDirPath);
-const outputCondition = flatDeepObj(mergeDirObj);
+const mergeImgDirPath = path.resolve(__dirname, './mergeImg')
+const mergeDirObj = readFileDirList(mergeImgDirPath)
+const outputCondition = flatDeepObj(mergeDirObj)
 outputCondition.forEach(data => {
-  const Arrs = data.split('+');
+  const Arrs = data.split('+')
   const condition = {
     CityId: Arrs[0],
     Time: Arrs[1],
-    BlockId: Arrs[2],
-  };
-  console.log('开始循环生成csv文件');
-  gengCSV(condition);
-  console.log('===============END===============');
-});
-
+    BlockId: Arrs[2]
+  }
+  console.log('开始循环生成csv文件')
+  gengCSV(condition)
+  console.log('===============END===============')
+})
