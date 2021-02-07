@@ -1,4 +1,5 @@
 'use strict'
+const schedult = require('node-schedule')
 const CPUsLen = require('os').cpus.length
 
 const { fork } = require('child_process')
@@ -26,7 +27,7 @@ function checkCrash () {
 }
 
 function startThread (config) {
-  const spider = fork('./spider.js')
+  const spider = fork('./spider2.js')
   console.log('开启新的子进程')
   //   创建线程状态记录
   threadStatus[spider.pid] = { thread: spider, config, time: Date.now() }
@@ -50,7 +51,12 @@ function startThread (config) {
 }
 
 function main () {
+  collectionConfig.forEach(config => {
+    startThread(config)
+  })
 
+  //   创建定时任务
+  const job = schedult.scheduleJob('3')
 }
 
 main()

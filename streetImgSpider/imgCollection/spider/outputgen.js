@@ -54,18 +54,24 @@ async function gengCSV (condition) {
   fs.writeFileSync(csvdir, csvContent)
   console.log(`File generated successfully. cityId:${condition.CityId} --- time:${condition.Time} ----BlockId:${condition.BlockId}`)
 }
-
-const mergeImgDirPath = path.resolve(__dirname, './mergeImg')
-const mergeDirObj = readFileDirList(mergeImgDirPath)
-const outputCondition = flatDeepObj(mergeDirObj)
-outputCondition.forEach(data => {
-  const Arrs = data.split('+')
-  const condition = {
-    CityId: Arrs[0],
-    Time: Arrs[1],
-    BlockId: Arrs[2]
+async function mian () {
+  await StreetImgInfoModel.findOne({}).lean() // 不预先请求后续会连接失败？？ 不知道为什么么
+  const mergeImgDirPath = path.resolve(__dirname, './mergeImg')
+  const mergeDirObj = readFileDirList(mergeImgDirPath)
+  const outputCondition = flatDeepObj(mergeDirObj)
+  console.log('全部输出条件', outputCondition)
+  const outputLen = outputCondition.length
+  for (let i = 0; i < outputLen; i++) {
+    const data = outputCondition[i]
+    const Arrs = data.split('+')
+    const condition = {
+      CityId: Arrs[0],
+      Time: Arrs[1],
+      BlockId: Arrs[2]
+    }
+    console.log(`开始循环生成csv文件,总数${outputLen}，当前： ${i + 1}`)
+    await gengCSV(condition)
+    console.log('===============END===============')
   }
-  console.log('开始循环生成csv文件')
-  gengCSV(condition)
-  console.log('===============END===============')
-})
+}
+mian()

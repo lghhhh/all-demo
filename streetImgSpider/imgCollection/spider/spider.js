@@ -1,20 +1,19 @@
 'use strict'
-// const fs = require('fs');
-// const path = require('path');
-// const Axios = require('axios');
+
 const mongoose = require('mongoose')
 const { RoadNetworkModel, StreetImgInfoModel } = require('./DAO/mongooseDAO.js')
 const CoordinatesConvert = require('./util/CoordinatesConvert')
 const Api = require('./util/api')
 const ImgApi = require('./util/mergeImg')
 
-// const HEARTBEAT_INTERVAL = 1000 * 10 //10
-
 function main (condition) {
   // 获取全部路网原始数据
 // RoadNetworkModel.find({ LinkName: /深南/, CollectionStatus: '0' }).limit().lean()
-  RoadNetworkModel.find({ CollectionStatus: '0' }).limit().lean().exec(mongoCb)
+  console.log('开始查询路网数据')
+  RoadNetworkModel.find({ CityId: '20', CollectionStatus: '0' }).limit().lean().exec(mongoCb)
   // RoadNetworkModel.find({ CityId: '20' }).limit().lean()
+
+  console.log('结束全部查询')
 }
 
 async function mongoCb (err, docs) {
@@ -148,7 +147,7 @@ async function mainStart (data) {
       console.log('路网信息更新完成， 路网id', mongoose.Types.ObjectId(RoadNetworkId).toString())
     })
 
-  sendheartBeat()
+  // sendheartBeat()
 }
 
 // 下载、合并图片
@@ -200,14 +199,14 @@ function saveImgData2Mongodb (RoadId, Sid, CityId, BlockId, Time, obj) {
 }
 
 // 入库完成后发送心跳包
-function sendheartBeat () {
-  const msg = {
-    pid: process.pid,
-    type: 'alive',
-    time: Date.now()
-  }
-  process.send(JSON.stringify(msg))
-}
+// function sendheartBeat () {
+//   const msg = {
+//     pid: process.pid,
+//     type: 'alive',
+//     time: Date.now()
+//   }
+//   process.send(JSON.stringify(msg))
+// }
 
 // =======开始主程序======
 main()

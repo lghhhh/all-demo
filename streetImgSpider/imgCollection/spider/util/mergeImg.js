@@ -39,7 +39,7 @@ async function mergeImgF (id, CityId, BlockId, Time) {
     }
   })
 
-  const result = base.composite([
+  const result = await base.composite([
     { input: filename14.split(path.sep).join('/'), top: 0, left: 0 },
     { input: filename15.split(path.sep).join('/'), top: 0, left: 512 },
     { input: filename16.split(path.sep).join('/'), top: 0, left: 1024 },
