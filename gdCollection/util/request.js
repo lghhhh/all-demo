@@ -22,8 +22,10 @@ class Axioslimit {
     // 拦截请求添加key
     axios.interceptors.request.use((config) => {
       if (this._keyTimes--) { // key还有请求余额
+        console.log('当前key剩余量：', this._keyTimes)
         config.params.key = KEYs[this._currentKeyIndex]
       } else if (++this._currentKeyIndex < KEYs.length) { // 还有可用的key
+        console.log('更换key')
         // 重置可用key次数
         this._keyTimes = this._keyCount
         config.params.key = KEYs[this._currentKeyIndex]
@@ -38,7 +40,9 @@ class Axioslimit {
     axios.interceptors.response.use((response) => {
       const state = response.data.status
       const stateInfo = response.data.info
+      if (!state)console.log('------------请求失败----------------------------')
       if (!state && stateInfo === '10003') { // 日常访问量超出限制
+        console.log('当前key方向已超出限制量')
         if (++this._currentKeyIndex < KEYs.length) { // 还有可用的key
           // 重置可用key次数
           this._keyTimes = this._keyCount
@@ -46,7 +50,7 @@ class Axioslimit {
           return new Error('接口无可以使用的key！！！！')
         }
       }
-      console.log(response)
+
       return response
     }, function (error) {
       return Promise.reject(error)
