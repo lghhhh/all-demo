@@ -3,9 +3,9 @@ const mongoose = require('mongoose')
 // mongoose的Promise是mongoosse自己的 用ES6的进行替换
 mongoose.Promise = global.Promise
 
-// mongoose.connect('mongodb://admin:admin123@localhost:27017/StreetImgdb');
-mongoose.connect('mongodb://admin:careland@192.168.83.88:27017/StreetImgdb')
-// mongoose.connect('mongodb://admin:careland@192.168.83.88:27017/StreetImgdb', { useNewUrlParser: true })
+// mongoose.connect('mongodb://admin:admin123@localhost:27017/StreetImgdb')
+mongoose.connect('mongodb://admin:careland@192.168.87.250:27017/StreetImgdb')
+// mongoose.connect('mongodb://admin:careland@192.168.87.250:27017/StreetImgdb', { useNewUrlParser: true })
 const db = mongoose.connection
 db.on('error', e => { console.error('connection error:', e) })
 db.once('open', () => { console.log('connection succeeded.数据库连接成功！！') })

@@ -1,23 +1,22 @@
 'use strict'
-const fs = require('fs')
-const path = require('path')
-const readline = require('readline')
+const testElement = document.getElementById('testElement')
+setTimeout(() => {
+  console.log(performance.now(), 'settimeout')
+}, 0)
+requestAnimationFrame(() => {
+  console.log(performance.now(),
+ 'requestAnimationFrame')
+})
+var observer = new MutationObserver(() => {
+  console.log('MutationObserver')
+});
+observer.observe(testElement, {
+ childList: true 
+})
+const div = document.createElement('div')testElement.appendChild(div)
+new Promise(resolve => {
+  console.log('promise')
+  resolve()
+}).then(() => console.log('then'))
+console.log(performance.now(), 'global')
 
-const data = []
-async function processLineByLine () {
-  const fileStream = fs.createReadStream(path.resolve(__dirname, './poi.txt'))
-
-  const rl = readline.createInterface({
-    input: fileStream,
-    crlfDelay: Infinity
-  })
-  for await (const line of rl) {
-    console.log(line)
-
-    data.push(line.split(' ')[0])
-  }
-  console.log('处理结果', data)
-  fs.writeFileSync(path.resolve(__dirname, './output.txt'), JSON.stringify(data))
-}
-
-processLineByLine()

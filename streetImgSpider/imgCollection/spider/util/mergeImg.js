@@ -2,6 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 const Sharp = require('sharp')
+const remoteAddress = 'file://192.168.201.63/i/StreetViewsData/spider2'
 
 async function saveImg (id, pos, data) {
   const fileName = path.resolve(__dirname, '../originImg', `${id}_${pos}.jpeg`)
@@ -20,7 +21,7 @@ async function saveImg (id, pos, data) {
 }
 
 async function mergeImgF (id, CityId, BlockId, Time) {
-  console.log('开始合并前视图， id：', id)
+  // console.log('开始合并前视图， id：', id)
   const filename14 = path.resolve(__dirname, '../originImg', `${id}_${'1_4'}.jpeg`)
   const filename15 = path.resolve(__dirname, '../originImg', `${id}_${'1_5'}.jpeg`)
   const filename16 = path.resolve(__dirname, '../originImg', `${id}_${'1_6'}.jpeg`)
@@ -69,7 +70,7 @@ async function mergeImgF (id, CityId, BlockId, Time) {
 }
 
 async function mergeImgE (id, CityId, BlockId, Time) {
-  console.log('开始合并后视图， id：', id)
+  // console.log('开始合并后视图， id：', id)
   const filename10 = path.resolve(__dirname, '../originImg', `${id}_${'1_0'}.jpeg`)
   const filename11 = path.resolve(__dirname, '../originImg', `${id}_${'1_1'}.jpeg`)
   const filename12 = path.resolve(__dirname, '../originImg', `${id}_${'1_2'}.jpeg`)
@@ -117,6 +118,40 @@ async function mergeImgE (id, CityId, BlockId, Time) {
   return result
 }
 
+// 上传数据到远程服务器
+function uploadImg (id, CityId, BlockId, Time) {
+  // 判断远程文件夹时候存在
+  const outputdirCity = new URL(`${remoteAddress}/mergeImg/${CityId}`)
+  try {
+    fs.accessSync(outputdirCity)
+  } catch (e) {
+    fs.mkdirSync(outputdirCity)
+  }
+  // 创建时间文件夹
+  const outputdirTime = new URL(`${remoteAddress}/mergeImg/${CityId}/${Time}`)
+  try {
+    fs.accessSync(outputdirTime)
+  } catch (e) {
+    fs.mkdirSync(outputdirTime)
+  }
+  // 创建图幅
+  const outputdirBlock = new URL(`${remoteAddress}/mergeImg/${CityId}/${Time}/${BlockId}`)
+  try {
+    fs.accessSync(outputdirBlock)
+  } catch (e) {
+    fs.mkdirSync(outputdirBlock)
+  }
+  const localImgFPath = path.resolve(__dirname, `../mergeImg/${CityId}/${Time}/${BlockId}`, `${id}_F.jpeg`)
+  const localImgEPath = path.resolve(__dirname, `../mergeImg/${CityId}/${Time}/${BlockId}`, `${id}_E.jpeg`)
+  const localImgFData = fs.readFileSync(localImgFPath)
+  const localImgEData = fs.readFileSync(localImgEPath)
+  const uploadImgFURL = new URL(`${remoteAddress}/mergeImg/${CityId}/${Time}/${BlockId}/${id}_F.jpeg`)
+  const uploadImgEURL = new URL(`${remoteAddress}/mergeImg/${CityId}/${Time}/${BlockId}/${id}_E.jpeg`)
+  fs.writeFileSync(uploadImgFURL, localImgFData)
+  fs.writeFileSync(uploadImgEURL, localImgEData)
+  fs.unlinkSync(localImgFPath)
+  fs.unlinkSync(localImgEPath)
+}
 /**
 * 传入合并图形的sid
  * @param {*} id sid
@@ -155,7 +190,10 @@ async function mergeImg (id, CityId, BlockId, TimeMonth) {
 
     const result = await Promise.all([f, e])
     // 判断 前后识图是否合成 完成
-    if (result[0].premultiplied === result[1].premultiplied === true) { return true }
+    if (result[0].premultiplied === result[1].premultiplied === true) {
+      uploadImg(id, CityId, BlockId, Time)
+      return true
+    }
     return false
   } catch (e) {
     console.log(e)

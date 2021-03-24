@@ -10,9 +10,8 @@ function main (condition) {
   // 获取全部路网原始数据
 // RoadNetworkModel.find({ LinkName: /深南/, CollectionStatus: '0' }).limit().lean()
   console.log('开始查询路网数据')
-  RoadNetworkModel.find({ CityId: '20', CollectionStatus: '0' }).limit().lean().exec(mongoCb)
-  // RoadNetworkModel.find({ CityId: '20' }).limit().lean()
-
+  // RoadNetworkModel.find({ CityId: '20', CollectionStatus: '0' }).limit().lean().exec(mongoCb)
+  RoadNetworkModel.find({ CityId: '44' }).limit(50).lean().exec(mongoCb)
   console.log('结束全部查询')
 }
 

@@ -10,8 +10,17 @@ function getTimeStmap () {
   const seconds = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
 
   const timestmap = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds
-  console.log(timestmap)
+
   return timestmap
 }
 
-module.exports = { getTimeStmap }
+function getDateStmap () {
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
+  const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
+  const timestmap = year + '-' + month + '-' + day
+
+  return timestmap
+}
+module.exports = { getTimeStmap, getDateStmap }

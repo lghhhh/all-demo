@@ -35,11 +35,12 @@ class LimitPromise {
    * @private
    */
   _createTask (caller, args, resolve, reject) {
-    return () => {
+    const attempt = () => {
       caller(...args)
         .then(resolve)
-        .catch(reject)
-        .finally(() => {
+        .catch(() => {
+          // reject()
+        }).finally(() => {
           this._count--
           if (this._taskQueue.length) {
             console.log('去除任务队列 任务， 当前队列大小--》', this._taskQueue.length)
@@ -50,7 +51,12 @@ class LimitPromise {
         // 执行任务 总计加1
       this._count++
     }
+    return attempt
   }
+
+  // _retryTask (caller, args, resolve, reject) {
+
+  // }
 }
 
 module.exports = LimitPromise
