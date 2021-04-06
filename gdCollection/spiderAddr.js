@@ -113,11 +113,11 @@ async function saveAddressData (CityCode, Keyword, originalParams, data) {
     X: Number(geocodes.location.split(',')[0]),
     Y: Number(geocodes.location.split(',')[1]),
     Name: Keyword,
-    Address: geocodes.formatted_address, //
-    country: geocodes.country, // 国家
-    province: geocodes.province, // 省会
-    citycode: geocodes.citycode, // 城市编码
-    city: geocodes.city, // 城市
+    Address: Array.isArray(geocodes.formatted_address) ? (geocodes.formatted_address?.[0] || '') : geocodes.formatted_address, //
+    country: Array.isArray(geocodes.country) ? (geocodes.country?.[0] || '') : geocodes.country, // 国家
+    province: Array.isArray(geocodes.province) ? (geocodes.province?.[0] || '') : geocodes.province, // 省会
+    citycode: Array.isArray(geocodes.citycode) ? (geocodes.citycode?.[0] || '') : geocodes.citycode, // 城市编码
+    city: Array.isArray(geocodes.city) ? (geocodes.city?.[0] || '') : geocodes.city, // 城市
     district: Array.isArray(geocodes.district) ? (geocodes.district?.[0] || '') : geocodes.district, // 城区
     adcode: geocodes.adcode, // adcode
     street: Array.isArray(geocodes.street) ? (geocodes.street?.[0] || '') : geocodes.street, //

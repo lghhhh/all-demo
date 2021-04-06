@@ -1,11 +1,13 @@
 'use strict'
+// 生成门址数据
+
 // 使用babel需要添加他们的运行环境
 // import 'core-js/stable'
 // import 'regenerator-runtime/runtime'
 
 const fs = require('fs')
 const path = require('path')
-const pgdb = require('./DAO/pgDAO')
+const pgdb = require('./DAO/pgDAOGSMerge')
 const setting = require('./config/setting')
 const GDAddrDAO = require('./DAO/SQLiteDAO_GD_Addr') // 高德地址解析
 const GDPoiDAO = require('./DAO/SQLiteDAO_GD_Poi') // 高德POI解析
@@ -52,7 +54,8 @@ async function getSQL (cityName) {
 async function main () {
   const fileState = await genFile2sqlite()
   if (fileState === 0) return
-  const sql = await getSQL(setting.exportCityName)
+  // const sql = await getSQL(setting.exportCityName)
+  const sql = `SELECT "Id", "Name" AS "Keyword" ,"Adcode",  "X", "Y",  "MergeStatus", "MergeId" FROM public."MergeResult_JiangSu_SuZhou" where "MergeStatus" not like ' % 0 % '${''}`
 
   const DAOModel = DAOReflect[setting.exportFileType]?.SearchParamModel
   await DAOModel.sync({ force: true })
@@ -66,11 +69,11 @@ async function main () {
 
   for (let i = 0; i < datalen; i++) {
     const ele = result?.rows?.[i]
-    const address = ele.District + ele.RoadName + ele.DoorPlate
+    // const address = ele.District + ele.RoadName + ele.DoorPlate
     const data = {
       OID: Number(ele.Id),
       OAdcode: ele.Adcode,
-      Keyword: address,
+      Keyword: ele.Keyword,
       OX: ele.X, // 原始XY坐标
       OY: ele.Y,
       OMergeId: JSON.stringify(ele.MergeId), // 融合来源

@@ -1,7 +1,7 @@
 'use strict'
-// 使用babel需要添加他们的运行环境
-import 'core-js/stable'
-import 'regenerator-runtime/runtime'
+// // 使用babel需要添加他们的运行环境
+// import 'core-js/stable'
+// import 'regenerator-runtime/runtime'
 
 const schedule = require('node-schedule')
 const { SearchParamModel, AddressModel } = require('./DAO/SQLiteDAO_MT_Addr')
@@ -75,16 +75,7 @@ async function getAddressInsertData (CityCode, Keyword, originalParams, data) {
   // const status = await AddressModel.bulkCreate([saveData])
   return saveData
 }
-// 更新单条 查询数据 状态
-async function updateAddressStatus (id) {
-  console.log('解析完成，修改查询状态', id)
-  const result = await SearchParamModel.update({ State: 1 }, {
-    where: {
-      OID: id
-    }
-  })
-  return result
-}
+
 // 批量更新 查询数据 状态
 async function updateAddressStatusInBulk (ids) {
   console.log('解析完成，批量修改查询状态', ids)
@@ -95,15 +86,7 @@ async function updateAddressStatusInBulk (ids) {
   })
   return result
 }
-// 处理单条数据并入库
-async function addressProcess (CityCode, Keyword, originalParams) {
-  console.log('开始地址解析')
-  const firstData = await getAdressData(Keyword)
-  // if (firstData.status === '0') return // 返回结果 status为0  表示查询失败
-  const data = await getAddressInsertData(CityCode, Keyword, originalParams, firstData)
-  await saveAddressData([data])
-  await updateAddressStatus(originalParams.id)
-}
+
 //  处理单条数据 返回包含数据的一个对象
 async function InsertDataProcess (CityCode, Keyword, originalParams) {
   const firstData = await getAdressData(Keyword)
@@ -146,18 +129,15 @@ async function main () {
     // await addressProcess(cityCode, keyWord, originalParams)
 
     const data = await InsertDataProcess(cityCode, keyWord, originalParams)
+    insertDatas.push(data)
+    batchId.push(id)
     if (!((i + 1) % 1000) || i === waitingRowsLen - 1) {
-      insertDatas.push(data)
-      batchId.push(id)
       console.log(`数据批量入库，当前index${i}`)
       await saveAddressData(insertDatas)
       await updateAddressStatusInBulk(batchId)
       insertDatas = []
       batchId = []
-      continue
     }
-    insertDatas.push(data)
-    batchId.push(id)
     // console.log(`--------采集条件：${i} 结束--------`)
   }
   console.log('结束时间', Date.now())
