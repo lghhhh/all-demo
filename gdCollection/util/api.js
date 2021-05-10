@@ -20,6 +20,7 @@ async function getPOI (citycode, keyword, page = 0) {
     keywords: keyword,
     city: citycode,
     citylimit: true,
+    extensions: 'all',
     offset: 20,
     page
   }

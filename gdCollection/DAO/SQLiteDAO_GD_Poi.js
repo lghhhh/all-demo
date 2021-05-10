@@ -35,6 +35,7 @@ const PoiModel = sequelize.define('T_Web_GD_POI', {
   OMergeId: DataTypes.TEXT, // 融合来源
   OMergeStatus: DataTypes.TEXT, // 融合状态
   SID: DataTypes.TEXT, // 高德poiID
+  Adcode: DataTypes.INTEGER, // 高德的城市编码
   RegionID: DataTypes.BIGINT, // null
   Longitude: DataTypes.DOUBLE, // X
   Latitude: DataTypes.DOUBLE, // Y
