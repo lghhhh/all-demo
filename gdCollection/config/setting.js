@@ -4,24 +4,24 @@
 // const sqliteGDPoi = 'Template/GD-POI-template.web.sqlite'
 // const sqliteMTAddr = 'Template/MT-Addr-template.web.sqlite'
 //
-const sqliteGDAddr = 'GD-Addr-南京.web.sqlite'
+const sqliteGDAddr = 'GD-Addr-南通.web.sqlite'
 const sqliteGDPoi = 'GD-POI-上海.web.sqlite'
-// const sqliteGDPoi = 'GD-POI-苏州GS.web.sqlite' // 融合拆分数据
+// const sqliteGDPoi = 'GD-POI-template.web.sqlite' // 融合拆分数据
 const sqliteMTAddr = 'MT-Addr-表格.web.sqlite'
 
 // --------------设置导入时生成Sqlite的文件名----------------
-const exportCityName = '南京'
+const exportCityName = '南通'
 const exportFileType = 'sqliteGDAddr' // 根据 exportFileType 的值 获取对应的
 module.exports = { exportCityName, exportFileType, sqliteGDAddr, sqliteGDPoi, sqliteMTAddr }
 
 // 已经完成  高德地址  高德poi  美团地址
 
 // 上海市      Y       ing        Y
-// 南京市      ing      n
-// 无锡市
-// 常州市
-// 苏州市
-// 南通市
+// 南京市      Y       n
+// 无锡市      y
+// 常州市      y
+// 苏州市      y
+// 南通市       ing
 // 盐城市
 // 扬州市
 // 镇江市
