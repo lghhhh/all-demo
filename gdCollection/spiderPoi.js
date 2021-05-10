@@ -50,7 +50,6 @@ async function savePOIData (CityCode, Keyword, originalParams, data) {
       OMergeId: originalParams.OMergeId, // 融合来源
       OMergeStatus: originalParams.OMergeStatus, // 融合状态
 
-      Adcode: ele.adcode.length ? Number(ele.adcode) : '',
       SID: ele?.id ? (ele.id).toString() : '',
       Longitude: ele.location.length ? Number(ele.location.split(',')[0]) : '',
       Latitude: ele.location.length ? Number(ele.location.split(',')[1]) : '',
