@@ -13,6 +13,8 @@ export class SchedulesService {
   private readonly logger = new Logger(SchedulesService.name);
   private noDataMonitorObj = {};
   private dataAbnormalMonitorObj = {};
+  private cityTotalLen = {}; // 存储城市道路中场
+  private allCityRoadLen = {}; //存储城市id 对应的该城市的道路路长
 
   constructor(
     private readonly httpService: HttpService,
@@ -45,6 +47,8 @@ export class SchedulesService {
   resetObserverObj() {
     this.noDataMonitorObj = {};
     this.dataAbnormalMonitorObj = {};
+    this.cityTotalLen = {};
+    this.allCityRoadLen = {};
   }
   //定时任务--数据入库
   async main() {
@@ -87,23 +91,31 @@ export class SchedulesService {
     const cityRoadUidArrs = data.map((obj) => obj.uid);
 
     //城市道路总长
-    const cityTotalLen = await this.originalInfoService
-      .getCityRoadTotalLen(cityId)
-      .then((data) => data[0].len);
-    //城市道路Uid对应长度s s
-    const allCityRoadLenArrs = await this.originalInfoService
-      .getAllRoadsLen(cityRoadUidArrs)
-      .then((data) => {
-        const roadLenObject = {};
-        data.forEach((ele) => {
-          roadLenObject[ele.origin_roaduid] = ele.origin_len;
+    if (!this.cityTotalLen[cityId]) {
+      const cityTotalLen = await this.originalInfoService
+        .getCityRoadTotalLen(cityId)
+        .then((data) => data[0].len);
+      this.cityTotalLen[cityId] = cityTotalLen;
+    }
+
+    //城市道路Uid对应长度
+    if (!this.allCityRoadLen[cityId]) {
+      const allCityRoadLenArrs = await this.originalInfoService
+        .getAllRoadsLen(cityRoadUidArrs)
+        .then((data) => {
+          const roadLenObject = {};
+          data.forEach((ele) => {
+            roadLenObject[ele.origin_roaduid] = ele.origin_len;
+          });
+          return roadLenObject;
         });
-        return roadLenObject;
-      });
+      this.allCityRoadLen[cityId] = allCityRoadLenArrs;
+    }
+
     const rationData = this.calculateProportion(
       data,
-      allCityRoadLenArrs,
-      cityTotalLen,
+      this.allCityRoadLen[cityId],
+      this.cityTotalLen[cityId],
     );
     const insertData: CityRoad = {
       // id: 1, //需要地上id 否者无法通过类型检查，但是TypeORM的entity设定了自动递增 所以设置了值也没有用
