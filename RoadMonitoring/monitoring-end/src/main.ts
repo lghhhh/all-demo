@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.enableCors(); //允许跨域
   // 设置swagger文档相关配置
   const swaggerOptions = new DocumentBuilder()
     .setTitle('API document')

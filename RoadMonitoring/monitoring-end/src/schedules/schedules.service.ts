@@ -88,7 +88,7 @@ export class SchedulesService {
       this.emailService.sendDataBorkenRestoreEmail(CityName, TIME);
       delete this.noDataMonitorObj[cityId];
     }
-    const cityRoadUidArrs = data.map((obj) => obj.uid);
+    // const cityRoadUidArrs = data.map((obj) => obj.uid);
 
     //城市道路总长
     if (!this.cityTotalLen[cityId]) {
@@ -101,7 +101,7 @@ export class SchedulesService {
     //城市道路Uid对应长度
     if (!this.allCityRoadLen[cityId]) {
       const allCityRoadLenArrs = await this.originalInfoService
-        .getAllRoadsLen(cityRoadUidArrs)
+        .getAllRoadsLen(cityId)
         .then((data) => {
           const roadLenObject = {};
           data.forEach((ele) => {
@@ -157,31 +157,33 @@ export class SchedulesService {
     let src14TotalLen = 0; // api 来源1、4道路总长
     let src14NE4 = 0; // api 来源1、4道路总长 --- 非畅通
     let src14Count = 0;
-    arrs.forEach((data) => {
+    for (const data of arrs) {
       const uid = data.uid;
-      const raodlen = roadLenArrs[uid];
-      // srcAllCount += data.spd;
-      if (data.status != 4) srcAllNE4 += raodlen;
+      const roadlen = roadLenArrs[uid];
+      if (roadlen !== 0 && !roadlen) {
+        continue;
+      }
+      if (data.status != 4) srcAllNE4 += roadlen;
       switch (data.src) {
         case 2:
-          src2TotalLen += raodlen;
+          src2TotalLen += roadlen;
           src2Count++;
-          if (data.status != 4) src2NE4 += raodlen;
+          if (data.status != 4) src2NE4 += roadlen;
           break;
         case 32:
-          src32TotalLen += raodlen;
+          src32TotalLen += roadlen;
           src32Count++;
-          if (data.status != 4) src32NE4 += raodlen;
+          if (data.status != 4) src32NE4 += roadlen;
           break;
         case 1:
         case 4:
-          src14TotalLen += raodlen;
+          src14TotalLen += roadlen;
           src14Count++;
-          if (data.status != 4) src14NE4 += raodlen;
+          if (data.status != 4) src14NE4 += roadlen;
           break;
         default:
       }
-    });
+    }
 
     // 全程非畅通占比
     const cityUnBlockRatio = !srcAllCount
@@ -263,7 +265,7 @@ export class SchedulesService {
     const date = new Date();
     const year = date.getFullYear();
     const mounth = date.getMonth() + 1;
-    const day = date.getDate() + 1;
+    const day = date.getDate();
     const hours = date.getHours();
     const minute = date.getMinutes();
 
@@ -283,7 +285,7 @@ export class SchedulesService {
     const date = new Date(weekDate);
     const year = date.getFullYear();
     const mounth = date.getMonth() + 1;
-    const day = date.getDate() + 1;
+    const day = date.getDate();
     return `${year}-${mounth > 9 ? mounth : '0' + mounth}-${
       day > 9 ? day : '0' + day
     }`;

@@ -19,11 +19,11 @@ export class OriginalInfoService {
     return result;
   }
 
-  getAllRoadsLen(uidArrs: Array<number>): Promise<any> {
+  getAllRoadsLen(cityId: number): Promise<any> {
     const result = this.originalDataRespository
       .createQueryBuilder('origin')
       .select(['origin.roaduid', 'origin.len'])
-      .where('origin.roaduid in ( :uidarrs )', { uidarrs: uidArrs })
+      .where('origin.districtid = :cityId', { cityId: cityId })
       // .printSql()
       .getRawMany();
     return result;

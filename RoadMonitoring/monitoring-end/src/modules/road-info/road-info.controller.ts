@@ -1,10 +1,14 @@
 import { Controller, Get, Query } from '@nestjs/common';
+import { ApiQuery } from '@nestjs/swagger';
 import { RoadinfoService } from './road-info.service';
 
 @Controller('roadinfo')
 export class RoadinfoController {
   constructor(private readonly roadinfoService: RoadinfoService) {}
+
   @Get('monitorData')
+  @ApiQuery({ name: 'cityId' })
+  @ApiQuery({ name: 'date' })
   async getMonitorDataByDate(
     @Query() query: { cityId: number; date: string },
   ): Promise<any> {
