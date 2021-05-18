@@ -19,13 +19,14 @@ export class OriginalInfoService {
     return result;
   }
 
-  getAllRoadsLen(cityId: number): Promise<any> {
-    const result = this.originalDataRespository
-      .createQueryBuilder('origin')
-      .select(['origin.roaduid', 'origin.len'])
-      .where('origin.districtid = :cityId', { cityId: cityId })
-      // .printSql()
-      .getRawMany();
+  getAllRoadsLen(cityId: number, cityRoadUidArrs: Array<number>): Promise<any> {
+    const result = this.originalDataRespository.query(
+      `SELECT origin.roaduid,origin.len FROM road_attr AS origin where districtid =${cityId} or  roaduid in(${cityRoadUidArrs})`,
+    );
+    // .createQueryBuilder('origin')
+    // .select(['origin.roaduid', 'origin.len'])
+    // .where('origin.districtid = :cityId', { cityId: cityId })
+    // .getRawMany();
     return result;
   }
 }
