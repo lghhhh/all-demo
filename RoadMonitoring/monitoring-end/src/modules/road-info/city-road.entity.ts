@@ -12,16 +12,16 @@ export class CityRoad {
   CityName: string;
 
   @Column()
-  UnBlockageRatio: string;
+  UnBlockageRatio: number;
 
   @Column()
-  UnBlockageRatio4Kld: string;
+  UnBlockageRatio4Kld: number;
 
   @Column()
-  UnBlockageRatio4Opponent: string;
+  UnBlockageRatio4Opponent: number;
 
   @Column()
-  UnBlockageRatio4History: string;
+  UnBlockageRatio4History: number;
 
   @Column()
   Date: string;

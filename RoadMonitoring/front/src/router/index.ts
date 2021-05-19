@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Home from '../views/Home.vue';
+import ObserveSetting from '../views/ObserveSetting.vue';
 import ObserveRoad from '../views/ObserveRoad.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/observe-setting',
     name: 'ObserveSetting',
-    component: Home,
+    component: ObserveSetting,
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

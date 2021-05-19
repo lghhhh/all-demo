@@ -187,23 +187,23 @@ export class SchedulesService {
 
     // 全程非畅通占比
     const cityUnBlockRatio = !srcAllCount
-      ? '0'
-      : ((srcAllNE4 / srcAllCount) * 100).toFixed(3);
+      ? 0
+      : Number(((srcAllNE4 / srcAllCount) * 100).toFixed(3));
 
     //浮动车非畅通占比
     const src2UnBlockRatio = !(src2TotalLen && src2Count > 10)
-      ? '0'
-      : ((src2NE4 / src2TotalLen) * 100).toFixed(3);
+      ? 0
+      : Number(((src2NE4 / src2TotalLen) * 100).toFixed(3));
 
     // 竞品数据来源 非畅通占比
     const src32UnBlockRatio = !(src32TotalLen && src32Count > 10)
-      ? '0'
-      : ((src32NE4 / src32TotalLen) * 100).toFixed(3);
+      ? 0
+      : Number(((src32NE4 / src32TotalLen) * 100).toFixed(3));
 
     // 14来源数据非畅通占比
     const src14UnBlockRatio = !(src14TotalLen && src14Count > 10)
-      ? '0'
-      : ((src14NE4 / src14TotalLen) * 100).toFixed(3);
+      ? 0
+      : Number(((src14NE4 / src14TotalLen) * 100).toFixed(3));
 
     return {
       cityUnBlockRatio,

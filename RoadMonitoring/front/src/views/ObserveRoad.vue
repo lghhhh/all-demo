@@ -1,5 +1,5 @@
 <template>
-<div  style="margin-top:20px">
+<a-page-header>
   <a-card>
     <div class="roadCard">
      <a-tabs default-active-key="1" size="large" :tab-bar-style="{marginBottom: '24px', paddingLeft: '1px'}">
@@ -13,7 +13,7 @@
           <a-date-picker v-model:value="timeValue"  :style="{width: '128px'}" style="margin-left:10px" />
           <a-button @click="loadObserveData" type="primary" style="margin-left:10px" >加载数据</a-button>
        </template>
-        <a-tab-pane loading="true" tab="道路状态" key="1">
+        <a-tab-pane loading="true" tab="道路非畅通占比%" key="1">
             <a-row>
               <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
               <div id="container"></div>
@@ -26,7 +26,7 @@
      </a-tabs>
     </div>
   </a-card>
-  </div>
+</a-page-header>
 </template>
 
 <script leng='ts'>
