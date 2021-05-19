@@ -88,7 +88,7 @@ export class SchedulesService {
       this.emailService.sendDataBorkenRestoreEmail(CityName, TIME);
       delete this.noDataMonitorObj[cityId];
     }
-    const cityRoadUidArrs = data.map((obj) => obj.uid);
+    const cityRoadUidArrs: Set<number> = new Set(data.map((obj) => obj.uid));
 
     //城市道路总长
     if (!this.cityTotalLen[cityId]) {
@@ -101,7 +101,7 @@ export class SchedulesService {
     //城市道路Uid对应长度
     if (!this.allCityRoadLen[cityId]) {
       const allCityRoadLenArrs = await this.originalInfoService
-        .getAllRoadsLen(cityId, cityRoadUidArrs)
+        .getAllRoadsLen(cityId, [...cityRoadUidArrs])
         .then((data) => {
           const roadLenObject = {};
           data.forEach((ele) => {
