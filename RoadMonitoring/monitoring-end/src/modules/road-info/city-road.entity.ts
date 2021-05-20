@@ -11,17 +11,17 @@ export class CityRoad {
   @Column()
   CityName: string;
 
-  @Column()
-  UnBlockageRatio: string;
+  @Column({ type: 'float' })
+  UnBlockageRatio;
 
-  @Column()
-  UnBlockageRatio4Kld: string;
+  @Column({ type: 'float' })
+  UnBlockageRatio4Kld: number;
 
-  @Column()
-  UnBlockageRatio4Opponent: string;
+  @Column({ type: 'float' })
+  UnBlockageRatio4Opponent: number;
 
-  @Column()
-  UnBlockageRatio4History: string;
+  @Column({ type: 'float' })
+  UnBlockageRatio4History: number;
 
   @Column()
   Date: string;

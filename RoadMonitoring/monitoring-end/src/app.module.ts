@@ -25,7 +25,7 @@ import { EmailModule } from './modules/email/email.module';
       password: 'careland',
       database: 'Road_monitoring',
       logging: true,
-      synchronize: true,
+      // synchronize: true,
       autoLoadEntities: true,
       // entities: [CityCodeInfo, CityRoad, MonitorSetting],
     }),
