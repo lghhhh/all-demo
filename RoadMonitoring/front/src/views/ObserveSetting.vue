@@ -35,10 +35,10 @@
             />
         </a-form-item>
         <a-form-item label="监控开始时间" name="observeTimeStart">
-          <a-time-picker v-model:value="addFormData.observeTimeStart" format="hh:mm" valueFormat="hh:mm"/>
+          <a-time-picker v-model:value="addFormData.observeTimeStart"  format="HH:mm" valueFormat="HH:mm"/>
         </a-form-item>
         <a-form-item label="监控结束时间" name="observeTimeEnd">
-          <a-time-picker v-model:value="addFormData.observeTimeEnd" format="hh:mm"  valueFormat="hh:mm"/>
+          <a-time-picker v-model:value="addFormData.observeTimeEnd"  format="HH:mm" valueFormat="HH:mm"/>
         </a-form-item>
         <a-form-item label="数据波动大小" name="observeFluctuationRange">
           <a-input-number id="inputNumber" v-model:value="addFormData.observeFluctuationRange" :min="0" :max="100" />
@@ -148,6 +148,11 @@ export default defineComponent({
       MonitorTimeStart: '',
       MonitorFluctuationRange: 0,
     });
+    const getAllSettingData = () => {
+      getAllSetting().then((res) => {
+        observeData.value = res.data;
+      });
+    };
     const onSubmit = () => {
       addFormRef.value
         .validate()
@@ -167,17 +172,12 @@ export default defineComponent({
             });
             addFormVisible.value = false;
             addFormLoading.value = false;
+            getAllSettingData();
           });
         })
         .catch((error: ValidateErrorEntity<FormState>) => {
           console.log('error', error);
         });
-    };
-
-    const getAllSettingData = () => {
-      getAllSetting().then((res) => {
-        observeData.value = res.data;
-      });
     };
 
     return {
