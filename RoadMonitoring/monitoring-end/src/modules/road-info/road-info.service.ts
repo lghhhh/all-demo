@@ -25,18 +25,22 @@ export class RoadinfoService {
         {
           ratio: ele.UnBlockageRatio,
           time: ele.Time,
-          dataSource: 'All',
+          dataSource: '城市总数据',
         },
-        { ratio: ele.UnBlockageRatio4Kld, time: ele.Time, dataSource: '2' },
+        {
+          ratio: ele.UnBlockageRatio4Kld,
+          time: ele.Time,
+          dataSource: '浮动车数据',
+        },
         {
           ratio: ele.UnBlockageRatio4Opponent,
           time: ele.Time,
-          dataSource: '32',
+          dataSource: '竞品数据',
         },
         {
           ratio: ele.UnBlockageRatio4History,
           time: ele.Time,
-          dataSource: '1&4',
+          dataSource: '历史推算+实时衰减数据',
         },
       );
     });

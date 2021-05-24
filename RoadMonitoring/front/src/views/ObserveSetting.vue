@@ -1,165 +1,194 @@
 <template>
  <a-page-header>
-   <a-card>
-      <a-button class="editable-add-btn" @click="handleAdd" style="margin-bottom: 8px">Add</a-button>
-      <a-table bordered :data-source="dataSource" :columns="columns">
-        <template #name="{ text, record }">
-          <div class="editable-cell">
-            <div v-if="editableData[record.key]" class="editable-cell-input-wrapper">
-              <a-input v-model:value="editableData[record.key].name" @pressEnter="save(record.key)" />
-              <check-outlined class="editable-cell-icon-check" @click="save(record.key)" />
-            </div>
-            <div v-else class="editable-cell-text-wrapper">
-              {{ text || ' ' }}
-              <edit-outlined class="editable-cell-icon" @click="edit(record.key)" />
-            </div>
-          </div>
-        </template>
-        <template #operation="{ record }">
-          <a-popconfirm
-            v-if="dataSource.length"
-            title="Sure to delete?"
-            @confirm="onDelete(record.key)"
-          >
-            <a>Delete</a>
-          </a-popconfirm>
-        </template>
-      </a-table>
+   <a-card
+   style="margin-top:14px"
+   :bordered="false"
+   title="监控设置列表"
+   >
+    <div class="operate">
+      <a-button type="primary"  @click="addFormVisible=true">添加新的数据监控规则</a-button>
+    </div>
+    <a-table :columns="columns" :data-source="observeData">
+      <template #action="{ record }">
+        <span>
+          <a @click="deleteSetting(record)">删除</a>
+          <a-divider type="vertical" />
+          <a >编辑</a>
+        </span>
+      </template>
+    </a-table>
    </a-card>
+
+   <a-modal v-model:visible="addFormVisible" title="新增加配置" @ok="addFormSubmit">
+      <template #footer>
+        <a-button key="back" @click="addFormCancel">返回</a-button>
+        <a-button key="submit" type="primary" :loading="loading" @click="onSubmit">提交配置</a-button>
+      </template>
+      <a-form ref="addFormRef" :model="addFormData" :rules="rules" :label-col="{span: 8}" :wrapper-col="{span:10}">
+        <a-form-item label="监控城市" name="citySelected">
+         <a-cascader
+            v-model:value="addFormData.citySelected"
+            :options="allCityData"
+            :show-search="{ CityFilter}"
+            placeholder="请选择城市"
+            />
+        </a-form-item>
+        <a-form-item label="监控开始时间" name="observeTimeStart">
+          <a-time-picker v-model:value="addFormData.observeTimeStart"/>
+        </a-form-item>
+        <a-form-item label="监控结束时间" name="observeTimeEnd">
+          <a-time-picker v-model:value="addFormData.observeTimeEnd"/>
+        </a-form-item>
+        <a-form-item label="数据波动大小" name="observeFluctuationRange">
+          <a-input-number id="inputNumber" v-model:value="addFormData.observeFluctuationRange" :min="0" :max="100" />
+        </a-form-item>
+      </a-form>
+    </a-modal>
  </a-page-header>
 </template>
 
 <script lang="ts">
 import {
-  computed, defineComponent, reactive, Ref, ref, UnwrapRef,
+  defineComponent, reactive, ref, toRaw, UnwrapRef,
 } from 'vue';
-import { CheckOutlined, EditOutlined } from '@ant-design/icons-vue';
-import { cloneDeep } from 'lodash';
+import {
+  getAllSetting,
+  addNewSttiong,
+  // updateSetting,
+  deleteSttiongById,
+} from '@/api/observe-setting';
+import { getAllCityData } from '@/api/road-data';
 
-interface DataItem {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
+import { ValidateErrorEntity } from 'ant-design-vue/lib/form/interface';
+
+interface DataType {
+  id: number;
+  CityId: number;
+  CityName: string;
+  MonitorFluctuationRange: number;
+  MonitorTimeEnd: string;
+  MonitorTimeStart: string;
 }
 
+interface FormState{
+  citySelected: any;
+  observeTimeStart: any;
+  observeTimeEnd: any;
+  observeFluctuationRange: any;
+}
 export default defineComponent({
-  components: {
-    CheckOutlined,
-    EditOutlined,
-  },
   setup() {
+    const addFormRef = ref();
+    const rules = {
+      citySelected: [{ required: true, message: 'Please select city', trigger: 'change' }],
+      observeTimeStart: [{ required: true, message: 'Please select time', trigger: 'change' }],
+      observeTimeEnd: [{ required: true, message: 'Please select time', trigger: 'change' }],
+      observeFluctuationRange: [{ required: true, message: 'Please input a range', trigger: 'blur' }],
+    };
     const columns = [
       {
-        title: 'name',
-        dataIndex: 'name',
-        width: '30%',
-        slots: { customRender: 'name' },
+        title: 'cityId',
+        dataIndex: 'CityId',
+        key: 'CityId',
       },
       {
-        title: 'age',
-        dataIndex: 'age',
+        title: 'cityName',
+        dataIndex: 'CityName',
+        key: 'CityName',
       },
       {
-        title: 'address',
-        dataIndex: 'address',
+        title: 'startTime',
+        dataIndex: 'MonitorTimeStart',
+        key: 'MonitorTimeStart',
       },
       {
-        title: 'operation',
-        dataIndex: 'operation',
-        slots: { customRender: 'operation' },
+        title: 'endTime',
+        dataIndex: 'MonitorTimeEnd',
+        key: 'MonitorTimeEnd',
+      },
+      {
+        title: 'fluctuationRang',
+        dataIndex: 'MonitorFluctuationRange',
+        key: 'MonitorFluctuationRange',
+      },
+      {
+        title: 'Action',
+        key: 'action',
+        slots: { customRender: 'action' },
       },
     ];
-    const dataSource: Ref<DataItem[]> = ref([
-      {
-        key: '0',
-        name: 'Edward King 0',
-        age: 32,
-        address: 'London, Park Lane no. 0',
-      },
-      {
-        key: '1',
-        name: 'Edward King 1',
-        age: 32,
-        address: 'London, Park Lane no. 1',
-      },
-    ]);
-    const count = computed(() => dataSource.value.length + 1);
-    const editableData: UnwrapRef<Record<string, DataItem>> = reactive({});
+    const addFormData : UnwrapRef<FormState> = reactive({
+      citySelected: '',
+      observeTimeStart: '',
+      observeTimeEnd: '',
+      observeFluctuationRange: '',
+    });
 
-    const edit = (key: string) => {
-      editableData[key] = cloneDeep(dataSource.value.filter((item) => key === item.key)[0]);
+    const onSubmit = () => {
+      addFormRef.value
+        .validate()
+        .then(() => {
+          console.log('values', addFormData, toRaw(addFormData));
+        })
+        .catch((error: ValidateErrorEntity<FormState>) => {
+          console.log('error', error);
+        });
     };
-    const save = (key: string) => {
-      Object.assign(dataSource.value.filter((item) => key === item.key)[0], editableData[key]);
-      delete editableData[key];
-    };
-
-    const onDelete = (key: string) => {
-      dataSource.value = dataSource.value.filter((item) => item.key !== key);
-    };
-    const handleAdd = () => {
-      const newData = {
-        key: `${count.value}`,
-        name: `Edward King ${count.value}`,
-        age: 32,
-        address: `London, Park Lane no. ${count.value}`,
-      };
-      dataSource.value.push(newData);
-    };
-
     return {
+      addFormRef,
+      rules,
       columns,
-      onDelete,
-      handleAdd,
-      dataSource,
-      editableData,
-      count,
-      edit,
-      save,
+      addFormData,
+      onSubmit,
     };
+  },
+  data() {
+    return {
+      allCityData: [{
+        label: '北京市',
+        value: 10000,
+      }],
+      addFormVisible: false,
+      // addFormData: {
+      //   citySelected: '',
+      //   observeTimeStart: '',
+      //   observeTimeEnd: '',
+      //   observeFluctuationRange: '',
+      // },
+      observeData: [],
+    };
+  },
+  created() {
+    getAllCityData().then((res) => {
+      this.allCityData = res.data;
+    });
+    this.getAllSettingData();
+  },
+  methods: {
+    CityFilter(inputValue:any, path:any) {
+      return path.some((option:any) => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+    },
+    getAllSettingData() {
+      getAllSetting().then((res) => {
+        this.observeData = res.data;
+      });
+    },
+    deleteSetting(rowData:any) {
+      const settingId = rowData.id;
+      deleteSttiongById(settingId);
+    },
+
+    // 表单操作
+    addFormSubmit() {
+      debugger;
+      this.addFormRef.value.validate().then().catch();
+    },
+    addFormCancel() {
+      this.addFormVisible = false;
+      this.addFormRef.value.resetFields();
+    },
   },
 });
 </script>
 <style lang="less">
-.editable-cell {
-  position: relative;
-  .editable-cell-input-wrapper,
-  .editable-cell-text-wrapper {
-    padding-right: 24px;
-  }
-
-  .editable-cell-text-wrapper {
-    padding: 5px 24px 5px 5px;
-  }
-
-  .editable-cell-icon,
-  .editable-cell-icon-check {
-    position: absolute;
-    right: 0;
-    width: 20px;
-    cursor: pointer;
-  }
-
-  .editable-cell-icon {
-    margin-top: 4px;
-    display: none;
-  }
-
-  .editable-cell-icon-check {
-    line-height: 28px;
-  }
-
-  .editable-cell-icon:hover,
-  .editable-cell-icon-check:hover {
-    color: #108ee9;
-  }
-
-  .editable-add-btn {
-    margin-bottom: 8px;
-  }
-}
-.editable-cell:hover .editable-cell-icon {
-  display: inline-block;
-}
 </style>

@@ -6,15 +6,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { EjsAdapter } from '@nestjs-modules/mailer/dist/adapters/ejs.adapter';
 //全国道路基本信息库实体
+
 import { MonitorSettingModule } from './modules/monitor-setting/monitor-setting.module';
 import { RoadinfoModule } from './modules/road-info/road-info.module';
 import { EmailModule } from './modules/email/email.module';
+import { CityCodeInfoModule } from './modules/city-code-info/city-code-info.module';
 
 @Module({
   imports: [
     //---------------------定时器------------
     ScheduleModule.forRoot(),
     SchedulesModule,
+
     //---------------------数据库------------
     TypeOrmModule.forRoot({
       //道路监控数据库
@@ -58,6 +61,7 @@ import { EmailModule } from './modules/email/email.module';
         },
       },
     }),
+    CityCodeInfoModule,
     MonitorSettingModule,
     RoadinfoModule,
     EmailModule,

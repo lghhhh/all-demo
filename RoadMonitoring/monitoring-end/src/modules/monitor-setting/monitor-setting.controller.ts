@@ -11,7 +11,6 @@ import {
 import { MonitorSettingService } from './monitor-setting.service';
 import { CreateSettingDto } from './monitor-setting.dto';
 import { ApiQuery } from '@nestjs/swagger';
-
 @Controller('setting')
 export class MonitorSettingController {
   constructor(private readonly monitorSettingSerive: MonitorSettingService) {}

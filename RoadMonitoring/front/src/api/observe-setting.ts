@@ -1,22 +1,43 @@
 import request from '@/util/request';
 
-// function getAllSetting(cityId:number, date:string) :Promise<any> {
-//   const result = request({
-//     method: 'get',
-//     url: '/roadinfo/monitorData',
-//     params: {
-//       cityId,
-//       date,
-//     },
-//   });
-//   return result;
-// }
-// function getAllCityData():Promise<any> {
-//   const result = request({
-//     method: 'get',
-//     url: '/city-code-info/allcity',
-//   });
-//   return result;
-// }
+interface DataType {
+    id?: number;
+    CityId: number;
+    CityName: string;
+    MonitorFluctuationRange: number;
+    MonitorTimeEnd: string;
+    MonitorTimeStart: string;
+  }
+export function getAllSetting() :Promise<any> {
+  const result = request({
+    method: 'get',
+    url: '/setting',
+  });
+  return result;
+}
 
+export function addNewSttiong(data:DataType):Promise<any> {
+  const result = request({
+    method: 'post',
+    url: '/setting',
+    data,
+  });
+  return result;
+}
+export function updateSetting(data:DataType):Promise<any> {
+  const result = request({
+    method: 'put',
+    url: '/setting',
+    data,
+  });
+  return result;
+}
+
+export function deleteSttiongById(id:number):Promise<any> {
+  const result = request({
+    method: 'delete',
+    url: `/setting/${id}`,
+  });
+  return result;
+}
 // export default { getRoadObserveData, getAllCityData };

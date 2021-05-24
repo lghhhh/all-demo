@@ -14,12 +14,15 @@
           <a-button @click="loadObserveData" type="primary" style="margin-left:10px" >加载数据</a-button>
        </template>
         <a-tab-pane loading="true" tab="道路非畅通占比%" key="1">
-            <a-row>
-              <a-col :xl="16" :lg="12" :md="12" :sm="24" :xs="24">
-              <div id="container"></div>
+            <a-row type="flex" justify="space-around" align="middle">
+              <a-col >
+                非畅通数据里程比（%）
               </a-col>
-              <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <!-- <rank-list title="门店销售排行榜" :list="rankList"/> -->
+            </a-row>
+            <a-row>
+              <a-col :xl="24" :lg="24" :md="24" :sm="24" :xs="24">
+              <!-- <a-col> -->
+              <div id="container"></div>
               </a-col>
             </a-row>
           </a-tab-pane>
