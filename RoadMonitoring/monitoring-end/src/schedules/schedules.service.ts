@@ -10,6 +10,7 @@ import { RoadinfoService } from 'src/modules/road-info/road-info.service';
 @Injectable()
 export class SchedulesService {
   private readonly logger = new Logger(SchedulesService.name);
+  private allCity = null; //所有待遍历的城市
   private noDataMonitorObj = {};
   private dataAbnormalMonitorObj = {};
   private cityTotalLen = {}; // 存储城市道路中场
@@ -26,12 +27,12 @@ export class SchedulesService {
     //
   }
   // 定时获取全国城市路况数据
-  @Cron('* */5 * * * *')
+  @Cron('0 */5 * * * *')
   handleInterval() {
     this.main();
   }
   // 定时获取全国城市路况数据
-  @Cron('* */5 * * * *')
+  @Cron('0 */5 * * * *')
   checkData() {
     this.observeRoadData();
   }
@@ -42,6 +43,7 @@ export class SchedulesService {
     this.roadinfoService.deleteDdtaWeekAgo(date);
     this.cityTotalLen = {};
     this.allCityRoadLen = {};
+    this.allCity = null;
   }
   // 每天0点重制 数据监控对象
   @Cron('* * 0 * * *')
@@ -54,13 +56,17 @@ export class SchedulesService {
   async main() {
     // 同一批数据 使用相同 日期时间
     const { DATE, TIME } = this.getDataAndTime();
-    let allCityIds: Array<{ CityId: number; CityName: string }> = [];
+    // const allCityIds: Array<{ CityId: number; CityName: string }> = [];
     //获取 等待遍历的城市Id列表
-    allCityIds = await this.cityCodeInfoService.getAllCityCode();
+    if (!this.allCity) {
+      this.allCity = await this.cityCodeInfoService
+        .getAllCityCode()
+        .catch(() => console.log('获取城市列表失败'));
+    }
     // allCityIds.forEach((obj) => {
     //   this.processSingleCityData(obj.CityId, obj.CityName, DATE, TIME);
     // });
-    for await (const { CityId, CityName } of allCityIds) {
+    for await (const { CityId, CityName } of this.allCity) {
       this.processSingleCityData(CityId, CityName, DATE, TIME);
     }
   }
