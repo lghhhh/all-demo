@@ -37,7 +37,7 @@ export class SchedulesService {
     this.observeRoadData();
   }
   // 每周日天晚上11点定时清理一周钱的数据
-  @Cron('* * 23 * * 7')
+  @Cron('0 0 23 * * 7')
   handleCron() {
     const date = this.getDataWeekAgo();
     this.roadinfoService.deleteDdtaWeekAgo(date);
@@ -46,7 +46,7 @@ export class SchedulesService {
     this.allCity = null;
   }
   // 每天0点重制 数据监控对象
-  @Cron('* * 0 * * *')
+  @Cron('0 0 0 * * *')
   resetObserverObj() {
     this.noDataMonitorObj = {};
     this.dataAbnormalMonitorObj = {};
