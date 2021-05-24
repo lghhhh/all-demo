@@ -13,7 +13,7 @@
         <span>
           <a @click="deleteSetting(record)">删除</a>
           <a-divider type="vertical" />
-          <a >编辑</a>
+          <!-- <a >编辑</a> -->
         </span>
       </template>
     </a-table>
@@ -22,7 +22,7 @@
    <a-modal v-model:visible="addFormVisible" title="新增加配置" @ok="addFormSubmit">
       <template #footer>
         <a-button key="back" @click="addFormCancel">返回</a-button>
-        <a-button key="submit" type="primary" :loading="loading" @click="onSubmit">提交配置</a-button>
+        <a-button key="submit" type="primary" :loading="addFormLoading" @click="onSubmit">提交配置</a-button>
       </template>
       <a-form ref="addFormRef" :model="addFormData" :rules="rules" :label-col="{span: 8}" :wrapper-col="{span:10}">
         <a-form-item label="监控城市" name="citySelected">
@@ -30,14 +30,15 @@
             v-model:value="addFormData.citySelected"
             :options="allCityData"
             :show-search="{ CityFilter}"
+            @change="addFormCityChange"
             placeholder="请选择城市"
             />
         </a-form-item>
         <a-form-item label="监控开始时间" name="observeTimeStart">
-          <a-time-picker v-model:value="addFormData.observeTimeStart"/>
+          <a-time-picker v-model:value="addFormData.observeTimeStart" format="hh:mm" valueFormat="hh:mm"/>
         </a-form-item>
         <a-form-item label="监控结束时间" name="observeTimeEnd">
-          <a-time-picker v-model:value="addFormData.observeTimeEnd"/>
+          <a-time-picker v-model:value="addFormData.observeTimeEnd" format="hh:mm"  valueFormat="hh:mm"/>
         </a-form-item>
         <a-form-item label="数据波动大小" name="observeFluctuationRange">
           <a-input-number id="inputNumber" v-model:value="addFormData.observeFluctuationRange" :min="0" :max="100" />
@@ -60,9 +61,10 @@ import {
 import { getAllCityData } from '@/api/road-data';
 
 import { ValidateErrorEntity } from 'ant-design-vue/lib/form/interface';
+import { notification } from 'ant-design-vue';
 
 interface DataType {
-  id: number;
+  id?: number;
   CityId: number;
   CityName: string;
   MonitorFluctuationRange: number;
@@ -71,43 +73,59 @@ interface DataType {
 }
 
 interface FormState{
-  citySelected: any;
+  citySelected: Array<number>;
   observeTimeStart: any;
   observeTimeEnd: any;
-  observeFluctuationRange: any;
+  observeFluctuationRange: number;
 }
 export default defineComponent({
   setup() {
     const addFormRef = ref();
+    const addFormLoading = ref(false);
+    const addFormVisible = ref(false);
+    const observeData = ref([]);
     const rules = {
-      citySelected: [{ required: true, message: 'Please select city', trigger: 'change' }],
-      observeTimeStart: [{ required: true, message: 'Please select time', trigger: 'change' }],
-      observeTimeEnd: [{ required: true, message: 'Please select time', trigger: 'change' }],
-      observeFluctuationRange: [{ required: true, message: 'Please input a range', trigger: 'blur' }],
+      citySelected: [{
+        required: true, message: 'Please select city', type: 'array', trigger: 'change',
+      }],
+      observeTimeStart: [{
+        required: true, message: 'Please select time', type: 'string', trigger: 'change',
+      }],
+      observeTimeEnd: [{
+        required: true, message: 'Please select time', type: 'string', trigger: 'change',
+      }],
+      observeFluctuationRange: [{
+        required: true, message: 'Please input a range', type: 'number', trigger: 'blur',
+      }],
     };
     const columns = [
       {
-        title: 'cityId',
+        title: '规则序号',
+        dataIndex: 'id',
+        key: 'id',
+      },
+      {
+        title: '城市ID',
         dataIndex: 'CityId',
         key: 'CityId',
       },
       {
-        title: 'cityName',
+        title: '城市名',
         dataIndex: 'CityName',
         key: 'CityName',
       },
       {
-        title: 'startTime',
+        title: '开始监控时间',
         dataIndex: 'MonitorTimeStart',
         key: 'MonitorTimeStart',
       },
       {
-        title: 'endTime',
+        title: '结束监控时间',
         dataIndex: 'MonitorTimeEnd',
         key: 'MonitorTimeEnd',
       },
       {
-        title: 'fluctuationRang',
+        title: '监控的波动范围',
         dataIndex: 'MonitorFluctuationRange',
         key: 'MonitorFluctuationRange',
       },
@@ -118,28 +136,61 @@ export default defineComponent({
       },
     ];
     const addFormData : UnwrapRef<FormState> = reactive({
-      citySelected: '',
+      citySelected: [],
       observeTimeStart: '',
       observeTimeEnd: '',
-      observeFluctuationRange: '',
+      observeFluctuationRange: 0,
     });
-
+    const addFormSubmitData = reactive({
+      CityId: 0,
+      CityName: '',
+      MonitorTimeEnd: '',
+      MonitorTimeStart: '',
+      MonitorFluctuationRange: 0,
+    });
     const onSubmit = () => {
       addFormRef.value
         .validate()
         .then(() => {
+          addFormLoading.value = true;
           console.log('values', addFormData, toRaw(addFormData));
+          addFormSubmitData.MonitorTimeStart = toRaw(addFormData).observeTimeStart;
+          addFormSubmitData.MonitorTimeEnd = toRaw(addFormData).observeTimeEnd;
+          addFormSubmitData.MonitorFluctuationRange = toRaw(addFormData).observeFluctuationRange;
+          addNewSttiong(addFormSubmitData).then(() => {
+            notification.open({
+              message: 'Notification',
+              description: '新增配置完成',
+              onClick: () => {
+                // console.log(' Clicked!');
+              },
+            });
+            addFormVisible.value = false;
+            addFormLoading.value = false;
+          });
         })
         .catch((error: ValidateErrorEntity<FormState>) => {
           console.log('error', error);
         });
     };
+
+    const getAllSettingData = () => {
+      getAllSetting().then((res) => {
+        observeData.value = res.data;
+      });
+    };
+
     return {
       addFormRef,
       rules,
       columns,
+      observeData,
       addFormData,
+      addFormSubmitData,
       onSubmit,
+      addFormLoading,
+      addFormVisible,
+      getAllSettingData,
     };
   },
   data() {
@@ -148,14 +199,6 @@ export default defineComponent({
         label: '北京市',
         value: 10000,
       }],
-      addFormVisible: false,
-      // addFormData: {
-      //   citySelected: '',
-      //   observeTimeStart: '',
-      //   observeTimeEnd: '',
-      //   observeFluctuationRange: '',
-      // },
-      observeData: [],
     };
   },
   created() {
@@ -168,25 +211,32 @@ export default defineComponent({
     CityFilter(inputValue:any, path:any) {
       return path.some((option:any) => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
     },
-    getAllSettingData() {
-      getAllSetting().then((res) => {
-        this.observeData = res.data;
-      });
-    },
+    // getAllSettingData() {
+    //   getAllSetting().then((res) => {
+    //     this.observeData = res.data;
+    //   });
+    // },
     deleteSetting(rowData:any) {
       const settingId = rowData.id;
-      deleteSttiongById(settingId);
+      deleteSttiongById(settingId).then(() => {
+        notification.open({
+          message: 'Notification',
+          description: '删除完成',
+          onClick: () => {
+            // console.log(' Clicked!');
+          },
+        });
+        this.getAllSettingData();
+      });
+    },
+    // addNewSttiong() {
+    //   addNewSttiong(this.addFormSubmitData);
+    // },
+    addFormCityChange(value:any, selectedOptions:any) {
+      this.addFormSubmitData.CityId = Number(value[value.length - 1]);
+      this.addFormSubmitData.CityName = (selectedOptions[selectedOptions.length - 1]).label;
     },
 
-    // 表单操作
-    addFormSubmit() {
-      debugger;
-      this.addFormRef.value.validate().then().catch();
-    },
-    addFormCancel() {
-      this.addFormVisible = false;
-      this.addFormRef.value.resetFields();
-    },
   },
 });
 </script>

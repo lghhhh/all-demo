@@ -31,7 +31,8 @@ export class MonitorSettingController {
   }
 
   @Delete(':id')
-  deleteSetting(@Param(':id') id: number) {
+  deleteSetting(@Param() params) {
+    const id = params.id;
     return this.monitorSettingSerive.deleteSetting(id);
   }
 
