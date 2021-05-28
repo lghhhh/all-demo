@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.data_table{
+    width: 100%;
+    border-top: 1px solid #3E424A;
+    border-left: 1px solid #3E424A;
+    color: #666666;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+.data_table tr td{
+    width: 200px;
+    line-height: 30px;
+    box-sizing: border-box;
+    padding: 20px 50px;
+    border-bottom: 1px solid #3E424A;
+    border-right: 1px solid #3E424A;
+}
+.data_table tr td.column {
+    width: 20%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+

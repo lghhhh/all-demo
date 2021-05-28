@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>凯立德</title>
+    <style type="text/css">
+        html,body,#map{width:100%;height:100%;overflow:hidden;margin:0;padding:0px;}
+    </style>
+</head>
+<body>
+<div id="map"></div>
+</body>
+</html>
+<script type="text/javascript" src="https://mapapi.careland.com.cn/v3/api/?key=3bfab27060a1369607379937&v=3.0"></script>
+<script type="text/javascript">
+    //凯立德地图API功能
+    var point = new Careland.Point(410816787,81362619);	    //创建坐标点(深圳市福田区深南大道6023号创建大厦)
+    var map = new Careland.Map('map', point, 18); 			//实例化地图对象
+    map.enableAutoResize();                                 //启用自动适应容器尺寸变化
+    map.load(); 											//加载地图
+
+    var layer = new Careland.Layer('point', 'layer');		    //创建点图层
+    map.addLayer(layer);										//将图层添加到地图上
+    //创建样式，包括标注点位置的偏移以及文本的偏移
+    var style = new Careland.PointStyle({offsetX:-11,offsetY:-30,textOffsetX:-5,textOffsetY:-30,src:'../../images/dingwei.png'});
+    //创建图片标注点
+    var marker = new Careland.Marker('image');
+    marker.setStyle(style);										//设置图片标注点样式
+    marker.setPoint(point);										//设置标注点位置
+    marker.setTip('深圳市福田区深南大道6023号创建大厦27层');		//设置鼠标移到标注点上显示的文本
+    layer.add(marker);											//将标注点添加到图层上
+</script>

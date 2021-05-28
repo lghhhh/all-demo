@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    min-width:1280px;
+}
+
+.page-content{
+    width: 100%;
+    text-align: center;
+}
+
+/*
+头部
+ */
+.page-content .head{
+    width:100%;
+    height: 330px;
+    color: white;
+    text-align: left;
+}
+
+.page-content .head img{
+    width: 100%;
+    position:absolute;
+    height: 380px;
+    top: 0;
+    right: 0;
+    left: 0;
+    object-fit:cover;
+    min-width: 1280px;
+}
+
+
+.subject {
+    background-color: rgba(245,246,247,1);
+    width: 100%;
+    height: 550px;
+}
+
+.subject .catalog{
+    text-align: left;
+    color: #515151;
+    font-size: 14px;
+    width: 1280px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.subject .catalog a{
+    color: #515151;
+}
+
+.subject .content {
+    margin: 0 auto;
+    width: 1280px;
+}
+
+.subject .content li{
+    width:400px;
+    height: 400px;
+    float: left;
+    position: relative;
+    margin: 15px 40px 0 0;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0,20,65,0.1);
+}
+
+.detail_li_right{
+    margin-right: 0!important;
+}
+
+.subject .content img{
+    width:400px;
+    height: 215px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.subject .content .title{
+    margin: 15px 0px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.subject .content .desc{
+    margin: 0px 50px;
+    font-size: 15px;
+    color: #5a5a5a;
+}
+
+.subject .content .link{
+    position: absolute;
+    bottom: 30px;
+    margin-left: 155px;
+    border: 1px solid #afafaf;
+    width: 90px;
+    border-radius:20px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.subject .content .link a{
+    color: #909090;
+    font-size: 14px;
+}
+
+.subject .content  .link:hover{
+    background-color: #0091FF;
+    border: 1px solid transparent;
+}
+
+.subject .content  .link:hover a{
+    color: white;
+}
+
+.subject .content  .link:active{
+    background-color: #0082E4;
+    border: 1px solid transparent;
+}
+
+.subject .content  .link:active a{
+    color: white;
+}
+
+.page_foot{
+    height: 350px;
+}

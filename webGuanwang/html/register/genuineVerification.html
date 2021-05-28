@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>产品正版验证</title>
+		<link rel="stylesheet" href="../../css/register/genuineVerification.css" type="text/css">
+		<link rel="stylesheet" href="../../css/public.css" type="text/css">
+		<!-- <link rel="stylesheet" href="../../css/index.css" type="text/css"> -->
+		<link rel="stylesheet" href="../../js/layui-v2.5.6/layui/css/layui.css">
+		<link rel="stylesheet" href="../../css/product/product.css" type="text/css">
+		<script src="../../js/common/head.js"></script>
+		<script src="../../js/jar/jquery-1.10.2.min.js"></script>
+		<script src="../../js/layui-v2.5.6/layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/index.js"></script>
+	</head>
+	<body class="body">
+		<div class="container">
+			<!--主体 -->
+			<div class="page-content">
+				<div id="backTop" class="back-top hide">
+					<a href="#container_head"><img src="../../images/index/back_top.png" alt="返回顶部"></a>
+				</div>
+				<div id="pageHead" class="head">
+					<div class="pic">
+						<img src="../../images/register/banner_register.png">
+					</div>
+				</div>
+
+				<div class="mt300">
+					<div class="table-whole">
+						<div class="catalog">
+							<span><a href="../../index.html">首页</a></span>
+							<span> > <a href="./register.html">注册与激活</a></span>
+							<span> > 产品正版验证</span>
+						</div>
+						<div class="table-main">
+							<div class="main-tips">持凯立德快乐绿卡用户以及零售渠道用户所拥有的快乐绿卡即是凯立德正版产品的标识， 不需要在此系统验证。</div>
+							<div>
+								<form class="layui-form" action="" id="form">
+									<div class="main-division">
+										<div class="layui-form-item">
+											<label class="layui-form-label">设备类型：</label>
+											<div class="layui-input-block">
+												<select name="type" id="type" lay-verify="required">
+													<option value="C">车机</option>
+													<option value="P">手持（PND）</option>
+													<option value="M">手机</option>
+												</select>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">设备特征码：</label>
+											<div class="flex">
+												<div class="layui-input-block block_tips">
+													<input type="text" name="signatureCode" id="signatureCode" onmouseout="open_onmouseout()" onmouseover="open_onmouseover()" required lay-verify="required" maxlength="20"
+													 autocomplete="off"
+													 class="layui-input">
+												</div>
+												<div class="layui-form-mid layui-word-aux signatureCode_text">
+													<a href="getSignature.html" target="_blank">
+														<text>*</text>
+														<text>如何获取设备特征码？</text>
+													</a>
+												</div>
+												<div class="layui-form-mid layui-word-aux">
+													<img src="../../images/register/signatureCode.gif" class="signatureCode_img" />
+												</div>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">激活码：</label>
+											<div class="layui-input-block">
+												<input type="text" name="activationCode" id="activationCode" required lay-verify="required" autocomplete="off" maxlength="20"
+												 class="layui-input" oninput="value=value.replace(/[^\d]/g,'')">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">版本号：</label>
+											<div class="flex">
+												<div class="layui-input-block block_tips flex" id="version">
+													<input type="text" name="versionFirst" id="versionFirst" required lay-verify="required" autocomplete="off" class="layui-input" maxlength="5">
+													<input type="text" name="versionSecond" id="versionSecond" required lay-verify="required" autocomplete="off" class="layui-input" maxlength="5">
+													<input type="text" name="versionThird" id="versionThird" required lay-verify="required" autocomplete="off" class="layui-input" maxlength="8">
+												</div>
+												<div class="layui-form-mid layui-word-aux">
+													<a href="getVersion.html" target="_blank">
+														<text>*</text>
+														<text>如何获取版本号？</text>
+													</a>
+												</div>
+											</div>
+										</div>
+
+										<div class="content-tips mt50">部分新版本需要进行安全码验证，请查看设备是否有安全码信息，然后根据实际情况填写。</div>
+
+										<div class="layui-form-item mt25">
+											<label class="layui-form-label">安全码：</label>
+											<div class="flex">
+												<div class="layui-input-block block_tips">
+													<input type="text" name="safetyCode" id="safetyCode" required lay-verify="required" autocomplete="off"
+													maxlength="20" class="layui-input" oninput="value=value.replace(/[^\d]/g,'')">
+												</div>
+												<div class="layui-form-mid layui-word-aux">
+													<a href="securityCode.html" target="_blank">
+														<text>*</text>
+														<text>如何获取安全码？</text>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									
+									
+									<div class="main-division">
+										<div class="content-tips">顾客的个人信息将被作为最重要的资源得到妥善、安全的保管。</div>
+										<div class="layui-form-item mt25">
+											<label class="layui-form-label">姓名：</label>
+											<div class="layui-input-block">
+												<input type="text" name="name" id="name" required lay-verify="required" maxlength="5" autocomplete="off"
+												 class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">手机号码：</label>
+											<div class="layui-input-block">
+												<input type="text" name="phone" id="phone" required lay-verify="required" maxlength="15" autocomplete="off"
+												 class="layui-input" >
+<!--												oninput="value=value.replace(/[^\d]/g,'')"-->
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">E-Mail：</label>
+											<div class="layui-input-block">
+												<input type="text" name="eMail" id="eMail" required lay-verify="required" autocomplete="off"
+												 class="layui-input">
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label">验证码：</label>
+											<div class="flex">
+												<div class="layui-input-block block_tips flex">
+													<input type="text" name="verificationCode" id="verificationCode" required lay-verify="required" maxlength="4" autocomplete="off"
+													 class="layui-input" oninput="value=value.replace(/[^\d]/g,'')">
+														<a href="#" id="changeImg">
+														    <canvas class="show-captcha" id="canvas" width="150" height="40"></canvas>
+														</a>
+												</div>
+											</div>
+										</div>
+										<div class="layui-form-item">
+											<label class="layui-form-label"></label>
+											<div class="flex">
+												<div class="layui-input-block block_tips flex">
+													<!-- <input type="checkbox" name="agreement" required lay-verify="required" autocomplete="off" class="agreement-input"> -->
+													<input type="checkbox" name="agreement" id="agreement" required lay-verify="required" autocomplete="off" class="agreement-input">
+														<text>同意</text>
+														<text><a href="https://st.careland.com.cn/ka/privacy/get_content.php?type=1" target="_blank" class="c-009">《用户协议》</a></text>
+														<text>和</text>
+														<text><a href="https://st.careland.com.cn/ka/privacy/get_content.php?type=0" target="_blank" class="c-009">《隐私政策》</a></text>
+													</input>
+												</div>
+											</div>
+										</div>
+										<div class="layui-form-item mt50">
+											<div class="layui-input-block">
+												<button class="layui-btn layui-btn-normal mr15" lay-submit lay-filter="formDemo" id="submit">提交</button>
+												<button type="reset" class="layui-btn reset">重置</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							
+							<div class="QR_Code tc">
+								<div>扫描关注升级服务号随时进行正版验证</div>
+								<div><img src="../../images/register/QR_Code.png" ></div>
+								<div>微信服务号</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- 底部-->
+			<div id="page-foot" class="page_foot mt50">
+				<iframe width="100%" height="350px" src="../common/foot.html" frameborder="no" border="0" marginwidth="0"
+				 marginheight="0" scrolling="no"></iframe>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../js/common/common.js"></script>
+	<script type="text/javascript" src="../../js/register/genuineVerification.js"></script>
+</html>

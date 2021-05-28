@@ -1,0 +1,273 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    min-width:1280px;
+}
+
+.hide{
+    display: none;
+}
+
+.back-top{
+    position: fixed;
+    right: 0;
+    bottom:100px;
+    z-index: 9999;
+}
+
+.back-top>a>img{
+    width:60px;
+    height: 60px;
+}
+
+
+/*
+头部
+ */
+.page-content .head{
+    width:100%;
+    height: 330px;
+    z-index: -1;
+    color: white;
+    text-align: left;
+}
+
+.page-content .head img{
+    width: 100%;
+    position:absolute;
+    height: 380px;
+    top: 0;
+    right: 0;
+    left: 0;
+    object-fit:cover;
+    min-width: 1280px;
+}
+
+
+/*
+主体
+ */
+
+.page-content{
+    width: 100%;
+    height: 750px;
+    z-index: -1;
+    text-align: center;
+}
+
+.content-detail{
+    width: 100%;
+    height: 420px;
+    background-color: #EEEEEE;
+}
+
+.content-detail .catalog{
+    text-align: left;
+    margin: 0 auto;
+    color: #515151;
+    font-size: 14px;
+    width: 1280px;
+    padding-top: 50px;
+}
+
+.content-detail .catalog a{
+    color: #515151;
+}
+
+.content-detail .content{
+    margin: 0 auto;
+    width: 1280px;
+}
+
+.content-detail .content >ul>li{
+    float: left;
+    position: relative;
+}
+
+.content-left{
+    width: 980px;
+    margin: 0 auto;
+}
+
+.content-left >ul >li{
+    float: left;
+    position: relative;
+    width: 946px;
+    height: 250px;
+    margin: 15px 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0,20,65,0.1);
+}
+
+.content-left >ul >li>div{
+    float: left;
+    position: relative;
+}
+
+.detail_left{
+    width: 280px;
+    padding: 20px;
+}
+
+.detail_left img{
+    width: 280px;
+    height: 210px;
+}
+
+.detail_right{
+    width: 586px;
+    padding: 20px;
+    text-align: left;
+}
+
+/*.content-left img{*/
+/*    width: 100%;*/
+/*    height: 180px;*/
+/*}*/
+
+.content-left .title{
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.content-left .desc{
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+.content-left .link{
+    border: 1px solid #afafaf;
+    width: 100px;
+    border-radius:20px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.content-left .link a{
+    color: #686868;
+    font-size: 15px;
+}
+
+.content-left .link:hover{
+    background-color: #0091FF;
+    border: 1px solid transparent;
+}
+
+.content-left .link:hover a{
+    color: white;
+}
+
+.content-left .link:active{
+    background-color: #0082E4;
+    border: 1px solid transparent;
+}
+
+.content-left .link:active a{
+    color: white;
+}
+
+.content-right {
+    text-align: left;
+    color: #404040;
+}
+
+.content-right div{
+    background-color: white;
+    width: 300px;
+    margin-top: 15px;
+}
+
+.right-hr{
+    width: 300px;
+    border: 1px solid #eeeeee;
+}
+
+.content-right .theme{
+    height: 20px;
+    line-height: 33px;
+
+}
+
+.content-right .theme .title{
+    padding-left:  10px;
+}
+
+.content-right .theme .enter a
+{
+    margin-left: 108px;
+    color: black;
+    font-size: 12px;
+}
+
+.content-right .theme .more a
+{
+    margin-left: 170px;
+    color: black;
+    font-size: 12px;
+}
+
+.content-right .phone{
+    box-shadow: 0px 4px 8px rgba(0,20,65,0.1);
+}
+
+.content-right .phone .detail{
+    height: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 80px;
+}
+
+.content-right .service .detail ul{
+    padding-left: 30px;
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+
+.content-right .service .detail li{
+    list-style-type: disc;
+}
+
+.content-right .service .detail li a{
+    color: #686868;
+    font-size: 10px;
+}
+
+.content-right .about{
+    box-shadow: 0px 4px 8px rgba(0,20,65,0.1);
+    margin-top: 24px;
+}
+
+.content-right .about .detail ul{
+    padding-left: 30px;
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+
+.content-right .about .detail li{
+    list-style-type: disc;
+}
+
+.content-right .about .detail li a{
+    color: #222222;
+    font-size: 10px;
+}
+
+.content-right .about .detail li a:hover{
+    color: #0091FF;
+}
+
+.page_foot{
+    height: 350px;
+}

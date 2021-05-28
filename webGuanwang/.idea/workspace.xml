@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a3efcb37-7a3c-425a-b94a-fe6a34984887" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hFs9Ul94M9pcG6Dsz1shYcowYM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images/product/Navigation/mudTruck" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\svn\guanwang\newHtml\webGuanwang\html\service" />
+      <recent name="G:\svn\官网\newHtml\webGuanwang\images\other" />
+      <recent name="G:\svn\官网\newHtml\webGuanwang\js" />
+      <recent name="G:\svn\官网\newHtml\webGuanwang" />
+      <recent name="E:\开发项目\webGuanwang\html\common" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\svn\guanwang\newHtml\webGuanwang\images\product\Navigation\mudTruck" />
+      <recent name="D:\svn\guanwang\newHtml\webGuanwang\images\product\Navigation\truck" />
+      <recent name="D:\svn\guanwang\newHtml\webGuanwang\images\product\Navigation\highPrecision" />
+      <recent name="D:\svn\guanwang\newHtml\webGuanwang\images\register" />
+      <recent name="D:\svn\guanwang\newHtml\webGuanwang\images\index" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="dataProduct.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/webGuanwang/html/product/dataProduct.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/webGuanwang/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="navigationProduct.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/webGuanwang/html/product/navigationProduct.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="service.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/webGuanwang/html/service/service.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/js/index.js" working-dir="$PROJECT_DIR$/js">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="JavaScript Debug.dataProduct.html" />
+        <item itemvalue="JavaScript Debug.navigationProduct.html" />
+        <item itemvalue="JavaScript Debug.service.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3efcb37-7a3c-425a-b94a-fe6a34984887" name="Default Changelist" comment="" />
+      <created>1599618022451</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599618022451</updated>
+      <workItem from="1599618024668" duration="813000" />
+      <workItem from="1599618851571" duration="13898000" />
+      <workItem from="1599638306829" duration="13599000" />
+      <workItem from="1599653583423" duration="187000" />
+      <workItem from="1599697825167" duration="32300000" />
+      <workItem from="1599783516779" duration="24614000" />
+      <workItem from="1600043370792" duration="24024000" />
+      <workItem from="1600129872798" duration="22918000" />
+      <workItem from="1600215762484" duration="21017000" />
+      <workItem from="1600303059247" duration="27188000" />
+      <workItem from="1600388750390" duration="28167000" />
+      <workItem from="1600647971762" duration="22445000" />
+      <workItem from="1600685839411" duration="2108000" />
+      <workItem from="1600733747622" duration="19758000" />
+      <workItem from="1600765130347" duration="3779000" />
+      <workItem from="1605838374927" duration="621000" />
+      <workItem from="1606092042098" duration="20283000" />
+      <workItem from="1606178617531" duration="25764000" />
+      <workItem from="1606264710722" duration="27116000" />
+      <workItem from="1606351011414" duration="21214000" />
+      <workItem from="1606379827218" duration="7155000" />
+      <workItem from="1606437324195" duration="19508000" />
+      <workItem from="1606696672927" duration="21986000" />
+      <workItem from="1606782983038" duration="7558000" />
+      <workItem from="1606869336186" duration="6308000" />
+      <workItem from="1607949233147" duration="61000" />
+      <workItem from="1608857500537" duration="19918000" />
+      <workItem from="1609116217632" duration="113000" />
+      <workItem from="1609116730986" duration="76000" />
+      <workItem from="1609118423581" duration="82000" />
+      <workItem from="1609118801032" duration="3369000" />
+      <workItem from="1609122571214" duration="9841000" />
+      <workItem from="1609215000223" duration="765000" />
+      <workItem from="1609224938092" duration="356000" />
+      <workItem from="1610503532579" duration="578000" />
+      <workItem from="1611728917225" duration="1687000" />
+      <workItem from="1611794301357" duration="334000" />
+      <workItem from="1611798666165" duration="1301000" />
+      <workItem from="1612232477451" duration="1948000" />
+      <workItem from="1615517459180" duration="6849000" />
+      <workItem from="1615618117556" duration="3626000" />
+      <workItem from="1615770197029" duration="7664000" />
+      <workItem from="1617352144886" duration="2054000" />
+      <workItem from="1617690627384" duration="327000" />
+      <workItem from="1618384433102" duration="3520000" />
+      <workItem from="1618447417223" duration="19209000" />
+      <workItem from="1618535671629" duration="21398000" />
+      <workItem from="1618726502074" duration="8977000" />
+      <workItem from="1618792643581" duration="1551000" />
+      <workItem from="1618796375958" duration="238000" />
+      <workItem from="1618797448000" duration="15760000" />
+      <workItem from="1618881133836" duration="18077000" />
+      <workItem from="1618970718275" duration="16772000" />
+      <workItem from="1619052426247" duration="23641000" />
+      <workItem from="1619138746152" duration="16251000" />
+      <workItem from="1619311542901" duration="18549000" />
+      <workItem from="1619398955873" duration="20809000" />
+      <workItem from="1619486890202" duration="20756000" />
+      <workItem from="1619570532504" duration="23797000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1619595074850">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619595074850" />
+    <state x="696" y="223" key="FileChooserDialogImpl" timestamp="1619591535355">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="696" y="223" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1619591535355" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1619173253103">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619173253103" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1619173253103">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619173253103" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1619173253103">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619173253103" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1619173253103">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619173253103" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1618566996699">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1618566996699" />
+    <state x="576" y="305" key="com.intellij.ide.util.TipDialog" timestamp="1619570555765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="576" y="305" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619570555765" />
+    <state x="571" y="54" width="944" height="934" key="find.popup" timestamp="1619603950924">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="571" y="54" width="944" height="934" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619603950924" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1618904550479">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618904550479" />
+  </component>
+</project>

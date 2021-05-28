@@ -1,0 +1,633 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.container{
+    min-width:1280px;
+    margin-top: -50px;
+}
+
+.page-content{
+    width: 100%;
+    text-align: center;
+}
+
+
+/*
+轮播图
+ */
+.content_banner {
+    width: 100%;
+    height: 540px;
+}
+
+.banner_img img{
+    width: 1280px;
+    height: 540px;
+}
+
+.banner_img >div{
+    width: 1280px;
+    display: flex;
+    justify-content: center;
+    background-color: black!important;
+    position: relative;
+}
+
+.content_banner .layui-carousel>[carousel-item]{
+    position: absolute!important;
+}
+
+.layui-carousel-ind li{
+    width: 40px!important;
+    height: 4px!important;
+    border-radius: 0!important;
+    margin: 0 5px!important;
+}
+
+.layui-carousel-ind{
+    position: absolute!important;
+    top:unset!important;
+    bottom: 20px;
+}
+
+.layui-carousel-ind ul{
+    background-color: transparent!important;
+    padding: 0!important;
+}
+
+
+/*
+地图
+ */
+.content-map{
+    width: 100%;
+    height: 400px;
+}
+
+.back-top{
+    position: fixed;
+    right: 0;
+    bottom:100px;
+    z-index: 9999;
+}
+
+.hide{
+    display: none;
+}
+
+.back-top>a>img{
+    width:60px;
+    height: 60px;
+}
+
+.map-title{
+    margin-top: 50px;
+}
+
+.title-font{
+    font-size: 30px;
+}
+
+.content_map .layui-tab{
+    margin-top: 30px;
+}
+
+.layui-tab-brief>.layui-tab-title .layui-this{
+    color: #0091FF!important;
+}
+
+ .layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{
+    border-bottom: 2px solid #0091FF!important;
+}
+
+.content_map .layui-tab-title li{
+    padding: 0!important;
+    margin: 0 35px;
+    color: #999999!important;
+}
+
+.content_map .layui-tab-title{
+    width: 1150px;
+    margin: 0 auto;
+}
+
+.content_map .layui-tab-content{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.item_left img{
+    width: 620px;
+    height: 435px;
+}
+
+.item_right{
+    margin-left: 100px;
+}
+
+.item_right_detail li{
+    height: 40px;
+    line-height: 40px;
+    color: #666666;
+    font-size: 18px;
+}
+
+.item_right_detail img{
+    margin-right: 10px;
+}
+
+.layui-tab-item>div{
+    position: relative;
+    float: left;
+}
+
+.item_right_title{
+    font-size: 28px;
+    margin: 60px  0 15px 0 ;
+}
+
+.item_right_btn{
+    width:120px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #979797;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.item_right_btn a{
+    color: #8890A4;
+}
+
+.item_right_btn:hover{
+    background-color: #0091FF;
+    border: 1px solid transparent;
+}
+
+.item_right_btn:hover a{
+    color: white;
+}
+
+.item_right_btn:active{
+    background-color: #0082E4;
+    border: 1px solid transparent;
+}
+
+    /*
+    自定义地图
+     */
+.content-custom{
+    height: 880px;
+    width: 100%;
+    padding-top: 50px;
+    background-color: #f5f7fa;
+}
+.content-custom .title-desc{
+    font-size: 20px;
+    margin-top: 20px;
+    color: #666666;
+}
+
+.content-custom .thumbnail{
+    margin: 20px auto;
+    width: 820px;
+    height: 150px;
+}
+
+.content-custom .thumbnail li{
+    float: left;
+    position: relative;
+    padding: 30px;
+    color: #aaaaaa;
+}
+
+.content-custom .thumbnail li>div{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.img_border{
+    position: absolute;
+    left: -7px;
+    top: -6px;
+    display: none;
+}
+
+.thumbnail .thumbnail-color span{
+    color: #0091FF;
+}
+
+.thumbnail .thumbnail-color .img_border{
+    display: block!important;
+}
+
+.custom-pic {
+    margin: 0 auto;
+    width: 1100px;
+    height: 450px;
+    position: relative;
+}
+
+.custom-pic li{
+    position: absolute;
+    top: 10px;
+    transition: all 0.3s ease-out;
+}
+
+.custom-pic img{
+    border: none;
+    float: left;
+}
+.custom-pic1{
+    transform:translate3d(-120px,0,0) scale(0.61);
+    opacity: 1;
+}
+
+.custom-pic2{
+    transform:translate3d(90px,0,0) scale(0.81);
+    transform-origin:0 50%;
+    opacity: 1;
+    z-index: 2;
+}
+.custom-pic3{
+    transform:translate3d(180px,0,0) scale(1);
+    z-index: 3;
+    opacity: 1;
+}
+.custom-pic4{
+    transform:translate3d(280px,0,0) scale(0.81);
+    transform-origin:100% 50%;
+    opacity: 1;
+    z-index: 2;
+}
+.custom-pic5{
+    transform:translate3d(490px,0,0) scale(0.61);
+    opacity: 1;
+}
+
+
+.content-custom .custom-button{
+    width:120px;
+    height: 40px;
+    border: 1px solid #979797;
+    border-radius:20px;
+    margin: 20px auto;
+    line-height: 40px;
+}
+
+.content-custom .custom-button a{
+    font-size: 15px;
+    color: black;
+}
+
+.content-custom .custom-button:hover{
+    background-color: #0091FF;
+    border: 1px solid transparent;
+}
+
+.content-custom .custom-button:hover a{
+    color: white;
+}
+
+.content-custom .custom-button:active{
+    background-color: #0082E4;
+    border: 1px solid transparent;
+}
+
+.content-custom .custom-button:active a{
+    color: white;
+}
+
+/*
+服务
+ */
+.content-server{
+    float: left;
+    background-image: url("../images/index/bcg_location.png");
+    width: 100%;
+    height: 600px;
+    color: #fcfff8;
+}
+
+.content-server>ul>li{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.content-server .title{
+    margin-top: 50px;
+}
+
+.server-func{
+    margin: 60px auto 100px auto;
+    font-size: 15px;
+    color: #aaaaaa;
+    width: 1110px;
+    height: 40px;
+}
+
+.server-func>ul{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+    width: 1110px;
+    height: 40px;
+}
+
+.server-func>ul>li{
+    float: left;
+    position: relative;
+    margin: 0 45px;
+    height: 38px;
+}
+
+.server-func  .func-underline span{
+    color: #0091FF;
+}
+
+.server-func  .func-underline {
+    border-bottom: 2px solid #0091FF!important;
+}
+
+.server-hr{
+    border: 1px solid #606060;
+    width: 1150px;
+    margin: 82px auto 0px auto;
+}
+
+.content-server .desc-title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #eff2eb;
+}
+
+.content-server .desc-detail{
+    width:500px;
+    margin: 30px auto 60px auto;
+    font-size: 15px;
+    color: #aaaaaa;
+    letter-spacing: 1px;
+}
+
+.content-server .desc-button{
+    width:120px;
+    height: 40px;
+    border: 1px solid #939393;
+    line-height: 40px;
+    border-radius:20px;
+    margin: 0 auto;
+}
+
+.content-server .desc-button a{
+    color: #aaaaaa;
+    font-size: 15px;
+}
+
+.content-server .desc-button:hover{
+    border: 1px solid transparent;
+    background-color:#0091FF;
+}
+
+.content-server .desc-button:hover a{
+    color: white;
+}
+
+.content-server .desc-button:active{
+    border: 1px solid transparent;
+    background-color: #0082E4;
+}
+
+.content-server .desc-button:active a{
+    color: white;
+}
+
+/*
+产品
+ */
+
+.content-product{
+    width: 100%;
+    float: left;
+    height: 1200px;
+}
+
+.content-product .product-title{
+    margin-top: 50px;
+}
+
+.content-product .layui-tab-title{
+    margin: 30px auto!important;
+    width: 1280px!important;
+}
+
+.content-product .layui-tab-title li{
+    padding: 0!important;
+    margin: 0 100px;
+    font-size: 18px!important;
+}
+
+.layui-tab-content{
+    width: 1280px;
+    margin:0 auto;
+}
+
+.title_margin{
+    margin-left: 410px!important;
+}
+
+.product_detail{
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.product_detail li{
+    position: relative;
+    float: left;
+    height: 430px;
+    width: 400px;
+    margin: 20px 13px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.product_detail li img{
+    width: 400px;
+    height: 225px;
+}
+
+.product_detail_title{
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.product_detail_text{
+    color: #999999;
+    padding: 0 50px;
+}
+
+.product_detail_btn{
+    border: 1px solid #979797;
+    width:120px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 40px;
+    left: 140px;
+}
+
+.product_detail_btn:hover{
+    background-color: #0091FF;
+    border: 1px solid transparent;
+}
+
+.product_detail_btn:hover a{
+    color: white;
+}
+
+.product_detail_btn:active{
+    background-color: #0082E4;
+    border: 1px solid transparent;
+}
+
+.layui-tab-content{
+    padding: 0!important;
+}
+
+
+/*
+数据可视化案例
+ */
+.content-programme{
+    float: left;
+    position: relative;
+    background-color: rgba(18, 21, 23, 0.95);
+    width: 100%;
+    height: 850px;
+    margin-top: 50px;
+}
+
+.content-programme .title{
+    margin: 50px;
+    color: white;
+}
+
+.content-programme .choice{
+    margin: 0px auto;
+    color: #9b9b9b;
+    width: 900px;
+    height: 90px;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.19);
+}
+
+.content-programme .choice li{
+    float: left;
+    position: relative;
+    margin-left: 80px;
+    height: 88px;
+}
+
+
+.content-programme .choice img{
+    width: 50px;
+    height: 50px;
+}
+
+.content-programme .choice .choice-hr span{
+    color: #0091FF;
+}
+
+.content-programme .choice .choice-hr{
+    border-bottom: 2px solid #0091FF;
+}
+
+.content-programme .pic li{
+    margin: 50px auto;
+    width: 876px;
+}
+
+.content-programme .pic img{
+    width: 876px;
+    height: 495px;
+}
+
+.content-programme .pic .pic-hide{
+    display: none;
+}
+
+.pro-hr{
+    border: 1px solid rgba(102, 102, 102, 0.21);
+    width: 1100px;
+    margin: 155px auto 0px auto;
+}
+
+.content-partner{
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.content-partner .title{
+    margin-top: 50px;
+}
+
+.content-partner .desc{
+    color: #909090;
+    width: 600px;
+    margin: 15px auto;
+    font-size: 16px;
+}
+
+.content-partner .pic{
+    margin: 40px auto;
+    width: 1000px;
+}
+
+.content-partner .pic li{
+    float: left;
+    position: relative;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.content-partner .pic img{
+    width: 900px;
+    height: 600px;
+}
+
+.page_foot{
+    height: 350px;
+}
+
+/*
+ie css设置
+ */
+@media screen and(-ms-high-contrast:active),(-ms-high-contrast:none) {
+    .server-func  .func-underline hr{
+        width: 100%;
+        height: 3px;
+        background-color: #ffffff;
+        margin-top: 19px ;
+    }
+
+    .product-subtitle .hr-color hr{
+        width: 100px;
+        height: 3px;
+        background-color: #909090;
+        margin-top: 19px;
+        margin-left: 0px;
+    }
+
+    .content-programme .choice .choice-hr hr{
+        background-color: white;
+        margin-top: 31px;
+    }
+}

@@ -1313,14 +1313,9 @@
   resolved "https://registry.nlark.com/@types/json5/download/@types/json5-0.0.29.tgz"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/lodash@^4.14.165":
+"@types/lodash@^4.14.165", "@types/lodash@^4.14.169":
   version "4.14.169"
   resolved "https://registry.nlark.com/@types/lodash/download/@types/lodash-4.14.169.tgz"
-  integrity sha1-g8IXaI8HpNnvjyij69HTGPb/TLs=
-
-"@types/lodash@^4.14.169":
-  version "4.14.169"
-  resolved "https://registry.nlark.com/@types/lodash/download/@types/lodash-4.14.169.tgz#83c217688f07a4d9ef8f28a3ebd1d318f6ff4cbb"
   integrity sha1-g8IXaI8HpNnvjyij69HTGPb/TLs=
 
 "@types/mime@^1":

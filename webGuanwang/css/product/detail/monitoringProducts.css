@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.monitor_table{
+    width: 100%;
+    border-top: 1px solid #3E424A;
+    border-left: 1px solid #3E424A;
+    color: #666666;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+.monitor_table tr td{
+    width: 200px;
+    line-height: 30px;
+    box-sizing: border-box;
+    padding: 20px 50px;
+    border-bottom: 1px solid #3E424A;
+    border-right: 1px solid #3E424A;
+}
+.monitor_table tr td.column {
+    width: 20%;
+    text-align: center;
+    padding: 20px 40px;
+}
+
+.list li{
+    list-style:none;
+    float: left;
+    position: relative;
+    text-align: center;
+    background-color: #F4F6F9;
+}
+
+.list li span{
+    position: relative;
+    float: right;
+}
+
+.list >div{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin: 15px 0;
+}
+
+.list_a li{
+    margin-right: 20px;
+    width: 90px;
+}
+
+.list .list_a ul li{
+	background-color: #0091FF;
+	color: #FFFFFF;
+}
+
+.list_b{
+    height: 35px!important;
+    margin-bottom: 0!important;
+}
+
+.list_b li{
+    background-color: transparent!important;
+}
+
+.list_hr hr{
+    background-color: #DDDDDD;
+    width: 97%;
+    height: 1px;
+}
+
+.rectangle{
+    width: 6px;
+    height: 10px;
+    background-color: #0091FF;
+    margin-left: 3px;
+    margin-top: 10px;
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid #0091FF;
+}
+
+.list_arrow li{
+    margin: 0 120px;
+}
+
+.li_title{
+	background-color: #0091FF !important;
+	color: #FFFFFF;
+    width: 120px !important;
+}
+
+.list_c li{
+    width: 158px;
+}
+
+.list ul li span{
+	color: #DDDDDD;
+}
+
+.list_d li{
+    width: 90px;
+}
+
+.list_e li{
+    width: 158px;
+}
+
+.list_f li{
+    width: 211px;
+}
+
+.list_g li{
+    width: 211px;
+}
+
+
+
+
+
+

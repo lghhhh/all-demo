@@ -1,0 +1,366 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border: 0;
+}
+
+/*table,tbody,th,tr,td{*/
+/*	padding: 0;*/
+/*	margin: 0;*/
+/*}*/
+
+a {
+	text-decoration: none;
+}
+
+
+.container {
+	min-width: 1280px;
+}
+
+.page-head {
+	z-index: 2;
+}
+
+.hide {
+	display: none;
+}
+
+.back-top {
+	position: fixed;
+	right: 0;
+	bottom: 100px;
+	z-index: 9999;
+}
+
+.back-top>a>img {
+	width: 60px;
+	height: 60px;
+}
+
+.page-content {
+	width: 100%;
+	text-align: center;
+}
+
+.page-content .head {
+	width: 100%;
+	height: 380px;
+}
+
+.page-content .head .pic {
+	width: 100%;
+	height: 390px;
+}
+
+.page-content .head .pic img {
+	width: 100%;
+	height: 440px;
+	min-width: 1280px;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.page-content .head .product {
+	background-color: black;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	margin-top: -60px;
+}
+
+.page-content .head .product a {
+	color: #999999;
+	font-size: 14px;
+}
+
+.page-content .head .product>ul {
+	margin: 0 auto;
+	width: 700px;
+}
+
+.page-content .head .product>ul>li {
+	float: left;
+	position: relative;
+	margin: 0px 70px;
+	height: 57px;
+	font-size: 21px;
+	width: 84px;
+}
+
+.page-content .head .product-hr a {
+	color: #0091FF;
+}
+
+.page-content .head .product-hr {
+	border-bottom: 3px solid #0091FF;
+}
+
+.font-title {
+	font-size: 32px;
+	margin-top: 50px;
+}
+
+.font-desc {
+	font-size: 21px;
+	color: #666666;
+	margin-top: 15px;
+}
+
+.detail-data .detail {
+	margin: 25px auto;
+	width: 1160px;
+}
+
+.detail-data .detail>ul>li>div {
+	float: left;
+	position: relative;
+	width: 350px;
+	height: 380px;
+	margin: 18px 18px 80px 18px;
+	box-shadow: 0px 0px 5px 2px #cfcfcf;
+}
+
+.detail-data .detail>ul>li img {
+	width: 350px;
+	height: 180px;
+}
+
+.detail-data .detail .title {
+	font-size: 20px;
+	margin-top: 20px;
+	font-size: 19px;
+}
+
+.detail-data .detail .desc {
+	padding: 5px 20px;
+	font-size: 14px;
+	color: #999999;
+}
+
+.detail-data .detail .btn {
+	border: 1px solid #a6a6a6;
+	width: 101px;
+	height: 30px;
+	border-radius: 16px;
+	margin: 0 auto;
+	line-height: 30px;
+}
+
+.detail-data .detail .btn a {
+	color: #666666;
+	padding: 2px;
+	font-size: 14px;
+}
+
+.detail-data .detail .btn:hover {
+	background-color: #0091FF;
+	border: 1px solid transparent;
+}
+
+.detail-data .detail .btn:hover a {
+	color: white;
+}
+
+.product_detail li .product_detail_btn:hover,
+.product_detail li .product_detail_btn:hover a {
+	background-color: #0091FF;
+	border: 1px solid transparent;
+	color: #FFFFFF;
+}
+
+.detail-data .detail .btn:active {
+	background-color: #0082E4;
+	border: 1px solid transparent;
+}
+
+.detail-data .detail .btn:active a {
+	color: white;
+}
+
+.detail-data .detail .btn1 {
+	margin-top: 50px;
+}
+
+.detail-data .detail .btn2 {
+	margin-top: 32px;
+}
+
+.detail-data .detail .btn3 {
+	margin-top: 50px;
+}
+
+.detail-navigation {
+	float: left;
+	position: relative;
+	width: 100%;
+	height: 1200px;
+	color: black;
+	background-color: #F3F3F3;
+}
+
+.detail-navigation .detail {
+	margin: 40px auto;
+	width: 1200px;
+}
+
+.detail-navigation .content-detail {
+	margin-left: 210px;
+}
+
+.detail-navigation .product-detail img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+
+}
+
+.detail-navigation .layui-tab-title {
+	margin: 30px auto !important;
+	width: 1280px !important;
+}
+
+.detail-navigation .layui-tab-title li {
+	padding: 0 !important;
+	margin: 0 100px;
+	font-size: 18px !important;
+}
+
+.layui-tab-content {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.title_margin {
+	margin-left: 410px !important;
+}
+
+.product_detail {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.product_detail li {
+	position: relative;
+	float: left;
+	height: 430px;
+	width: 400px;
+	margin: 20px 13px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+	text-align: center;
+}
+
+.product_detail li img {
+	width: 400px;
+	height: 225px;
+}
+
+.product_detail_title {
+	font-size: 20px;
+	margin: 20px 0;
+}
+
+.product_detail_text {
+	color: #999999;
+	padding: 0 50px;
+}
+
+.product_detail_btn {
+	border: 1px solid #979797;
+	width: 105px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 20px;
+	position: absolute;
+	bottom: 40px;
+	left: 140px;
+}
+
+.layui-tab-content {
+	padding: 0 !important;
+}
+
+
+.layui-tab-brief>.layui-tab-title .layui-this {
+	color: #0091FF !important;
+}
+
+.layui-tab-brief>.layui-tab-more li.layui-this:after,
+.layui-tab-brief>.layui-tab-title .layui-this:after {
+	border-bottom: 2px solid #0091FF !important;
+}
+
+
+.detail-government {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+.detail-government .desc {
+	width: 620px;
+	margin: 20px auto 0px auto;
+}
+
+.detail-government .choice {
+	margin: 50px auto 40px auto;
+	width: 1100px;
+	height: 30px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.detail-government .choice>ul {
+	width: 800px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+
+.detail-government .choice>ul>li {
+	float: left;
+	position: relative;
+	margin: 0 50px;
+	color: #666666;
+	font-size: 18px;
+	height: 28px;
+}
+
+.detail-government .choice .choice-title span {
+	color: #0091FF;
+}
+
+.detail-government .choice .choice-title {
+	border-bottom: 2px solid #0091FF;
+}
+
+
+.detail-government .choice-detail {
+	margin: 0 auto;
+	width: 1100px;
+}
+
+.detail-government .choice-detail .hidden {
+	display: none;
+}
+
+.page_foot {
+	height: 350px;
+}
+
+
+/*
+ie css设置
+ */
+@media screen and(-ms-high-contrast:active),
+(-ms-high-contrast:none) {
+	.detail-government .choice .choice-title hr {
+		width: 100%;
+		height: 3px;
+		background-color: #5b5b5b;
+		margin-top: 12px;
+	}
+}

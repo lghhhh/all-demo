@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资讯与公告</title>
+    <link rel="stylesheet" href="../css/information.css" type="text/css">
+    <link rel="stylesheet" href="../js/layui-v2.5.6/layui/css/layui.css">
+    <script src="../js/jar/jquery-1.10.2.min.js"></script>
+    <script src="../js/common/head.js"></script>
+    <script src="../js/layui-v2.5.6/layui/layui.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <!--主体 -->
+    <div class="page-content">
+        <div id="backTop" class="back-top hide">
+            <a href="#container_head" ><img src="../images/index/back_top.png" alt="返回顶部"></a>
+        </div>
+
+        <div id="pageHead" class="head">
+            <img src="../images/banner_information.png">
+        </div>
+        <div id="subject" class="subject">
+            <div class="catalog">
+                <span><a href="../index.html">首页</a></span>
+                <span> > <a href="information.html">资讯与公告</a></span>
+                <span> > <a id="show-tab" href="information.html?tab=0" target="_parent">全部</a></span>
+                <span> <a id="show_title" class="hide"></a></span>
+            </div>
+            <div id="content" class="content">
+                <div class="content-title">
+                    <span>资讯公告列表</span>
+                </div>
+<!--                <div class="content-hr"><hr/></div>-->
+                <div class="content-choice">
+                    <ul>
+                        <li class="li-underline">
+                            <div><hr/></div>
+                            <div><span>全部</span></div>
+                        </li>
+                        <li>
+                            <div><hr/></div>
+                            <div><span>凯立德资讯</span></div>
+                        </li>
+                        <li>
+                            <div><hr/></div>
+                            <div><span>凯立德公告</span></div>
+                        </li>
+                        <li>
+                            <div><hr/></div>
+                            <div><span>行业资讯</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-list">
+                    <ul id="detail_list"></ul>
+                </div>
+            </div>
+            <div id="page" class="content-page"></div>
+            <div id="detail" class="list_detail hide">
+                <div class="detail_title"><h2 id="title">1111111</h2></div>
+                <div class="detail_desc">文章来源：<span id="author"></span>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：<span id="date"></span></div>
+                <div class="detail_font" id="mainContent"></div>
+                <div class="detail_hr"><hr/></div>
+                <div class="detail_other">
+                    <span class="other_left">上一篇：<a id="prev"></a><input id="prevId" hidden></span>
+                    <span class="other_right">下一篇：<a id="next"></a><input id="nextId" hidden></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部-->
+    <div id="page-foot" class="page_foot">
+        <iframe width="100%"  height="350px"  src="common/foot.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../js/common/common.js"></script>
+<script type="text/javascript" src="../js/information.js"></script>

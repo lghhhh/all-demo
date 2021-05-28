@@ -1,0 +1,230 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    min-width:1280px;
+}
+
+.page-head{
+    z-index: 2;
+}
+
+.hide{
+    display: none;
+}
+
+.back-top{
+    position: fixed;
+    right: 0;
+    bottom:100px;
+    z-index: 9999;
+}
+
+.back-top>a>img{
+    width:60px;
+    height: 60px;
+}
+
+.page-content{
+    width: 100%;
+    text-align: center;
+}
+
+.font-title{
+    font-size: 32px;
+    padding: 50px 0px;
+    line-height: 45px;
+}
+
+.content-banner{
+    width:100%;
+    height: 390px;
+    color: white;
+    text-align: left;
+}
+
+.content-banner img{
+    width: 100%;
+    position:absolute;
+    height: 440px;
+    top: 0;
+    right: 0;
+    left: 0;
+    object-fit:cover;
+    min-width: 1280px;
+}
+
+/*
+公司简介
+ */
+.content-introduce{
+    height: 680px;
+    background-image: url("../images/aboutUs/bcg_aboutUs.png");
+}
+
+.content-introduce .desc{
+    text-align: left;
+    letter-spacing: 1px;
+    line-height: 22px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*
+企业文化
+ */
+
+.content-culture{
+    width: 100%;
+    height: 620px;
+}
+
+.content-culture ul{
+    margin: 0 auto;
+    width: 1280px;
+}
+
+.content-culture li{
+    width: 290px;
+    height: 420px;
+    float: left;
+    position: relative;
+    margin:0 15px;
+    box-shadow: 0px 4px 8px rgba(0,20,65,0.1);
+}
+
+.content-culture img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.content-culture .title{
+    font-weight:600 ;
+    font-size: 21px;
+    line-height: 29px;
+}
+
+.content-culture .detail-hr{
+    border: 1px solid #0091FF;
+    width: 60px;
+    margin: 20px auto;
+}
+
+.content-culture .desc{
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 15px;
+    line-height: 24px;
+    color: #2b2b2b;
+}
+
+.content-advantage{
+    height: 580px;
+    background-image: url("../images/aboutUs/bcg_advantage.png");
+}
+
+.content-advantage .detail{
+    margin: 0 auto;
+    width: 1120px;
+}
+
+.content-advantage li{
+    width: 470px;
+    height: 160px;
+    float: left;
+    position: relative;
+    background-color: white;
+    margin: 20px 30px;
+    text-align: left;
+    padding-left: 30px;
+    box-shadow: 0px 4px 8px rgba(0,20,65,0.1);
+}
+
+.content-advantage .title{
+    font-weight: 600;
+    font-size: 21px;
+    height: 80px;
+    line-height: 80px;
+}
+
+.content-advantage .title .img_right{
+    position: relative;
+    float: right;
+    right: 20px;
+    top: 10px;
+}
+
+.content-advantage .desc{
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-right: 20px;
+    line-height: 20px;
+    color: #666666;
+}
+
+/*
+联系我们
+ */
+
+.content-contact{
+    height: 800px;
+    width: 100%;
+
+}
+
+.content-contact .detail{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.content-contact .title{
+   font-size: 16px;
+   font-weight: 600;
+   line-height: 22px;
+}
+.content-contact .detail ul{
+    display: inline;
+    float: left;
+    position: relative;
+    text-align: left;
+}
+
+.content-contact .detail ul li{
+    padding-top: 20px;
+}
+
+.content-contact .desc{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #2b2b2b;
+}
+
+.content-contact .icon{
+    width: 15px;
+    height: 15px;
+}
+
+.content-contact .detail .img img{
+    width: 450px;
+}
+
+.detail_left{
+    margin-left: 50px;
+    margin-right: 150px;
+}
+.page_foot{
+    height: 350px;
+}

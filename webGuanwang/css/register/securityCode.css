@@ -1,0 +1,144 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+}
+.body{
+	background-color: #EEEEEE !important;
+}
+a{
+    text-decoration: none;
+}
+
+.container{
+    min-width:1280px;
+}
+
+.font-title{
+    font-size: 30px;
+    padding-top: 80px;
+}
+
+.font-desc{
+    font-size: 17px;
+    width: 530px;
+    text-align: center;
+    margin: 20px auto;
+    color: #999999;
+}
+
+.container{
+    min-width: 1200px;
+}
+
+.page-head{
+    z-index: 2;
+}
+
+.hide{
+    display: none;
+}
+
+.back-top{
+    position: fixed;
+    right: 0;
+    bottom:100px;
+    z-index: 9999;
+}
+
+.back-top>a>img{
+    width:60px;
+    height: 60px;
+}
+
+.page-content{
+    width: 100%;
+    margin-top: -283px;
+    z-index: -1;
+    text-align: left !important;
+}
+
+/*
+头部
+*/
+/* .page-content .head  {
+	position: relative;
+} */
+
+.page-content .head .pic {
+    width:100%;
+    height: 440px;
+    z-index: -1;
+   /* background-image: url("../../images/product/banner_navigation.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%; */
+}
+
+.page-content .head .pic .title{
+    font-size: 40px;
+    color: white;
+    z-index: 2;
+}
+
+.page-content .head .pic .title span{
+    float: left;
+    margin-top: 100px;
+    margin-left: 280px;
+}
+
+.page-content .head .pic .desc{
+    font-size: 22px;
+    color: white;
+    z-index: 2;
+}
+
+.page-content .head .pic .desc span{
+    float: left;
+    margin-top: 160px;
+    margin-left: -160px;
+}
+
+
+.table-whole{
+	width: 1280px;
+	margin: 0 auto;
+	/* background-color: #01AAED; */
+	text-align: left;
+}
+.content-whole{
+	width:950px;background-color:#FFFFFF;box-sizing: border-box;padding: 20px 50px 50px 50px;
+}
+.font-family{
+	font-family: PingFangSC-Regular, PingFang SC !important;
+}
+.content-text{
+	font-size: 18px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #222222;
+	margin-bottom: 10px;
+}
+.content-title{
+	font-size: 24px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 600;
+	color: #222222;
+}
+.customer-service{
+	width:305px;height:156px;margin-left:30px;background-color:#FFFFFF;padding:10px 20px;
+}
+.customer-service .text{
+	font-size: 16px;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #222222;
+}
+.customer-service .phone{
+	font-size: 21px;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 600;
+	color: #222222;
+	text-align: center;
+	margin-top: 55px;
+}

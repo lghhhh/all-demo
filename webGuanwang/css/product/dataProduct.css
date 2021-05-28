@@ -1,0 +1,476 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+}
+.body{
+	background-color: #EEEEEE !important;
+}
+a{
+    text-decoration: none;
+}
+
+.container{
+    min-width:1280px;
+}
+
+.font-title{
+    font-size: 30px;
+    padding-top: 80px;
+}
+
+.font-desc{
+    font-size: 17px;
+    width: 530px;
+    text-align: center;
+    margin: 20px auto;
+    color: #999999;
+}
+
+.container{
+    min-width: 1280px;
+}
+
+.page-head{
+    z-index: 2;
+}
+
+.hide{
+    display: none;
+}
+
+.back-top{
+    position: fixed;
+    right: 0;
+    bottom:100px;
+    z-index: 9999;
+}
+
+.back-top>a>img{
+    width:60px;
+    height: 60px;
+}
+
+.page-content{
+    width: 100%;
+    margin-top: -283px;
+    z-index: -1;
+    text-align: center;
+}
+
+/*
+头部
+*/
+/* .page-content .head  {
+	position: relative;
+} */
+
+.page-content .head .pic {
+    width:100%;
+    height: 440px;
+    z-index: -1;
+   /* background-image: url("../../images/product/banner_navigation.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%; */
+}
+
+.page-content .head .pic .title{
+    font-size: 40px;
+    color: white;
+    z-index: 2;
+}
+
+.page-content .head .pic .title span{
+    float: left;
+    margin-top: 100px;
+    margin-left: 280px;
+}
+
+.page-content .head .pic .desc{
+    font-size: 22px;
+    color: white;
+    z-index: 2;
+}
+
+.page-content .head .pic .desc span{
+    float: left;
+    margin-top: 160px;
+    margin-left: -160px;
+}
+
+.page-content .head .product{
+    background-color: #141517 !important;
+    width: 100%;
+    height: 60px;
+    line-height: 60px ;
+    margin-top: -60px;
+}
+
+.page-content .head .product a{
+    color: #FFFFFF !important;
+    font-size: 14px;
+	cursor:pointer;
+}
+
+.page-content .head .product >ul{
+    margin: 0 auto;
+    width: 1000px !important;
+}
+
+.page-content .head .product >ul >li{
+    float: left;
+    position: relative;
+    margin: 0 50px;
+	width: 120px !important;
+}
+
+.page-content .head .product hr{
+    /* width: 150%; */
+    /* width: 125% !important;
+    height: 2px !important;
+    margin-top: -5px !important;
+    margin-left: -15px;
+	background-color: #141517; */
+}
+
+.layui-timeline-item:before, hr {
+    background-color: #EEEEEE !important;
+}
+.page-content .head .product a{
+	font-size: 18px !important;
+}
+
+.page-content .head .product-hr a{
+    color: #0091FF !important;
+}
+
+/* .page-content .head .product-hr hr{
+    background-color: #0091FF !important;
+} */
+
+
+/*
+乘用车导航
+*/
+.detail .passenger{
+    width: 100%;
+    height: 600px;
+}
+
+.detail .passenger img{
+    width: 100px;
+    height: 100px;
+    margin:  20px 50px 20px 50px;
+}
+
+.detail .passenger .func{
+    margin: 80px auto;
+    width: 1210px;
+}
+
+.detail .passenger .func li{
+    float: left;
+    position: relative;
+    width: 400px;
+    height: 350px;
+    border: 1px solid transparent;
+    /*margin-left: 50px;*/
+}
+
+.detail .passenger .func .title{
+    font-size: 18px;
+    color: #222222;
+    margin-top: 20px;
+}
+
+.detail .passenger .func .desc{
+    font-size: 13px;
+    color: #666666;
+    padding: 20px;
+}
+
+
+/*
+货车导航
+*/
+.detail .freight{
+    width: 100%;
+    height: 600px;
+    background-image: url("../../images/product/bcg_freightNavigation.png");
+    color: white;
+}
+
+.detail .freight .func{
+    margin: 50px auto;
+    width: 1153px;
+}
+
+.detail .freight .func  ul li{
+    float: left;
+    position: relative;
+    width: 350px;
+    height: 150px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 2px;
+    margin: 15px;
+    color: #fcfff8;
+}
+
+.detail .freight .func .title{
+    font-size: 18px;
+    padding-left: 25px;
+    text-align: left;
+    height: 80px;
+    line-height: 80px;
+}
+
+.detail .freight .func .title .img_right{
+    position: relative;
+    float: right;
+    right: 15px;
+    top: 10px;
+}
+
+.detail .freight .func .desc{
+    font-size: 14px;
+    padding: 0px 25px;
+    text-align: left;
+    color: #999999;
+}
+
+.page_foot{
+    height: 350px;
+}
+
+/*
+新能源汽车导航
+*/
+
+.detail .energy{
+    width: 100%;
+    height: 650px;
+}
+
+.detail .energy .func{
+    margin: 50px auto;
+    width: 1000px;
+}
+
+.detail .energy  .func  ul li{
+    float: left;
+    position: relative;
+    width: 480px;
+    height: 220px;
+    /*border: 1px solid #e6e6e6;*/
+    /*margin: 15px;*/
+    text-align: center;
+}
+
+.detail .energy .func .title{
+    font-size: 18px;
+    padding: 20px;
+    color: #222222;
+}
+
+.detail .energy .func .desc{
+    font-size: 14px;
+    padding: 0px 40px;
+    color: #666666;
+}
+
+/*
+AR导航
+ */
+.detail .AR{
+    width: 100%;
+    height: 750px;
+    background-image: url("../../images/product/AR_navigation.png");
+    color: white;
+}
+
+.detail .AR img{
+    margin-top: 20px;
+    width: 750px;
+    height: 450px;
+}
+
+/*
+高精度导航
+ */
+.detail .precision{
+    width: 100%;
+    height: 750px;
+}
+
+.detail .precision img{
+    margin-top: 20px;
+    width: 700px;
+    height: 420px;
+}
+
+.page-content .head .product >ul >li {
+    float: left;
+    position: relative;
+    margin: 0 100px;
+}
+.layui-tab-title{
+	position: relative;
+	left: 0;
+	height: 40px;
+	white-space: nowrap;
+	font-size: 0;
+	border-bottom-width: 0px !important;
+	border-bottom-style: solid;
+	transition: all .2s;
+	-webkit-transition: all .2s;
+} 
+.page-content {
+	width: 100%;
+	margin-top: -283px !important;
+	text-align: center;
+}
+.layui-tab {
+	margin: 10px 0;
+	text-align: center !important
+}
+.content_map .layui-tab-title li{
+	padding: 0 !important;
+	margin: 0 35px;
+	font-size: 21px !important;
+	color: #333333 !important;
+}
+.layui-tab-brief>.layui-tab-title .layui-this {
+    color: #0091FF !important;
+    font-size: 21px !important;
+}
+.layui-tab-item img,video{
+	width:1024px;
+	height:600px;
+}
+.mt223{margin-top: 223px !important;}
+.bg-141{
+	background-color: #141517
+}
+
+
+
+
+.list_content{
+	display: none;
+}
+.list_show{
+	display: block;
+}
+.content_left_first,.content_left_second,.content_left_third{
+	width:200px;
+	background-color: #EEEEEE !important;
+}
+/* .layui-nav{
+	background-color: #EEEEEE !important;
+	color: #222 !important;
+} */
+/* .layui-nav-item,.layui-nav:hover{
+	color: #0091FF;
+	background-color: #FFFFFF !important;
+} */
+.layui-nav-item a{
+	cursor:pointer;
+}
+.layui-nav-tree .layui-nav-bar{
+	width:0 !important;
+	background-color: #FFFFFF !important;
+}
+
+.layui-nav-tree .layui-nav-item a {
+	height:50px !important;
+	line-height:50px !important;
+	background-color: #EEEEEE !important;
+	color: #222 !important;
+	font-size: 14px !important;
+	text-align: left;
+}
+.layui-nav-tree .layui-nav-item .active_show {
+	background-color: #FFFFFF !important;
+	color: #0091FF !important;
+	font-size: 14px !important;
+	text-align: left;
+}
+.layui-nav-tree .layui-nav-item a:hover {
+	background-color: #FFFFFF !important;
+	color: #0091FF !important;
+}
+.content_detail{
+	width: 1280px;
+	margin: 0 auto;
+	box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.16);
+}
+.content_right_first,.content_right_second,.content_right_third{
+	text-align: left;
+	box-sizing: border-box;
+	padding: 30px 50px;
+}
+.content_right_first>div{
+	display: none;
+}
+.content_right_first .content_show{
+	display: block;
+}
+
+.content_right_second>div{
+	display: none;
+}
+.content_right_second .content_show{
+	display: block;
+}
+
+.content_right_third>div{
+	display: none;
+}
+.content_right_third .content_show{
+	display: block;
+}
+.content_tile{
+	font-weight: 600;
+	font-size: 21px;
+}
+.content_text{
+	font-size: 14px;
+	color: #222222;
+	margin-top: 25px;
+	/* height: 30px; */
+	line-height:25px;
+}
+.content_table{
+	margin-top:30px;
+}
+.content_pic{
+	margin:50px 0;
+}
+.content_pic li{
+	margin: 20px 0 60px 0;
+	font-size: 16px;
+	color:#222222;
+	text-align: center;
+}
+.layui-table thead tr th{
+	background-color: #0091FF !important;
+	text-align: center !important;
+	color: #FFFFFF;
+}
+.layui-table tbody tr td:first-child{
+	text-align: center;
+}
+.layui-table tbody tr td:nth-child(2n){
+	padding:20px 30px;
+}
+.layui-table tbody tr td{
+	font-size: 12px !important;
+	color: #222222 !important;
+}
+.layui-table tbody tr td li{
+	margin-top:10px;
+}
+.layui-table tbody tr td li:first-child{
+	margin-top:0;
+}

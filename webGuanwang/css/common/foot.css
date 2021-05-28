@@ -1,0 +1,144 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    min-width:1280px;
+    height: 350px;
+    background-color: #050912;
+}
+
+.container .sub>li{
+    float: left;
+    position: relative;
+    padding-right: 70px;
+    padding-top: 30px;
+}
+
+.container .sub>li>a{
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.container .sub>li>a:hover{
+    color: #0091FF;
+}
+
+.content-sub{
+    width: 1280px;
+    height: 200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.sub-detail{
+    margin-top: 15px;
+}
+
+.sub-detail>li{
+    padding: 2px;
+}
+
+.sub-detail>li>a{
+    font-size: 10px;
+    color: #9DA0A5;
+}
+
+.sub-detail>li>a:hover{
+    color: #0091FF;
+}
+
+.sub-contact{
+    width: 300px;
+    padding-right: 0!important;
+    color: white;
+    text-align: left;
+}
+
+.sub-contact >div{
+    /* padding-left: 25px; */
+	text-align: center;
+}
+
+
+.sub-information>li{
+    float: left;
+    position: relative;
+    margin: 0 25px;
+    text-align: center;
+}
+
+.sub-detail-img>span{
+    display:block;
+    font-size: 10px;
+    color: #9DA0A5;
+    margin-top: 5px;
+}
+
+.content-contact{
+    width: 1280px;
+    margin: 10px auto;
+    color: #9DA0A5;
+    font-size: 10px;
+	overflow: auto;
+}
+
+.content-contact >div{
+    height: 30px;
+    line-height: 30px;
+}
+
+.content-contact .span_right{
+    margin-right: 100px;
+    float: right;
+    position: relative;
+    right: 10px;
+}
+
+.content-contact a{
+    font-size: 10px;
+    color: #9DA0A5;
+}
+
+.content-contact a:hover{
+    color: #0091FF;
+}
+
+.content-contact img{
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+
+.img_gswj{
+    padding-top: 10px;
+    height: 42px !important;
+    line-height: 40px !important;
+}
+
+.img_gswj img{
+    width: 100px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+
+.container .content-div-ver{
+    height: 300px;
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+.sub_hr{
+    border-right: 1px solid rgba(255,255,255,0.10);
+    height: 100px;
+    margin-top: 30px;
+    margin-right: 27px;
+}
+
