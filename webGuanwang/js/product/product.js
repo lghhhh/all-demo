@@ -72,9 +72,23 @@ $(window).scroll(function(){
     }
 });
 
-layui.use('element', function(){
-    var element = layui.element;
-    //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+// layui.use('element', function(){
+//     var element = layui.element;
+//     //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+//     var layid = location.hash.replace(/^#tab=/, '');
+//     element.tabChange('mapService', layid);
+
+//     window.addEventListener('hashchange',()=>{
+//         var layid = location.hash.replace(/^#tab=/, '');
+//         element.tabChange('mapService', layid); 
+//         // document.getElementById(hash).scrollIntoView()
+//     },false)
+// });
+
+layui.use(['layer', 'element'], function () {
+    const element = layui.element;
+    const layer = layui.layer;
+
     var layid = location.hash.replace(/^#tab=/, '');
     element.tabChange('mapService', layid);
 
@@ -83,4 +97,19 @@ layui.use('element', function(){
         element.tabChange('mapService', layid); 
         // document.getElementById(hash).scrollIntoView()
     },false)
+    window.addEventListener('load', () => {
+        const tbcDomArr = document.getElementsByClassName('to-be-continue')
+        // const tbcArr=[...tbcDomArr]
+        for (let i = 0; i < tbcDomArr.length; i++) {
+            tbcDomArr[i].addEventListener('click', () => {
+                // layer.msg('敬请期待'); 
+                layer.open({
+                    content: '敬请期待',
+                    time: 3000,
+                    btn: []
+                });
+
+            })
+        }
+    })
 });

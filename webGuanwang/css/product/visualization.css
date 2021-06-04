@@ -178,11 +178,11 @@ a {
 }
 .tab-content-item-btn:hover{
 	background-color: #0091FF;
+	color: #FFFFFF;
 
 }
 .tab-content-item-btn:hover a{
 	color: #FFFFFF;
-
 }
 /* ---------------------------- */
 .tab-content-block{
@@ -208,7 +208,9 @@ a {
 	height: 300px;
 	position: relative;
 	text-align: center;
-	border: 1px dotted;
+	border: 0.01px solid rgba(0,0, 0, 0.1);
+	border-radius: 5px;
+	box-shadow: 2px 5px 5px 2px rgba(0,0, 0, 0.1);
 	margin-right: 20px;
 	margin-bottom: 30px;
 
@@ -217,7 +219,7 @@ a {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	width: 400px;
+	width: 398px;
 	height: 40px;
 	background: #000000;
 	opacity: 0.8;
@@ -225,6 +227,9 @@ a {
 	font-weight: 400;
 	color: #FFFFFF;
 	line-height: 40px;
+	border: 1px solid #000000;
+	border-bottom-right-radius: 5px;
+    border-bottom-left-radius:5px
 }
 /* --------------------------------------------- */
 .example-content-item{
@@ -271,7 +276,7 @@ margin-bottom: 21px;
 
 font-size: 18px;
 font-weight: 400;
-color: #FFFFFF;
+color: #ACACAC;
 line-height: 32px;
 }
 

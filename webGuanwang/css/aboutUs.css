@@ -66,8 +66,9 @@ a{
 公司简介
  */
 .content-introduce{
-    height: 680px;
+    height: 550px;
     background-image: url("../images/aboutUs/bcg_aboutUs.png");
+    background-size: 100% 100%;
 }
 
 .content-introduce .desc{

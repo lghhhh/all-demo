@@ -83,9 +83,12 @@ a{
     text-align: center;
 }
 
+.layui-tab-title {
+    border-color:  rgba(255, 255, 255, 0.15) !important;
+}
 .layui-tab-title li{
     font-size: 16px  !important;
-    padding: 0 20px !important;
+    margin: 0 50px !important;
     font-weight: 400 ;
     color: #2D3243 ;
     line-height: 22px ;
@@ -107,7 +110,7 @@ a{
     color: #FFFFFF ;
 }
 .black-background  .layui-tab-title li{
-    color: #FFFFFF ;
+    color: #ACACAC ;
 }
 .black-background  .detail-item-text-title{
     color: #FFFFFF ;
@@ -278,9 +281,11 @@ a{
 }
 /* ---------------------------智能交通--------------------- */
 #tab-active-background{
+    max-width: 1920px;
     margin: 0 auto;
     background-repeat: no-repeat;
-    /* background-position-x:right ; */
+    background-position-x:right ;
+    background-size:100% 100%
 }
 .middle-position{
     position: absolute; 
