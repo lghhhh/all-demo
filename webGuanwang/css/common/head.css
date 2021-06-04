@@ -105,6 +105,7 @@ a:hover{
 
 .sub-menu2 .sub-func .detail{
     margin-top: 10px;
+    text-align: left;
 }
 
 .sub-menu2 .sub-func .detail >li{

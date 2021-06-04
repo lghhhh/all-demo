@@ -73,6 +73,14 @@ $(window).scroll(function(){
 });
 
 layui.use('element', function(){
-    var $ = layui.jquery
-        ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+    var element = layui.element;
+    //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+    var layid = location.hash.replace(/^#tab=/, '');
+    element.tabChange('mapService', layid);
+
+    window.addEventListener('hashchange',()=>{
+        var layid = location.hash.replace(/^#tab=/, '');
+        element.tabChange('mapService', layid); 
+        // document.getElementById(hash).scrollIntoView()
+    },false)
 });

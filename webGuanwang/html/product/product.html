@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>产品中心</title>
@@ -9,195 +10,439 @@
     <script src="../../js/layui-v2.5.6/layui/layui.js"></script>
     <script src="../../js/common/head.js"></script>
 </head>
+
 <body>
 
-<div id="container" class="container">
-    <!--主体 -->
-    <div class="page-content">
-        <div id="backTop" class="back-top hide">
-            <a href="#container_head" ><img src="../../images/index/back_top.png" alt="返回顶部"></a>
-        </div>
-        <div id="pageHead" class="head">
-            <div class="pic">
-                <img src="../../images/product/banner_product.png">
+    <div id="container" class="container">
+        <!--主体 -->
+        <div class="page-content">
+            <div id="backTop" class="back-top hide">
+                <a href="#container_head"><img src="../../images/index/back_top.png" alt="返回顶部"></a>
             </div>
-            <div id="product" class="product">
-                <ul>
-                    <li class="product-hr">
-                        <div><a href="#detail-data">数据产品</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#detail-navigation">导航产品</a></div>
-                    </li>
-                    <li>
-                        <div><a href="#detail-government">政企产品</a></div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="detail">
-            <div id="detail-data" class="detail-data">
-                <div class="font-title"><span>数据产品</span></div>
-                <div class="font-desc"><span>全国范围全实地采集，持续迭代</span></div>
-                <div class="detail">
-                    <ul id="data_detail">
-                        <li>
-                            <div>
-                                <div><img src="../../images/product/comprehensiveData.png" alt=""></div>
-                                <div class="title"><span >综合数据产品</span></div>
-                                <div class="desc"><span>电子地图、导航电子地图、货车电子地图、城市公共交通电子地图。</span></div>
-                                <div class="btn btn1"><a href="dataProduct.html?tab=0" target="_parent">查看详情</a></div>
-                            </div>
+            <div id="pageHead" class="head">
+                <div class="pic">
+                    <img src="../../images/product/banner_product.png">
+                </div>
+                <div id="product" class="product">
+                    <ul>
+                        <li class="product-hr">
+                            <div><a href="#detail-map">地图服务</a></div>
                         </li>
                         <li>
-                            <div>
-                                <div><img src="../../images/product/thematicData.jpg" alt=""></div>
-                                <div class="title"><span>专题数据产品</span></div>
-                                <div class="desc"><span>注记数据、水系数据、建筑物面数据、行政区数据、电子眼数据、路口实景数据、公共地铁数据、兴趣点数据、实时路况数据、车道级道路数据。</span></div>
-                                <div class="btn btn2"><a href="dataProduct.html?tab=1" target="_parent">查看详情</a></div>
-                            </div>
+                            <div><a href="#detail-data">数据产品</a></div>
                         </li>
                         <li>
-                            <div>
-                                <div><img src="../../images/product/networkData.png" alt=""></div>
-                                <div class="title"><span></span>网点数据产品</div>
-                                <div class="desc"><span>医院网点数据、学校网点数据、加油站网点数据、充电站网点数据、景区网点数据、酒店网点数据。</span></div>
-                                <div class="btn btn3"><a href="dataProduct.html?tab=2" target="_parent">查看详情</a></div>
-                            </div>
+                            <div><a href="#detail-navigation">导航产品</a></div>
                         </li>
+
                     </ul>
                 </div>
             </div>
-            <div id="detail-navigation" class="detail-navigation">
-                <div class="font-title"><span>导航产品</span></div>
-                <div class="font-desc"><span>针对不同场景研发，服务更贴心</span></div>
-                <div class="layui-tab layui-tab-brief" lay-filter="tableService">
-                    <ul class="layui-tab-title">
-                        <li class="layui-this title_margin">一般应用领域</li>
-                        <li>专属应用领域</li>
-                    </ul>
-                    <div class="layui-tab-content" style="height: 500px;">
-                        <div class="layui-tab-item layui-show">
-                            <div class="layui-tab-item layui-show">
-                                <ul class="product_detail">
-                                    <li>
-                                        <div><img src="../../images/index/index_44.png"></div>
-                                        <div class="product_detail_title">传统导航</div>
-                                        <div class="product_detail_text">提供包括漫游提醒服务及路线引导服务</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#tradition">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_45.png"></div>
-                                        <div class="product_detail_title">高精度导航</div>
-                                        <div class="product_detail_text">全新领航视角，第一视角场景切换，全程实景导航，车道级路径规划与引导</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#precision">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_47.png"></div>
-                                        <div class="product_detail_title">手机导航</div>
-                                        <div class="product_detail_text">多种路线模式选择，包括步行、骑行、公交、车辆导航，语音引导，K友结伴游</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#phone">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_46.png"></div>
-                                        <div class="product_detail_title">停车场导航</div>
-                                        <div class="product_detail_text">提供停车场室内地图显示、导航至停车位，反向寻车等功能。</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#parking">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_48.png"></div>
-                                        <div class="product_detail_title">仪表盘导航</div>
-                                        <div class="product_detail_text">提供适配汽车仪表盘显示的地图显示及导航服务。</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#dashboard">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_43.png"></div>
-                                        <div class="product_detail_title">AR导航</div>
-                                        <div class="product_detail_text">影像融合、精准的车道级引导，智能感知周边环境。</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#AR">查看详情</a></div>
-                                    </li>
-                                </ul>
+
+            <div class="detail">
+                <div id="detail-map" class="detail-map">
+                    <div class="font-title"><span>地图服务</span></div>
+                    <div class="detail">
+                        <div class="layui-tab layui-tab-brief" lay-filter="mapService">
+                            <ul class="layui-tab-title">
+                                <li lay-id="1"class="layui-this">地图渲染</li>
+                                <li lay-id="2">定位</li>
+                                <li lay-id="3" >搜索</li>
+                                <li lay-id="4" >路径规划</li>
+                                <li lay-id="5" >轨迹</li>
+                                <li lay-id="6" >路况</li>
+                                <li lay-id="7" >自定义地图</li>
+                                <li lay-id="8" >数据可视化</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <!-- 地图渲染 -->
+                                <div class="layui-tab-item layui-show">
+                                    <div class="detail-map-content">
+                                        <div class="data-map-item">
+                                            <div><img src="../../images/product/mapService/mapRender.png" alt=""></div>
+                                            <div class="map-item-text">
+                                                <div class="map-item-text-title"><span>地图渲染</span></div>
+                                                <div class="map-item-text-content">
+                                                    <ul>
+                                                        <li>2D地图</li>
+                                                        <li>3D地图</li>
+                                                        <li>高精度地图地图</li>
+                                                        <li>三维实景高精度地图</li>
+                                                        <li>室内地图</li>
+                                                        <li>停车场地图</li>
+                                                        <li>交通仿真地图</li>
+                                                        <li>公共交通地图</li>
+                                                        <li>园区地图</li>
+                                                        <li>水系地图</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="map-item-text-btn"><a href="dataProduct.html"
+                                                        target="_parent">查看详情</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 定位 -->
+                                <div class="layui-tab-item">
+                                    <div class="detail-map-content">
+                                        <div class="data-map-item">
+                                            <div><img src="../../images/product/mapService/position.png" alt=""></div>
+                                            <div class="map-item-text">
+                                                <div class="map-item-text-title"><span>定位</span></div>
+                                                <div class="map-item-text-content-nofloat">
+                                                    <ul>
+                                                        <li>支持多种定位模式融合</li>
+                                                        <li>支持基于高精度地图以及RTK的车道级定位</li>
+                                                        <li>支持地理围栏功能</li>
+                                                        <li>为智能穿戴、儿童手表、生活服务、快递物流、园区管理、室内停车场等多种应用场景提供定位服务</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="map-item-text-btn"><a href="dataProduct.html"
+                                                        target="_parent">查看详情</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 搜索 -->
+                                <div class="layui-tab-item">
+                                    <div class="detail-map-content">
+                                        <div class="data-map-item">
+                                            <div><img src="../../images/product/mapService/search.png" alt=""></div>
+                                            <div class="map-item-text">
+                                                <div class="map-item-text-title"><span>搜索</span></div>
+                                                <div class="map-item-text-content">
+                                                    <ul>
+                                                        <li>关键字</li>
+                                                        <li>周边</li>
+                                                        <li>矩形</li>
+                                                        <li>多边形</li>
+                                                        <li>输入提示</li>
+                                                        <li>地理编码</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="map-item-text-btn"><a href="dataProduct.html"
+                                                        target="_parent">查看详情</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 路径规划 -->
+                                <div class="layui-tab-item">
+                                    <div class="detail-map-content">
+                                        <div class="data-map-item">
+                                            <div><img src="../../images/product/mapService/routePlan.png" alt=""></div>
+                                            <div class="map-item-text">
+                                                <div class="map-item-text-title"><span>路径规划</span></div>
+                                                <div class="map-item-text-content">
+                                                    <ul>
+                                                        <li>车道级路线规划</li>
+                                                        <li>乘用车路线规划</li>
+                                                        <li>货车路线规划</li>
+                                                        <li>特种车路线规划</li>
+                                                        <li>公交路线规划</li>
+                                                        <li>骑行路线规划</li>
+                                                        <li>步行路线规划</li>
+                                                        <li>新能源汽车路线规划</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="map-item-text-btn"><a href="dataProduct.html"
+                                                        target="_parent">查看详情</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 轨迹 -->
+                                <div class="layui-tab-item">
+                                    <div class="detail-map-content">
+                                        <div class="data-map-item">
+                                            <div><img src="../../images/product/mapService/trace.png" alt=""></div>
+                                            <div class="map-item-text">
+                                                <div class="map-item-text-title"><span>轨迹</span></div>
+                                                <div class="map-item-text-content">
+                                                    <ul>
+                                                        <li>轨迹回放</li>
+                                                        <li>轨迹纠偏</li>
+                                                        <li>精准里程</li>
+                                                        <li>轨迹分析</li>
+                                                        <li>轨迹查询</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="map-item-text-btn"><a href="dataProduct.html"
+                                                        target="_parent">查看详情</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 路况 -->
+                                <div class="layui-tab-item">
+                                    <div class="detail-map-content">
+                                        <div class="data-map-item">
+                                            <div><img src="../../images/product/mapService/roadInfo.png" alt=""></div>
+                                            <div class="map-item-text">
+                                                <div class="map-item-text-title"><span>路况</span></div>
+                                                <div class="map-item-text-content">
+                                                    <ul>
+                                                        <li>实时交通服务</li>
+                                                        <li>车道级路况</li>
+                                                        <li>多终端实时路况展示</li>
+                                                        <li>路况查询服务</li>
+                                                        <li>漫游路况服务</li>
+                                                        <li>路况数据匹配服务</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="map-item-text-btn"><a href="dataProduct.html"
+                                                        target="_parent">查看详情</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 自定义地图 -->
+                                <div class="layui-tab-item">
+                                    <div class="detail-map-content">
+                                        <div class="data-map-item">
+                                            <div>
+                                                <!-- 有控件 -->
+                                                <!-- <video controls width="640" autoplay="autoplay">
+                                                    <source src="../../images/product/mapService/mapCustomize.mp4" type="video/mp4">
+                                                    Sorry, your browser doesn't support embedded videos.
+                                                </video> -->
+                                                <!-- 无控件 -->
+                                                <video src="../../images/product/mapService/mapCustomize.mp4" muted="muted"
+									autoplay="autoplay" loop ></video>
+                                            </div>
+                                            <div class="map-item-text">
+                                                <div class="map-item-text-title"><span>自定义地图</span></div>
+                                                <div class="map-item-text-content-nofloat">
+                                                    <ul>
+                                                        <li>风格多样的地图模版</li>
+                                                        <li>10大类72种元素样式编辑</li>
+                                                        <li>提供JSON及样式ID两种调用方式</li>
+                                                        <li>四步快速创建个性化地图</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="map-item-text-btn"><a href="dataProduct.html"
+                                                        target="_parent">查看详情</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 数据可视化 -->
+                                <div class="layui-tab-item">
+                                    <div class="detail-map-content">
+                                        <div class="data-map-item">
+                                            <div><img src="../../images/product/mapService/dataVisualization.png"
+                                                    alt=""></div>
+                                            <div class="map-item-text">
+                                                <div class="map-item-text-title"><span>数据可视化</span></div>
+                                                <div class="map-item-text-content-nofloat">
+                                                    <ul>
+                                                        <li>强大的渲染引擎</li>
+                                                        <li>强大的编辑辅助工具</li>
+                                                        <li>多类型的地图数据融合</li>
+                                                        <li>多样的地图风格及展现形式</li>
+                                                        <li>丰富的案例模版</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="map-item-text-btn"><a href="dataProduct.html"
+                                                        target="_parent">查看详情</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="layui-tab-item">
+                    </div>
+
+                </div>
+                <!-- 数据产品 -->
+                <div id="detail-data" class="detail-data">
+                    <div class="font-title"><span>数据产品</span></div>
+                    <div class="font-desc"><span>全国范围全实地采集，持续迭代</span></div>
+                    <div class="detail">
+                        <div class="detail-data-content">
+                            <div class="data-content-item">
+                                <div class="item-img">
+                                    <img src="../../images/product/precisionData320x240.png">
+                                </div>
+                                <div class="item-text">
+                                    <div class="item-text-title"><span>高精度数据产品</span></div>
+                                    <div class="item-text-desc"><span>面向自动驾驶的全国高速路网高精度地图数据、面向智慧城市提供大屏时空可视化地图及服务。</span>
+                                    </div>
+                                    <div class="item-text-btn"><a href="dataProduct.html" target="_parent">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data-content-item">
+                                <div class="item-img">
+                                    <img src="../../images/product/comprehensiveData320x240.png">
+                                </div>
+                                <div class="item-text">
+                                    <div class="item-text-title"><span>综合数据产品</span></div>
+                                    <div class="item-text-desc"><span>包括WEB地图、导航地图、货车地图等综合类数据产品。</span></div>
+                                    <div class="item-text-btn"><a href="dataProduct.html?tab=0"
+                                            target="_parent">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data-content-item">
+                                <div class="item-img">
+                                    <img src="../../images/product/thematicData320x240.png">
+                                </div>
+                                <div class="item-text">
+                                    <div class="item-text-title"><span>专题数据产品</span></div>
+                                    <div class="item-text-desc">
+                                        <span>注记数据、水系数据、建筑物面数据、行政区数据、电子眼数据、路口实景数据、公共地铁数据、兴趣点数据、实时路况数据、车道级道路数据。</span>
+                                    </div>
+                                    <div class="item-text-btn"><a href="dataProduct.html?tab=1"
+                                            target="_parent">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data-content-item">
+                                <div class="item-img">
+                                    <img src="../../images/product/networkData320x240.png">
+                                </div>
+                                <div class="item-text">
+                                    <div class="item-text-title"><span>网点数据产品</span></div>
+                                    <div class="item-text-desc">
+                                        <span>医院网点数据、学校网点数据、加油站网点数据、充电站网点数据、景区网点数据、酒店网点数据。</span>
+                                    </div>
+                                    <div class="item-text-btn"><a href="dataProduct.html?tab=2"
+                                            target="_parent">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 导航产品 -->
+                <div id="detail-navigation" class="detail-navigation">
+                    <div class="font-title"><span>导航产品</span></div>
+                    <div class="font-desc"><span>针对不同场景研发，服务更贴心</span></div>
+                    <div class="layui-tab layui-tab-brief" lay-filter="tableService">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this title_margin">导航产品形态</li>
+                            <li>专属应用领域</li>
+                        </ul>
+                        <div class="layui-tab-content" style="height: 500px;">
                             <div class="layui-tab-item layui-show">
-                                <ul class="product_detail">
-                                    <li>
-                                        <div><img src="../../images/index/index_38.png"></div>
-                                        <div class="product_detail_title">乘用车导航</div>
-                                        <div class="product_detail_text">面向小汽车用户，根据路况变化实时提供避堵路线，无路线时提供巡航模式</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#passengerCar">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_39.png"></div>
-                                        <div class="product_detail_title">货车导航</div>
-                                        <div class="product_detail_text">避开限高、限宽、限重、限轴重、限行等路段，货运专题数据，货车动态限行，驾驶安全</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#freight">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_37.png"></div>
-                                        <div class="product_detail_title">新能源汽车导航</div>
-                                        <div class="product_detail_text">智能充电算路、智能寻桩、专题数据、智能出行闭环</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#energy">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_41.png"></div>
-                                        <div class="product_detail_title">特种车导航</div>
-                                        <div class="product_detail_text">北斗定位通讯、离线地图加载、安全监控、路线下发、专属路线规划</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#cerv">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_40.png"></div>
-                                        <div class="product_detail_title">泥头车导航</div>
-                                        <div class="product_detail_text">路线偏移提醒、通行路线查询、隐患点提醒、专属路线规划服务</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#mudTruck">查看详情</a></div>
-                                    </li>
-                                    <li>
-                                        <div><img src="../../images/index/index_42.png"></div>
-                                        <div class="product_detail_title">智能穿戴设备导航</div>
-                                        <div class="product_detail_text">多种路线模式选择，包括步行、骑行、公交、车辆导航，语音引导，K友结伴游</div>
-                                        <div class="product_detail_btn"><a href="navigationProduct.html#wear">查看详情</a></div>
-                                    </li>
-                                </ul>
+                                <div class="layui-tab-item layui-show">
+                                    <ul class="product_detail">
+                                        <li>
+                                            <div><img src="../../images/index/index_44.png"></div>
+                                            <div class="product_detail_title">传统导航</div>
+                                            <div class="product_detail_text">提供包括漫游提醒服务及路线引导服务</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#tradition">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_45.png"></div>
+                                            <div class="product_detail_title">高精度导航</div>
+                                            <div class="product_detail_text">全新领航视角，第一视角场景切换，全程实景导航，车道级路径规划与引导</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#precision">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_47.png"></div>
+                                            <div class="product_detail_title">手机导航</div>
+                                            <div class="product_detail_text">多种路线模式选择，包括步行、骑行、公交、车辆导航，语音引导，K友结伴游</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#phone">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_46.png"></div>
+                                            <div class="product_detail_title">停车场导航</div>
+                                            <div class="product_detail_text">提供停车场室内地图显示、导航至停车位，反向寻车等功能。</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#parking">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_48.png"></div>
+                                            <div class="product_detail_title">仪表盘导航</div>
+                                            <div class="product_detail_text">提供适配汽车仪表盘显示的地图显示及导航服务。</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#dashboard">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_43.png"></div>
+                                            <div class="product_detail_title">AR导航</div>
+                                            <div class="product_detail_text">影像融合、精准的车道级引导，智能感知周边环境。</div>
+                                            <div class="product_detail_btn"><a href="navigationProduct.html#AR">查看详情</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="layui-tab-item layui-show">
+                                    <ul class="product_detail">
+                                        <li>
+                                            <div><img src="../../images/index/index_38.png"></div>
+                                            <div class="product_detail_title">乘用车导航</div>
+                                            <div class="product_detail_text">面向小汽车用户，根据路况变化实时提供避堵路线，无路线时提供巡航模式</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#passengerCar">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_39.png"></div>
+                                            <div class="product_detail_title">货车导航</div>
+                                            <div class="product_detail_text">避开限高、限宽、限重、限轴重、限行等路段，货运专题数据，货车动态限行，驾驶安全
+                                            </div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#freight">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_37.png"></div>
+                                            <div class="product_detail_title">新能源汽车导航</div>
+                                            <div class="product_detail_text">智能充电算路、智能寻桩、专题数据、智能出行闭环</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#energy">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_41.png"></div>
+                                            <div class="product_detail_title">特种车导航</div>
+                                            <div class="product_detail_text">北斗定位通讯、离线地图加载、安全监控、路线下发、专属路线规划</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#cerv">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_40.png"></div>
+                                            <div class="product_detail_title">泥头车导航</div>
+                                            <div class="product_detail_text">路线偏移提醒、通行路线查询、隐患点提醒、专属路线规划服务</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#mudTruck">查看详情</a></div>
+                                        </li>
+                                        <li>
+                                            <div><img src="../../images/index/index_42.png"></div>
+                                            <div class="product_detail_title">智能穿戴设备导航</div>
+                                            <div class="product_detail_text">多种路线模式选择，包括步行、骑行、公交、车辆导航，语音引导，K友结伴游</div>
+                                            <div class="product_detail_btn"><a
+                                                    href="navigationProduct.html#wear">查看详情</a></div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--政企产品 -->
-            <div id="detail-government" class="detail-government ">
-                <div class="font-title"><span>政企产品</span></div>
-                <div class="font-desc desc"><span>多种类行业应用平台，提供基于位置信息的各种服务，通过数据可视化、处理流程化为您的决策提供参考依据</span></div>
-                <div class="choice">
-                    <ul>
-                        <li class="choice-title">
-                            <div><span>地图数据</span></div>
-                         </li>
-                        <li>
-                            <div><span>web地图</span></div>
-                        </li>
-                        <li>
-                            <div><span>监控类产品</span></div>
-                        </li>
-                        <li>
-                            <div><span>定制型行业应用</span></div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="choice-detail">
-                    <iframe width="100%" height="900px"  src="detail/mapData.html"  frameborder="no"  marginwidth="0" marginheight="0" scrolling="no" ></iframe>
-                    <iframe class="hidden" width="100%" height="800px"  src="detail/mapWeb.html"  frameborder="no" marginwidth="0" marginheight="0" scrolling="no" ></iframe>
-                    <iframe class="hidden" width="100%" height="1500px"  src="detail/monitoringProducts.html"  frameborder="no"  marginwidth="0" marginheight="0" scrolling="no" ></iframe>
-                    <iframe class="hidden" width="100%" height="380px"  src="detail/mapCustomized.html"  frameborder="no"  marginwidth="0" marginheight="0" scrolling="no"></iframe>
-                </div>
-            </div>
+        </div>
+        <!-- 底部-->
+        <div id="page-foot" class="page_foot">
+            <iframe width="100%" height="350px" src="../common/foot.html" frameborder="no" border="0" marginwidth="0"
+                marginheight="0" scrolling="no"></iframe>
         </div>
     </div>
-    <!-- 底部-->
-    <div id="page-foot" class="page_foot">
-        <iframe width="100%"  height="350px"  src="../common/foot.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-    </div>
-</div>
-<script type="text/javascript" src="../../js/product/product.js"></script>
+    <script type="text/javascript" src="../../js/product/product.js"></script>
 </body>
+
 </html>

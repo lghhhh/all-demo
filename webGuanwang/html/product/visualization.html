@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>时空可视化平台</title>
+	<link rel="stylesheet" href="../../css/product/visualization.css" type="text/css">
+	<link rel="stylesheet" href="../../js/layui-v2.5.6/layui/css/layui.css">
+	<script src="../../js/jar/jquery-1.10.2.min.js"></script>
+	<script src="../../js/layui-v2.5.6/layui/layui.js"></script>
+	<script src="../../js/common/head.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+		<!--主体 -->
+		<div class="page-content">
+			<div id="backTop" class="back-top hide">
+				<a href="#container_head"><img src="../../images/index/back_top.png" alt="返回顶部"></a>
+			</div>
+			<div class="head">
+				<div class="head-background"
+					style="background-image: url('../../images/product/banner_visualization1920x440.png')">
+					<div class="head-content">
+						<span class="head-content-title">时空可视化平台</span>
+						<p></p>
+						<span class="head-content-text">提供多场景地图数据可视化能力，实现时空地理大数据的挖掘、统计、分析</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="detail">
+			<!-- 强大的渲染引擎 -->
+			<div id="engine" class="detail-content">
+				<div class="detail-content-title"><span>强大的渲染引擎</span></div>
+				<div class="detail-content-desc"><span>平台提供丰富的数据展示效果，如点、线、面、热力、多种地图、动效等展示效果</span></div>
+				<div class="detail">
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+						<ul class="layui-tab-title">
+							<li class="layui-this">点</li>
+							<li>线</li>
+							<li>面</li>
+							<li>热力</li>
+							<li>地图</li>
+							<li>光照/天气</li>
+							<li>动效果</li>
+						</ul>
+						<div class="layui-tab-content">
+							<!-- 点 -->
+							<div class="layui-tab-item layui-show">
+								<div class="tab-content">
+									<div class="tab-content-item">
+										<div class="tab-content-item-left"><img
+												src="../../images/product/timeSpaceVisualization/engine/dot.png" alt="">
+										</div>
+										<div class="tab-content-item-right">
+											<div class="tab-content-item-title"><span>点图层</span></div>
+											<div class="tab-content-item-content">
+												<span>平台提供多种类型点图层的展示效果，如POI点、POI聚合点、海量点、不同颜色大小点、分类散点、文字图层等多种类型点的展示效果。</span>
+											</div>
+											<div class="tab-content-item-btn"><a href="dataProduct.html"
+													target="_parent">查看详情</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 线 -->
+							<div class="layui-tab-item ">
+								<div class="tab-content">
+									<div class="tab-content-item">
+										<div class="tab-content-item-left"><img
+												src="../../images/product/timeSpaceVisualization/engine/line.png"
+												alt=""></div>
+										<div class="tab-content-item-right">
+											<div class="tab-content-item-title"><span>线图层</span></div>
+											<div class="tab-content-item-content">
+												<span>平台提供多种类型线图层的展示效果，如路径线、分类路径、单色路径、直线连接线、飞线、蝌蚪线等多种类型线的展示效果。</span>
+											</div>
+											<div class="tab-content-item-btn"><a href="dataProduct.html"
+													target="_parent">查看详情</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 面 -->
+							<div class="layui-tab-item ">
+								<div class="tab-content">
+									<div class="tab-content-item">
+										<div class="tab-content-item-left"><img
+												src="../../images/product/timeSpaceVisualization/engine/area.png"
+												alt=""></div>
+										<div class="tab-content-item-right">
+											<div class="tab-content-item-title"><span>面图层</span></div>
+											<div class="tab-content-item-content">
+												<span>平台提供多种类型面图层的展示效果，如全国行政区、省级行政区、市县级行政区、小区面、楼快图、网格面、自定义WEBGL图层等多种类型面的展示效果。</span>
+											</div>
+											<div class="tab-content-item-btn"><a href="dataProduct.html"
+													target="_parent">查看详情</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 热力 -->
+							<div class="layui-tab-item ">
+								<div class="tab-content">
+									<div class="tab-content-item">
+										<div class="tab-content-item-left"><img
+												src="../../images/product/timeSpaceVisualization/engine/thermodynamic.png"
+												alt=""></div>
+										<div class="tab-content-item-right">
+											<div class="tab-content-item-title"><span>热力图层</span></div>
+											<div class="tab-content-item-content">
+												<span>平台提供多种类型热力图层的展示效果，如2D基础热力图、3D热力图、点热力图、路径热力图、柱状热力图、网格热力图、蜂窝热力图等多种类型热力展示效果。</span>
+											</div>
+											<div class="tab-content-item-btn"><a href="dataProduct.html"
+													target="_parent">查看详情</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 地图渲染 -->
+							<div class="layui-tab-item ">
+								<div class="tab-content">
+									<div class="tab-content-item">
+										<div class="tab-content-item-left"><img
+												src="../../images/product/timeSpaceVisualization/engine/map.png" alt="">
+										</div>
+										<div class="tab-content-item-right">
+											<div class="tab-content-item-title"><span>地图渲染</span></div>
+											<div class="tab-content-item-content">
+												<span>平台提供多种风格的地图呈现效果，如不同风格的2D地图、3D地图、时空数据呈现地图，可根据自身需求自定义属于您自己的专属业务地图。</span>
+											</div>
+											<div class="tab-content-item-btn"><a href="dataProduct.html"
+													target="_parent">查看详情</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 光照/天气 -->
+							<div class="layui-tab-item ">
+								<div class="tab-content">
+									<div class="tab-content-item">
+										<div class="tab-content-item-left"><img
+												src="../../images/product/timeSpaceVisualization/engine/light.png"
+												alt=""></div>
+										<div class="tab-content-item-right">
+											<div class="tab-content-item-title"><span>模拟光照/天气</span></div>
+											<div class="tab-content-item-content">
+												<span>平台提供模拟24小时光照及不同的天气模拟效果，如早晨、中午、黄昏、夜间的光照；晴天、阴天、雨天、雪天等天气效果，光照与天气可组合呈现。</span>
+											</div>
+											<div class="tab-content-item-btn"><a href="dataProduct.html"
+													target="_parent">查看详情</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 动效 -->
+							<div class="layui-tab-item ">
+								<div class="tab-content">
+									<div class="tab-content-item">
+										<div class="tab-content-item-left"><img
+												src="../../images/product/timeSpaceVisualization/engine/dynamicEffect.png"
+												alt=""></div>
+										<div class="tab-content-item-right">
+											<div class="tab-content-item-title"><span>动效</span></div>
+											<div class="tab-content-item-content">
+												<span>平台提供多种类型的动画展示效果，如波纹涟漪动效、路径动效、迁徙动效、车流轨迹动效等。</span>
+											</div>
+											<div class="tab-content-item-btn"><a href="dataProduct.html"
+													target="_parent">查看详情</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 强大的编辑辅助功能 -->
+			<div style="background: #F5F7FA;border: 1px solid #F5F7FA;">
+				<div  id="editsupport" class="detail-content">
+					<div class="detail-content-title"><span>强大的编辑辅助功能</span></div>
+					<div class="detail-content-desc"><span>平台除提供地图展示基础功能外，新增了许多新功能，最大限度满足用户的业务需求</span></div>
+					<div class="detail">
+						<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+							<ul class="layui-tab-title">
+								<li class="layui-this">检索</li>
+								<li>对象选择</li>
+								<li>楼宇拆解</li>
+								<li>自定义POI</li>
+								<li>车流轨迹</li>
+								<li>路况</li>
+								<li>热力图</li>
+								<li>路径规划</li>
+								<li>测距</li>
+								<li>标注</li>
+								<li>可视域分析</li>
+							</ul>
+							<div class="layui-tab-content">
+								<!-- 检索 -->
+								<div class="layui-tab-item layui-show">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>检索</span></div>
+												<div class="tab-content-item-content">
+													<span>平台提供多种类型的检索方式，包括关键字检索、周边检索、矩形检索、多边形检索、地理编码、输入提示等检索方式。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/search.png"
+													alt=""></div>
+										</div>
+									</div>
+								</div>
+								<!-- 对象选择 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>对象选择</span></div>
+												<div class="tab-content-item-content">
+													<span>提供多种对象单体化选择，包括建筑物、小区面、道路、自定义设备等，每一类对象皆可自定义属性及数据呈现效果。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/objectSelect.png"
+													alt=""></div>
+
+										</div>
+									</div>
+								</div>
+								<!-- 楼宇拆解 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>楼宇拆解</span></div>
+												<div class="tab-content-item-content">
+													<span>提供单体化建筑的拆解功能，用户可对特定的建筑物拆解查看相关楼层结构、室内布局等信息。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/building.png"
+													alt=""></div>
+
+										</div>
+									</div>
+								</div>
+								<!-- 自定义POI -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>自定义POI</span></div>
+												<div class="tab-content-item-content">
+													<span>提供自定义POI功能，用户可根据自身需求上传自定义的标注图标。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/poi.png"
+													alt=""></div>
+										</div>
+									</div>
+								</div>
+								<!-- 车流轨迹 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>车流轨迹</span></div>
+												<div class="tab-content-item-content">
+													<span>提供运行车辆轨迹动态模拟功能，用户可在地图中实时查看车流轨迹及状态。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/carTrace.png"
+													alt=""></div>
+
+										</div>
+									</div>
+								</div>
+								<!-- 路况 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>路况</span></div>
+												<div class="tab-content-item-content">
+													<span>提供实时路况、路况服务数据、漫游路况、路况数据匹配、车道级路况服务，分钟级路况更新，交通态势实时掌控。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/roadCondition.png"
+													alt=""></div>
+
+										</div>
+									</div>
+								</div>
+								<!-- 热力图 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>热力图</span></div>
+												<div class="tab-content-item-content">
+													<span>提供多种热力呈现方式，用户可根据自身业务数据自定义不同的热力呈现效果。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/thermodynamic.png"
+													alt=""></div>
+										</div>
+									</div>
+								</div>
+								<!-- 路径规划 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>路径规划</span></div>
+												<div class="tab-content-item-content">
+													<span>提供多种路径规划方式，如驾车、公交、步行、货车、特种车辆等不同的出行路线规划，可添加多个经由点。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/routePlanning.png"
+													alt=""></div>
+										</div>
+									</div>
+								</div>
+								<!-- 测距 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>测距</span></div>
+												<div class="tab-content-item-content">
+													<span>系统提供测量工具，用户可在时空数据地图中测量距离、高度、面积。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/measuredDistance.png"
+													alt=""></div>
+										</div>
+									</div>
+								</div>
+								<!-- 标注 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>标注</span></div>
+												<div class="tab-content-item-content">
+													<span>提供点、线、面等多种类型的标注样式，用户可在地图中画点、线、面等类型元素，可自定义元素的样式、颜色、透明度。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/marked.png"
+													alt=""></div>
+										</div>
+									</div>
+								</div>
+								<!-- 可视域分析 -->
+								<div class="layui-tab-item ">
+									<div class="tab-content">
+										<div class="tab-content-item">
+											<div class="tab-content-item-right">
+												<div class="tab-content-item-title"><span>可视域分析</span></div>
+												<div class="tab-content-item-content">
+													<span>用户可在地图中选择一个点作为观测点，系统会根据观测点在空间中的位置计算出该点的可视区域范围，观测点可拖拽移动位置查看相应的可视区域。</span>
+												</div>
+												<div class="tab-content-item-btn"><a href="dataProduct.html"
+														target="_parent">查看详情</a>
+												</div>
+											</div>
+											<div class="tab-content-item-left"><img
+													src="../../images/product/timeSpaceVisualization/editSupport/analysis.png"
+													alt=""></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 多类型数据融合 -->
+			<div class="detail-content">
+				<div class="detail-content-title"><span>多类型数据融合</span></div>
+				<div class="detail">
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+						<ul class="layui-tab-title">
+							<li class="layui-this">基础地理信息数据</li>
+							<li>业务专题数据</li>
+							<li>智能感知数据</li>
+
+						</ul>
+						<div class="layui-tab-content">
+							<!-- 基础地理信息数据 -->
+							<div class="layui-tab-item layui-show">
+								<div class="tab-content">
+									<!-- 1 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-1.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>卫星影像数据</span>
+										</div>
+									</div>
+									<!-- 2 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-2.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>DEM高程数据</span>
+										</div>
+									</div>
+									<!-- 3 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-3.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>高精度路网数据</span>
+										</div>
+									</div>
+									<!-- 4 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-4.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>高精度背景数据</span>
+										</div>
+									</div>
+									<!-- 5 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-5.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>地名地址数据</span>
+										</div>
+									</div>
+									<!-- 6 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-6.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>建筑物数据</span>
+										</div>
+									</div>
+									<!-- 7 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-7.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>道路设施数据</span>
+										</div>
+									</div>
+									<!-- 8 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-8.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>室内地图数据</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- 业务专题数据 -->
+							<div class="layui-tab-item ">
+								<div class="tab-content">
+									<!-- 1 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/2-1.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>政务数据</span>
+										</div>
+									</div>
+									<!-- 2 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/2-2.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>警务数据</span>
+										</div>
+									</div>
+									<!-- 3 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/2-3.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>交通数据</span>
+										</div>
+									</div>
+									<!-- 4 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/2-4.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>地产数据</span>
+										</div>
+									</div>
+									<!-- 5 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/2-5.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>文旅数据</span>
+										</div>
+									</div>
+									<!-- 6 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/2-6.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>水务数据</span>
+										</div>
+									</div>
+									<!-- 7 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/2-7.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>农业数据</span>
+										</div>
+									</div>
+									<!-- 8 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/2-8.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>更多</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 智能感知数据 -->
+							<div class="layui-tab-item ">
+								<div class="tab-content">
+									<!-- 1 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-1.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>视频监控数据</span>
+										</div>
+									</div>
+									<!-- 2 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-2.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>RFID数据</span>
+										</div>
+									</div>
+									<!-- 3 -->
+									<div class="tab-content-block">
+										<div class="block-img">
+											<img src="../../images/product/timeSpaceVisualization/multiData/1-3.png"
+												alt="" srcset="">
+										</div>
+										<div class="block-text">
+											<span>可定位移动终端设备数据</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 自定义专属业务地图 -->
+			<div style="background: #F5F7FA;border: 1px solid #F5F7FA;">
+				<div class="detail-content">
+					<div class="detail-content-title"><span>自定义专属业务地图</span></div>
+					<div class="detail-content-desc"><span>平台提供多种风格的地图模版，您可以使用这些地图模版进行编辑，创建属于您自己的业务地图</span></div>
+					<div class="detail">
+						<div class="tab-content" style="margin: 40px 0;">
+							<!-- 1 -->
+							<div class="tab-content-block3">
+								<div class="">
+									<img src="../../images/product/timeSpaceVisualization/customizeMap/1-1.png">
+								</div>
+								<div class="block-text3">
+									<span>标准</span>
+								</div>
+							</div>
+							<div class="tab-content-block3">
+								<div class="">
+									<img src="../../images/product/timeSpaceVisualization/customizeMap/1-2.png">
+								</div>
+								<div class="block-text3">
+									<span>兵工蓝</span>
+								</div>
+							</div>
+							<div class="tab-content-block3">
+								<div class="">
+									<img src="../../images/product/timeSpaceVisualization/customizeMap/1-3.png">
+								</div>
+								<div class="block-text3">
+									<span>暮山紫	</span>
+								</div>
+							</div>
+							<div class="tab-content-block3">
+								<div class="">
+									<img src="../../images/product/timeSpaceVisualization/customizeMap/1-4.png">
+								</div>
+								<div class="block-text3">
+									<span>极夜蓝</span>
+								</div>
+							</div>
+							<div class="tab-content-block3">
+								<div class="">
+									<img src="../../images/product/timeSpaceVisualization/customizeMap/1-5.png">
+								</div>
+								<div class="block-text3">
+									<span>烟雨灰</span>
+								</div>
+							</div>
+							<div class="tab-content-block3">
+								<div class="">
+									<img src="../../images/product/timeSpaceVisualization/customizeMap/1-6.png">
+								</div>
+								<div class="block-text3">
+									<span>深空灰</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				<!-- 案例展示 -->
+				<div style="background: #1A1D29 ;border: 1px solid #1A1D29;">
+					<div class="detail-content">
+						<div class="example-content-title"><span>案例展示</span></div>
+						<div class="detail">
+							<div class="tab-content" style="margin: 40px 0;">
+								<div class="example-content-item">
+									<div class="example-item-left">
+										<!-- <img src="../../images/product/timeSpaceVisualization/example/1.png"> -->
+										<video width="800px" height="450px"  src="../../images/product/timeSpaceVisualization/example/city.mp4" muted="muted"
+										autoplay="autoplay" loop ></video>
+									</div>
+									<div class="example-item-right">
+										<div class="example-item-title"><span>智慧城市</span></div>
+										<div class="example-item-content">
+											<span>通过对现实城市场景从传统的二三维抽象地图升级为四维空间的全要素时空全息场景，在实现城市信息模型可视化基础上展现地理信息要素的现状与变迁，实现时空地理大数据的挖掘、统计、分析和决策，进而推动城市管理数字化、虚拟化、可视化，全面镜像现实城市场景，为城市精细化管理赋能，实现“所见即所得”的决策能力。北京商务中心区以时空数据呈现地图为底座，通过对其7平方公里的区域进行现实场景镜像还原，并对其重点区域进行精细化呈现，着重刻画城市全貌，全面构建智慧城市的统一管理平台；用可视化的直观形式呈现更加科学的城市发展规划。</span>
+										</div>
+
+									</div>
+								</div>
+								<div class="example-content-item">
+									<div class="example-item-left">
+										<!-- <img src="../../images/product/timeSpaceVisualization/example/1.png"> -->
+										<video width="800px" height="450px" src="../../images/product/timeSpaceVisualization/example/traffic.mp4" muted="muted"
+										autoplay="autoplay" loop ></video>
+									</div>
+									<div class="example-item-right">
+										<div class="example-item-title"><span>智慧交通</span></div>
+										<div class="example-item-content">
+											<span>通过IOT、三维可视化技术、交通业务场景融合，呈现智能交通场景的可视化感知。全面提升运营管理效能、提高突发事件响应效率；构建交通仿真场景“一张图”，再现交通流运行过程，为拥堵溯源等交通流难题提供可靠的工具，为管理者提供可靠的决策依据。打造规范化、系统化、智能化的智能交通管理平台；智能预判预警识别能力，最大限度降低交通运营安全隐患。</span>
+										</div>
+
+									</div>
+								</div>
+								<div class="example-content-item">
+
+									<div class="example-item-right2">
+										<div class="example-item-title"><span>智慧物流</span></div>
+										<div class="example-item-content">
+											<span>基于时空可视化地图为不同货物运输业务提供智能调度、智能配载服务，有效提高货运企业排单效率，减少运输里程，提高车辆装载率；提供专属货车路线规划和货车导航的能力，让货车司机和承运商享受更专业的服务。
+
+											</span>
+										</div>
+
+									</div>
+									<div class="example-item-left">
+										<img src="../../images/product/timeSpaceVisualization/example/1.png"></div>
+								</div>
+								<div class="example-content-item">
+									<div class="example-item-left">
+										<img src="../../images/product/timeSpaceVisualization/example/2.png"></div>
+									<div class="example-item-right">
+										<div class="example-item-title"><span>智慧港口</span></div>
+										<div class="example-item-content">
+											<span>基于时空可视化技术，整合多渠道数据资源，实现港区现实世界在数字世界的孪生镜像，全面打造港口数字化统一监管平台；通过优化港口各作业环节，提升港口运营效能；可对港口区域内人员作业进行实时监控、保障安全作业、高效生产，增强港区运营协同性，打造安全、高效、环保、智能等维度港区“一张图”，助力港区提升科学化、智能化的经营决策水平，提升行业竞争力。</span>
+										</div>
+
+									</div>
+								</div>
+								<div class="example-content-item">
+									
+									<div class="example-item-right2">
+										<div class="example-item-title"><span>智慧应急</span></div>
+										<div class="example-item-content">
+											<span>基于时空可视化地图统筹设计、建设、管理和更新应急资源空间数据库，实现支撑应急信息一张图，统一为应急信息化建设提供地理空间信息技术支撑和数据服务。通过对安防、消防、交通可视化数据呈现，实现超精细化模型构建、分层管理；针对紧急事件点对点应急指挥，智能躲避拥堵，规划最佳路径使救援人员到达事件现场，为应急指挥提供可视化监控、分析、预警能力。
+											</span>
+										</div>
+
+									</div>
+									<div class="example-item-left">
+										<img src="../../images/product/timeSpaceVisualization/example/3.png"></div>
+								</div>
+								<div class="example-content-item">
+									<div class="example-item-left">
+										<img src="../../images/product/timeSpaceVisualization/example/4.png"></div>
+									<div class="example-item-right">
+										<div class="example-item-title"><span>智慧水务</span></div>
+										<div class="example-item-content">
+											<span>基于地理位置信息将水务、给排水、水文、气象等信息整合为水务“一张图”，建立水务大数据中心，标准化数据存储，提供大数据云服务，实现给排水等水务大数据的有效管理；以云服务为基础，保证数据的现势性，实时监测，实现水务数据的宏观呈现、空间分析、监测预警功能；针对水务生态治理、污染源防治、污染扩散分析、水质监测、水位监测、防灾预警、流量分析、淹没模拟推演、水利设施调控等业务场景，建立智慧水务综合管理平台，打破信息孤岛，及时、准确、全面地获取信息，保证数据的现势性、真实性、权威性，实现各类资源的信息共享，助力管理者提升水务管理效能。
+											</span>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+
+
+			<!-- 底部-->
+			<div class="page_foot">
+				<iframe width="100%" height="350px" src="../common/foot.html" frameborder="no" border="0"
+					marginwidth="0" marginheight="0" scrolling="no"></iframe>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/product/visualization.js"></script>
+</body>
+
+</html>

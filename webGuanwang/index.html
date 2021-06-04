@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -12,401 +13,504 @@
 
 <body>
 
-<div class="container">
-    <div class="page-content">
-        <div id="backTop" class="back-top hide">
-            <a href="#container_head" ><img src="images/index/back_top.png" alt="返回顶部"></a>
-        </div>
+    <div class="container">
+        <div class="page-content">
+            <div id="backTop" class="back-top hide">
+                <a href="#container_head"><img src="images/index/back_top.png" alt="返回顶部"></a>
+            </div>
             <!-- 轮播图-->
-        <div class="content_banner">
-            <div class="layui-carousel" id="test1" lay-filter="test1">
-                <div class="banner_img"  carousel-item="">
-                    <div><a href="http://test.careland.com.cn/3dkvm/visualization/" target="_blank"><img src="images/index/banner_home.png" alt=""></a></div>
-                    <div><img src="images/index/banner_open.png" alt=""></div>
-                    <div><a href="html/product/dataProduct.html?tab=0&index=3"><img src="images/index/banner_car.png" alt=""></a></div>
+            <div class="content_banner">
+                <div class="layui-carousel" id="test1" lay-filter="test1">
+                    <div class="banner_img" carousel-item="">
+                        <div>
+                            <a href="http://test.careland.com.cn/3dkvm/visualization/" target="_blank">
+                                <img src="images/index/banner_home.png" alt="">
+                            </a>
+                        </div>
+                        <div><img src="images/index/banner_open.png" alt=""></div>
+                        <div>
+                            <a href="html/product/dataProduct.html?tab=0&index=3">
+                                <img src="images/index/banner_car.png" alt="">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="content_map">
-           <div class="title-font map-title"><span>地图</span></div>
-            <div class="layui-tab layui-tab-brief" lay-filter="tableService">
-                <ul class="layui-tab-title">
-                    <li class="layui-this">导航电子地图</li>
-                    <li>高精度地图</li>
-                    <li>货车地图</li>
-                    <li>智慧城市地图</li>
-                    <li>室内地图</li>
-                    <li>骑行地图</li>
-                    <li>水系地图</li>
-                    <li>数据可视化</li>
-                </ul>
-                <div class="layui-tab-content" style="height: 450px;">
-                    <div class="layui-tab-item layui-show">
-                        <div class="item_left"><img src="images/index/index_01.png"></div>
-                        <div class="item_right">
-                            <div class="item_right_title">导航电子地图</div>
-                            <div class="item_right_detail">
-                                <ul>
-                                    <li><img src="images/index/index_02.png">道路数据</li>
-                                    <li><img src="images/index/index_03.png">POI数据</li>
-                                    <li><img src="images/index/index_04.png">水系、绿地等背景数据</li>
-                                    <li><img src="images/index/index_05.png">诱导数据</li>
+        <!-- 内容 -->
+        <div>
+            <!-- 时空可视化 -->
+            <div class="detail1">
+                <div class="detail-title"><span>时空可视化平台</span></div>
+                <div class="detail-content">
+                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">快速构建专属业务地图</li>
+                            <li>地理空间信息服务升级</li>
+                            <li>风格各异的展现形式</li>
+                            <li>强大的编辑辅助工具</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <!-- 1 -->
+                            <div class="layui-tab-item layui-show">
+                                <div class="detail-content">
+                                    <div class="detail-item">
+                                        <div><img src="./images/index/indexnew/timeSpace1.png" alt=""></div>
+                                        <div class="detail-item-text">
+                                            <div class="detail-item-text-title">
+                                                <span>具备快速建模、大规模地图搭建的能力，面向智慧城市、园区等项目，根据精细度不同进行数据搭建。</span>
+                                            </div>
+                                            <div class="detail-item-text-content-nofloat">
+                                                <ul>
+                                                    <li>平台支持多种类型数据组合叠加</li>
+                                                    <li>支持大型片区的快速成图</li>
+                                                    <li>支持公开格式的3D建模数据加载</li>
+                                                    <li>支持服务的本地化部署</li>
+                                                    <li>支持定制化服务开发</li>
+                                                    <li>强大的渲染引擎支撑</li>
+                                                </ul>
+                                            </div>
+                                            <div class="detail-item-text-btn"><a href="html/product/visualization.html#engine"
+                                                    target="_parent">查看详情</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 2 -->
+                            <div class="layui-tab-item ">
+                                <div class="detail-content">
+                                    <div class="detail-item">
+                                        <div><img src="./images/index/indexnew/timeSpace2.png" alt=""></div>
+                                        <div class="detail-item-text">
+                                            <div class="detail-item-text-title">
+                                                <span>提供互联网空间信息服务：2D、3D、丰富的三维实景呈现兼容，为构建数字孪生城市提供支持。</span>
+                                            </div>
+                                            <div class="detail-item-text-content-nofloat">
+                                                <ul>
+                                                    <li>2D地图</li>
+                                                    <li>3D地图</li>
+                                                    <li>时空数据呈现地图</li>
+                                                </ul>
+                                            </div>
+                                            <div class="detail-item-text-btn"><a href="html/product/visualization.html"
+                                                target="_parent">查看详情</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 3 -->
+                            <div class="layui-tab-item ">
+                                <div class="detail-content">
+                                    <div class="detail-item">
+                                        <div>
+                                            <video src="./images/index/indexnew/timeSpace3.mp4" muted="muted"
+                                                autoplay="autoplay" loop></video>
+                                        </div>
+                                        <div class="detail-item-text">
+                                            <div class="detail-item-text-title">
+                                                <span>提供多种风格的地图模版、3D建筑、倾斜摄影建模、模拟光照天气、热力呈现等，创建属于您自己的专属业务地图。</span>
+                                            </div>
+                                            <div class="detail-item-text-content-nofloat">
+                                                <ul>
+                                                    <li>3D建筑</li>
+                                                    <li>倾斜摄影建模</li>
+                                                    <li>模拟光照天气</li>
+                                                    <li>热力呈现</li>
+                                                </ul>
+                                            </div>
+                                            <div class="detail-item-text-btn"><a href="html/product/visualization.html"
+                                                target="_parent">查看详情</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 4 -->
+                            <div class="layui-tab-item ">
+                                <div class="detail-content">
+                                    <div class="detail-item">
+                                        <div><img src="./images/index/indexnew/timeSpace4.png" alt=""></div>
+                                        <div class="detail-item-text">
+                                            <div class="detail-item-text-title">
+                                                <span>提供强大的编辑辅助工具，可在时空数据地图中进行可视区域分析，测量空间距离、高度、面积，标注点、线、面，统计分析等。</span>
+                                            </div>
+                                            <div class="detail-item-text-content-nofloat">
+                                                <ul>
+                                                    <li>可视域分析</li>
+                                                    <li>测距</li>
+                                                    <li>图表统计</li>
+                                                    <li>标注</li>
+                                                </ul>
+                                            </div>
+                                            <div class="detail-item-text-btn"><a href="html/product/visualization.html#editsupport"
+                                                target="_parent">查看详情</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 车道级导航 -->
+            <div class="black-background" style="background-image: url('./images/index/indexnew/carBackground.png');">
+                <div class="detail1">
+                    <div class="detail-title"><span>车道级导航</span></div>
+                    <div class="detail-content">
+                        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">车道级地图元素</li>
+                                <li>车道级路线规划</li>
+                                <li>车道级诱导</li>
+                                <li>车道级路况</li>
+                                <li>车道级预警</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <!-- 1 -->
+                                <div class="layui-tab-item layui-show">
+                                    <div class="detail-content">
+                                        <div class="detail-item">
+                                            <div class="detail-item-text">
+                                                <div class="detail-item-text-title">
+                                                    <span>车道级地图元素</span>
+                                                </div>
+                                                <div class="detail-item-text-desc">
+                                                    <span>提供丰富的车道级地图元素，镜像还原现实场景。</span>
+                                                </div>
+                                                <div class="detail-item-text-content-nofloat">
+                                                    <ul>
+                                                        <li>路面标线类数据</li>
+                                                        <li>路上路侧设施</li>
+                                                        <li>交通参与者</li>
+                                                        <li>可视化场景</li>
+                                                        <li>个性化建筑</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div><img src="./images/index/indexnew/car1.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 2 -->
+                                <div class="layui-tab-item ">
+                                    <div class="detail-content">
+                                        <div class="detail-item">
+                                            <div class="detail-item-text">
+                                                <div class="detail-item-text-title">
+                                                    <span>车道级路线规划</span>
+                                                </div>
+                                                <div class="detail-item-text-desc">
+                                                    <span>基于道路车道级的路线规划、准确和全面感知道路环境。</span>
+                                                </div>
+                                                <div class="detail-item-text-content-nofloat">
+                                                    <ul>
+                                                        <li>全面躲避拥堵</li>
+                                                        <li>实时动态调整</li>
+                                                        <li>精细的车道信息</li>
+
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div><img src="./images/index/indexnew/car2.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 3 -->
+                                <div class="layui-tab-item ">
+                                    <div class="detail-content">
+                                        <div class="detail-item">
+                                            <div class="detail-item-text">
+                                                <div class="detail-item-text-title">
+                                                    <span>车道级诱导</span>
+                                                </div>
+                                                <div class="detail-item-text-desc">
+                                                    <span>车道切换提醒更精准，实景高清诱导，道路空间关系更清晰。</span>
+                                                </div>
+                                                <div class="detail-item-text-content-nofloat">
+                                                    <ul>
+                                                        <li>精准诱导</li>
+                                                        <li>高清显示</li>
+                                                        <li>实时提醒</li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div><img src="./images/index/indexnew/car3.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 4 -->
+                                <div class="layui-tab-item ">
+                                    <div class="detail-content">
+                                        <div class="detail-item">
+                                            <div class="detail-item-text">
+                                                <div class="detail-item-text-title">
+                                                    <span>车道级路况</span>
+                                                </div>
+                                                <div class="detail-item-text-desc">
+                                                    <span>提供实时交通服务，分钟级路况更新，交通态势一目了然。</span>
+                                                </div>
+                                                <div class="detail-item-text-content-nofloat">
+                                                    <ul>
+                                                        <li>实时路况</li>
+                                                        <li>实时更新</li>
+                                                        <li>路况预测</li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div><img src="./images/index/indexnew/car4.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 5 -->
+                                <div class="layui-tab-item ">
+                                    <div class="detail-content">
+                                        <div class="detail-item">
+                                            <div class="detail-item-text">
+                                                <div class="detail-item-text-title">
+                                                    <span>车道级预警</span>
+                                                </div>
+                                                <div class="detail-item-text-desc">
+                                                    <span>提供车道级安全预警，提前预判警情，动态感知周围车辆状态。</span>
+                                                </div>
+                                                <div class="detail-item-text-content-nofloat">
+                                                    <ul>
+                                                        <li>闯红灯预警</li>
+                                                        <li>绿波车速引导</li>
+                                                        <li>限速预警</li>
+                                                        <li>异常车辆预警</li>
+                                                        <li>碰撞预警</li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            <div><img src="./images/index/indexnew/car5.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 高精度地图 -->
+            <div class="detail1">
+                <div class="detail-title"><span>高精度地图</span></div>
+                <div class="detail-desc"><span>对外提供高精度地图数据及服务，数据内容包括三维高清实景城市、路面标线、路上路侧设施等信息</span></div>
+                <div class="detail-content ">
+                    <div class="card">
+                        <div class="card-img"><img src="./images/index/indexnew/map1.png"></div>
+                        <div class="card-text">
+                            <div class="card-text-title"><span>ADAS数据</span></div>
+                            <div class="card-text-desc"><span>对外提供Adas地图数据以及Adasis V3标准服务</span></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="./images/index/indexnew/map2.png"></div>
+                        <div class="card-text">
+                            <div class="card-text-title"><span>高精度地图数据</span></div>
+                            <div class="card-text-desc"><span>支持标准规格以及客户自定义规格数据提供</span></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-img"><img src="./images/index/indexnew/map3.png"></div>
+                        <div class="card-text">
+                            <div class="card-text-title"><span>高清三维实景地图</span></div>
+                            <div class="card-text-desc"><span>面向智慧城市，提供大屏时空可视化地图及服务</span></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- 数据服务 -->
+            <div style="background: #F5F7FA; border: 0.1px solid #F5F7FA;">
+                <div class="detail1">
+                    <div class="detail-title"><span>数据服务</span></div>
+                    <div class="detail-desc"><span>提供成品数据供应、数据采集加工、数据标注服务</span></div>
+                    <div class="detail-content">
+                        <div class="icon-card">
+                            <div class="icon-card-img"><img src="./images/index/indexnew/data-icon1.png"></div>
+                            <div class="icon-card-text">
+                                <div class="icon-card-text-title"><span>成品数据供应</span></div>
+                                <div class="icon-card-text-desc">
+                                    <span>凯立德拥有自主知识产权的地图生产工具，能够分区域、分对象类型提供全国地图成品数据；并可提供更新服务（按照年、季度、月进行更新）</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="icon-card">
+                            <div class="icon-card-img"><img src="./images/index/indexnew/data-icon2.png"></div>
+                            <div class="icon-card-text">
+                                <div class="icon-card-text-title"><span>数据采集加工服务</span></div>
+                                <div class="icon-card-text-desc">
+                                    <span>具备导航电子地图甲级测绘资质；支持客户的采集、脱敏、数据加工成图等业务需求；生产管理完善，生产效率高，支持项目人员的临时调度和快速制图；严格执行“两检一审”，确保数据质量。</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="icon-card">
+                            <div class="icon-card-img"><img src="./images/index/indexnew/data-icon3.png"></div>
+                            <div class="icon-card-text">
+                                <div class="icon-card-text-title"><span>数据标注业务</span></div>
+                                <div class="icon-card-text-desc">
+                                    <span>自动化标注、脱敏：人脸、车牌自动模糊处理，人车、交通设施自动提取；人工标注：结合自动化成果进行标注，包括框线标注和语义识别标注两大类。</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 智能交通 -->
+            <div class="black-background" style="background:#000000;">
+                <div id="tab-active-background"
+                    style="width:1920px;background-image: url('./images/index/indexnew/traffic1.png');">
+                    <div class="detail1">
+                        <div class="detail-title"><span>智能交通</span></div>
+                        <div class="detail-content">
+                            <div class="layui-tab layui-tab-brief" lay-filter="traffic">
+                                <ul class="layui-tab-title">
+                                    <li lay-id="1" class="layui-this">道路管理单元</li>
+                                    <li lay-id="2" >重点车辆管理</li>
+                                    <li lay-id="3" >非现场执法</li>
+                                    <li lay-id="4" >应急指挥</li>
+                                    <li lay-id="5" >交通集成研判</li>
                                 </ul>
-                            </div>
-                            <div class="item_right_btn"><a href="html/product/dataProduct.html?tab=0&index=1">查看详情</a></div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="layui-tab-item layui-show">
-                            <div class="item_left"><img src="images/index/index_06.png"></div>
-                            <div class="item_right">
-                                <div class="item_right_title">高精度地图</div>
-                                <div class="item_right_detail">
-                                    <ul>
-                                        <li><img src="images/index/index_07.png">车道信息</li>
-                                        <li><img src="images/index/index_08.png">交通标识</li>
-                                        <li><img src="images/index/index_09.png">红绿灯</li>
-                                        <li><img src="images/index/index_10.png">天桥、路口及路侧信息</li>
-                                    </ul>
+                                <div class="layui-tab-content">
+                                    <!-- 1 -->
+                                    <div class="layui-tab-item layui-show">
+                                        <div class="detail-content">
+                                            <div class="detail-item">
+                                                <div class="detail-item-text">
+                                                    <div class="middle-position">
+                                                        <div class="detail-item-text-title">
+                                                            <span>道路管理单元</span>
+                                                        </div>
+                                                        <div class="detail-item-text-desc" style="width: 438px;">
+                                                            <span>依智慧交通管理需要而制定科学的道路划分标准，将道路划分为路段和路口的道路管理单元，是地理空间位置的道路信息载体，是统一道路地址标准，并且将传统的GIS运算转变为二维关系运算，大幅提升空间运算能力，实现空间运算模式的变革。</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-item-img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                     <!-- 3 -->
+                                     <div class="layui-tab-item ">
+                                        <div class="detail-content">
+                                            <div class="detail-item">
+                                                <div class="detail-item-text">
+                                                    <div class="middle-position">
+                                                        <div class="detail-item-text-title">
+                                                            <span>重点车辆管理</span>
+                                                        </div>
+                                                        <div class="detail-item-text-desc" style="width: 438px;">
+                                                            <span>面向建筑工程车辆、校车、两客一危等重点车辆打造的重点车辆管理系统，包括通行规则设置、通行路申请与审批、司机通行路线导航、政府与企业安全管理等功能，实现重点车辆“谁在开、开到哪，怎么开”的闭环管理，从而规范重点车辆驾驶行为，降低事故率和违章率。</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-item-img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <!-- 2 -->
+                                     <div class="layui-tab-item ">
+                                        <div class="detail-content">
+                                            <div class="detail-item">
+                                                <div class="detail-item-text">
+                                                    <div class="middle-position">
+                                                        <div class="detail-item-text-title">
+                                                            <span>非现场执法</span>
+                                                        </div>
+                                                        <div class="detail-item-text-desc" style="width: 438px;">
+                                                            <span>通过道路管理单元，将执法设备、执法通行规则进行单元化、标准化、精细化管理，并且提供时空规则数据运算平台，提升非现场执法产能和效能，从而实现非现场执法的“标准统一、精准智慧、监管闭环”。</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-item-img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <!-- 4 -->
+                                     <div class="layui-tab-item ">
+                                        <div class="detail-content">
+                                            <div class="detail-item">
+                                                <div class="detail-item-text">
+                                                    <div class="middle-position">
+                                                        <div class="detail-item-text-title">
+                                                            <span>应急指挥</span>
+                                                        </div>
+                                                        <div class="detail-item-text-desc" style="width: 438px;">
+                                                            <span>构建事前预防、应对、处置和善后管理闭环的交通安全应急指挥中心，结合全景监控设备数据，对不同道路条件下事故现场进行建模分析，辅助建立的必要的安全应对机制。</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-item-img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <!-- 5 -->
+                                     <div class="layui-tab-item ">
+                                        <div class="detail-content">
+                                            <div class="detail-item">
+                                                <div class="detail-item-text">
+                                                    <div class="middle-position">
+                                                        <div class="detail-item-text-title">
+                                                            <span>交通集成指挥与信息研判</span>
+                                                        </div>
+                                                        <div class="detail-item-text-desc" style="width: 438px;">
+                                                            <span>融合“人-车-路-环境”数据，建立交通大数据信息平台，对道路通行条件进行监测和分析，为实现突发事件快速管理、日常勤务警务、科学决策等业务管理提供及时、准确、可靠的手段。</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-item-img"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
                                 </div>
-                                <div class="item_right_btn"><a href="html/product/dataProduct.html?tab=0&index=2">查看详情</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="layui-tab-item layui-show">
-                            <div class="item_left"><img src="images/index/index_11.png"></div>
-                            <div class="item_right">
-                                <div class="item_right_title">货车地图</div>
-                                <div class="item_right_detail">
-                                    <ul>
-                                        <li><img src="images/index/index_12.png">货运专属路网</li>
-                                        <li><img src="images/index/index_13.png">货运限行数据</li>
-                                        <li><img src="images/index/index_14.png">货运专用POI</li>
-                                    </ul>
-                                </div>
-                                <div class="item_right_btn"><a href="html/product/dataProduct.html?tab=0&index=3">查看详情</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="layui-tab-item layui-show">
-                            <div class="item_left"><img src="images/index/index_20.png"></div>
-                            <div class="item_right">
-                                <div class="item_right_title">智慧城市地图</div>
-                                <div class="item_right_detail">
-                                    <ul>
-                                        <li><img src="images/index/index_19.png">三维建筑</li>
-                                        <li><img src="images/index/index_21.png">高精度道路</li>
-                                        <li><img src="images/index/index_22.png">背景模型</li>
-                                        <li><img src="images/index/index_23.png">影像数据</li>
-                                    </ul>
-                                </div>
-                                <div class="item_right_btn"><a href="html/product/dataProduct.html?tab=0&index=4">查看详情</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="layui-tab-item layui-show">
-                            <div class="item_left"><img src="images/index/index_15.png"></div>
-                            <div class="item_right">
-                                <div class="item_right_title">室内地图</div>
-                                <div class="item_right_detail">
-                                    <ul>
-                                        <li><img src="images/index/index_16.png">丰富的室内POI信息</li>
-                                        <li><img src="images/index/index_17.png">楼层详细信息</li>
-                                        <li><img src="images/index/index_18.png">室内POI查询、路径规划导航</li>
-                                    </ul>
-                                </div>
-                                <div class="item_right_btn"><a href="html/product/dataProduct.html?tab=0&index=5">查看详情</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="layui-tab-item layui-show">
-                            <div class="item_left"><img src="images/index/index_24.png"></div>
-                            <div class="item_right">
-                                <div class="item_right_title">骑行地图</div>
-                                <div class="item_right_detail">
-                                    <ul>
-                                        <li><img src="images/index/index_25.png">具有全国适宜骑行的专用路网</li>
-                                        <li><img src="images/index/index_26.png">普通自行车出行</li>
-                                        <li><img src="images/index/index_27.png">电动自行车出行</li>
-                                    </ul>
-                                </div>
-                                <div class="item_right_btn"><a href="html/product/dataProduct.html?tab=0&index=6">查看详情</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="layui-tab-item layui-show">
-                            <div class="item_left"><img src="images/index/index_28.png"></div>
-                            <div class="item_right">
-                                <div class="item_right_title">水系地图</div>
-                                <div class="item_right_detail">
-                                    <ul>
-                                        <li><img src="images/index/index_29.png">全国流域数据和水系数据</li>
-                                        <li><img src="images/index/index_30.png">支持监测站数据接入</li>
-                                        <li><img src="images/index/index_31.png">水质渲染</li>
-                                    </ul>
-                                </div>
-                                <div class="item_right_btn"><a href="html/product/dataProduct.html?tab=0&index=7">查看详情</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="layui-tab-item layui-show">
-                            <div class="item_left"><img src="images/index/index_32.png"></div>
-                            <div class="item_right">
-                                <div class="item_right_title">数据可视化</div>
-                                <div class="item_right_detail">
-                                    <ul>
-                                        <li><img src="images/index/index_33.png">自定义底图</li>
-                                        <li><img src="images/index/index_34.png">自定义覆盖物</li>
-                                        <li><img src="images/index/index_35.png">位置数据可视化</li>
-                                    </ul>
-                                </div>
-                                <div class="item_right_btn"><a href="html/product/dataProduct.html?tab=0&index=8">查看详情</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--自定义个性化地图 -->
-        <div class="content-custom">
-            <div class="title-font">自定义个性化地图</div>
-            <div class="title-desc">通过自定义地图编辑平台，用户可对地图样式进行自定义设置，满足不同场景的地图展示需求</div>
-            <div class="thumbnail">
-                <ul>
-                    <li class="thumbnail-color">
-                        <div><img src="images/index/binggonglan_s.png"><img class="img_border" src="images/index/index_36.png" alt=""></div>
-                        <div><span>兵工蓝</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/jiyelan_s.png" alt=""><img class="img_border" src="images/index/index_36.png" alt=""></div>
-                        <div><span>极夜蓝</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/shenkonghui_s.png" alt=""><img class="img_border" src="images/index/index_36.png" alt=""></div>
-                        <div ><span>深空灰</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/mushanzi_s.png" alt=""><img class="img_border" src="images/index/index_36.png" alt=""></div>
-                        <div><span>暮山紫</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/yanyuhui_s.png" alt=""><img class="img_border" src="images/index/index_36.png" alt=""></div>
-                        <div><span>烟雨灰</span></div>
-                    </li>
-                </ul>
-            </div>
-            <div class="custom-pic">
-                <ul>
-                    <li class="custom-pic5 custom-picImg"><img src="images/index/shenkonghui_l.png" alt=""></li>
-                    <li class="custom-pic4 custom-picImg"><img src="images/index/jiyelan_l.png" alt=""></li>
-                    <li class="custom-pic3 custom-picImg"><img src="images/index/binggonglan_l.png" alt=""></li>
-                    <li class="custom-pic2 custom-picImg"><img src="images/index/yanyuhui_l.png" alt=""></li>
-                    <li class="custom-pic1 custom-picImg"><img src="images/index/mushanzi_l.png" alt=""></li>
-                </ul>
-            </div>
-            <div class="custom-button"><a id="map_customized" >定制地图</a></div>
-        </div>
-        <!--服务 -->
-        <div class="content-server">
-            <div class="title"><span class="title-font">服务</span></div>
-            <div class="server-func">
-                <ul>
-                    <li class="func-underline">
-                        <div><span>定位</span></div>
-                    </li>
-                    <li>
-                        <div><span>搜索</span></div>
-                    </li>
-                    <li>
-                        <div><span>路径规划</span></div>
-                    </li>
-                    <li>
-                        <div><span>导航</span></div>
-                    </li>
-                    <li>
-                        <div><span>轨迹</span></div>
-                    </li>
-                    <li>
-                        <div><span>实时交通</span></div>
-                    </li>
-                    <li>
-                        <div><span>地图数据加工</span></div>
-                    </li>
-                    <li>
-                        <div><span>其他服务</span></div>
-                    </li>
-                </ul>
-            </div>
-            <div class="desc-title"><span>具有多种定位方式融合处理的能力</span></div>
-            <div class="desc-detail"><span>支持北斗、GPS、GLONASS三种模式的定位，支持无信号时的惯性模式，支持利用wifi和基站以及蓝牙信息进行定位</span></div>
-            <div class="desc-button"><a href="https://open.careland.com.cn/docs/" target="_blank">查看详情</a></div>
-        </div>
-        <!--产品 -->
-        <div class="content-product">
-            <div class="product-title">
-                <span class="title-font">导航产品</span>
-            </div>
-            <div class="layui-tab layui-tab-brief" lay-filter="tableService">
-                <ul class="layui-tab-title">
-                    <li class="layui-this title_margin">一般应用领域</li>
-                    <li>专属应用领域</li>
-                </ul>
-                <div class="layui-tab-content" style="height: 500px;">
-                    <div class="layui-tab-item layui-show">
-                        <div class="layui-tab-item layui-show">
-                            <ul class="product_detail">
-                                <li>
-                                    <div><img src="images/index/index_44.png"></div>
-                                    <div class="product_detail_title">传统导航</div>
-                                    <div class="product_detail_text">提供包括漫游提醒服务及路线引导服务</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#tradition">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_45.png"></div>
-                                    <div class="product_detail_title">高精度导航</div>
-                                    <div class="product_detail_text">全新领航视角，第一视角场景切换，全程实景导航，车道级路径规划与引导</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#precision">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_47.png"></div>
-                                    <div class="product_detail_title">手机导航</div>
-                                    <div class="product_detail_text">多种路线模式选择，包括步行、骑行、公交、车辆导航，语音引导，K友结伴游</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#phone">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_46.png"></div>
-                                    <div class="product_detail_title">停车场导航</div>
-                                    <div class="product_detail_text">提供停车场室内地图显示、导航至停车位，反向寻车等功能。</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#parking">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_48.png"></div>
-                                    <div class="product_detail_title">仪表盘导航</div>
-                                    <div class="product_detail_text">提供适配汽车仪表盘显示的地图显示及导航服务。</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#dashboard">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_43.png"></div>
-                                    <div class="product_detail_title">AR导航</div>
-                                    <div class="product_detail_text">影像融合、精准的车道级引导，智能感知周边环境。</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#AR">查看详情</a></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="layui-tab-item">
-                        <div class="layui-tab-item layui-show">
-                            <ul class="product_detail">
-                                <li>
-                                    <div><img src="images/index/index_38.png"></div>
-                                    <div class="product_detail_title">乘用车导航</div>
-                                    <div class="product_detail_text">面向小汽车用户，根据路况变化实时提供避堵路线，无路线时提供巡航模式</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#passengerCar">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_39.png"></div>
-                                    <div class="product_detail_title">货车导航</div>
-                                    <div class="product_detail_text">避开限高、限宽、限重、限轴重、限行等路段，货运专题数据，货车动态限行，驾驶安全</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#freight">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_37.png"></div>
-                                    <div class="product_detail_title">新能源汽车导航</div>
-                                    <div class="product_detail_text">智能充电算路、智能寻桩、专题数据、智能出行闭环</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#energy">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_41.png"></div>
-                                    <div class="product_detail_title">特种车导航</div>
-                                    <div class="product_detail_text">北斗定位通讯、离线地图加载、安全监控、路线下发、专属路线规划</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#cerv">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_40.png"></div>
-                                    <div class="product_detail_title">泥头车导航</div>
-                                    <div class="product_detail_text">路线偏移提醒、通行路线查询、隐患点提醒、专属路线规划服务</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#mudTruck">查看详情</a></div>
-                                </li>
-                                <li>
-                                    <div><img src="images/index/index_42.png"></div>
-                                    <div class="product_detail_title">智能穿戴设备导航</div>
-                                    <div class="product_detail_text">多种路线模式选择，包括步行、骑行、公交、车辆导航，语音引导，K友结伴游</div>
-                                    <div class="product_detail_btn"><a href="html/product/navigationProduct.html#wear">查看详情</a></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <!-- 合作伙伴 -->
+            <div class="detail1">
+                <div class="detail-title"><span>合作伙伴</span></div>
+                <div class="detail-content">
+                   <img src="./images/index/indexnew/partner.png" alt="" srcset="">
                 </div>
             </div>
 
         </div>
-        <!-- 解决方案-->
-        <div class="content-programme">
-            <div class="title-font title"><span>解决方案</span></div>
-            <div class="choice">
-                <ul>
-                    <li class="choice-hr">
-                        <div><img src="images/index/solve_0.png" alt=""></div>
-                        <div><span>智慧城市</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/solve_1_c.png" alt=""></div>
-                        <div><span>智慧物流</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/solve_2_c.png" alt=""></div>
-                        <div><span>智慧交通</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/solve_3_c.png" alt=""></div>
-                        <div><span>智慧园区</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/solve_4_c.png" alt=""></div>
-                        <div><span>智慧应急</span></div>
-                    </li>
-                    <li>
-                        <div><img src="images/index/solve_5_c.png" alt=""></div>
-                        <div><span>智慧水务</span></div>
-                    </li>
-                </ul>
-            </div>
-            <div class="pic">
-                <ul>
-                    <li><img src="images/index/smartCity.png" alt=""></li>
-                    <li class="pic-hide"><img src="images/index/smartLogistics.png" alt=""></li>
-                    <li class="pic-hide"><img src="images/index/smartTransportation.png" alt=""></li>
-                    <li class="pic-hide"><img src="images/index/smartPark.png" alt=""></li>
-                    <li class="pic-hide"><img src="images/index/index_49.png" alt=""></li>
-                    <li class="pic-hide"><img src="images/index/smartWater.png" alt=""></li>
-                </ul>
-            </div>
+        <!-- 咨询按钮 -->
+        <div>
+            <div id="consult-btn" class="consult-btn">
+                <img src="./images/index/indexnew/consult.png" alt="" srcset="">
+            </div>    
         </div>
-        <!-- 合作伙伴-->
-        <!--<div class="content-partner">
-            <div class="title-font title"><span>合作伙伴</span></div>
-            <div class="desc">
-                <span>
-                    公司利用多年积累的电子地图与导航引擎技术，助力货运物流服务与服务建设、
-                    时空地理信息呈现、智慧城市建设等各方面的发展，获得了众多企业客户的认可
-                </span>
-            </div>
-            <div class="pic">
-                <img src="images/index/company.png" alt="">
-            </div>
-        </div>-->
+        <!-- 底部-->
+        <div id="page-foot" class="page_foot">
+            <iframe width="100%" height="350px" src="html/common/foot.html" frameborder="no" border="0" marginwidth="0"
+                marginheight="0" scrolling="no"></iframe>
+        </div>
     </div>
-    <!-- 底部-->
-    <div id="page-foot" class="page_foot">
-        <iframe width="100%" height="350px" src="html/common/foot.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    <div id="consult-content" class="consult-content">
+        <textarea class="consult-content-item-textarea" id="sonsult-msg" placeholder="在此处输入留言内容，我们会尽快与您联系(必填)" required="required"></textarea>
+        <input class="consult-content-item-input" type="text"  placeholder="姓名（必填）" required="required" >
+        <input class="consult-content-item-input" type="text"  placeholder="电话（必填）" required="required" >
+        <input class="consult-content-item-input" type="text"  placeholder="邮箱（必填）" required="required" >
+        <input class="consult-content-item-input" type="text"  placeholder="公司名（必填）" required="required" >
     </div>
-</div>
-<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
+
 </html>

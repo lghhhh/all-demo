@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>导航产品</title>
+	<link rel="stylesheet" href="../../css/product/navigationProduct.css" type="text/css">
+	<link rel="stylesheet" href="../../css/public.css" type="text/css">
+	<!-- <link rel="stylesheet" href="../../css/index.css" type="text/css"> -->
+	<link rel="stylesheet" href="../../js/layui-v2.5.6/layui/css/layui.css">
+	<script src="../../js/common/head.js"></script>
+	<script src="../../js/jar/jquery-1.10.2.min.js"></script>
+	<script src="../../js/layui-v2.5.6/layui/layui.js"></script>
+	<script type="text/javascript" src="../../js/index.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<!-- 导航栏-->
+		<!-- <div id="page-head" class="page-head">
+				<iframe width="100%" height="280px" src="../common/head.html" frameborder="no" border="0" marginwidth="0"
+				 marginheight="0" scrolling="no"></iframe>
+			</div> -->
+
+		<!--主体 -->
+		<div class="page-content">
+			<div id="backTop" class="back-top hide">
+				<a href="#container_head"><img src="../../images/index/back_top.png" alt="返回顶部"></a>
+			</div>
+			<div id="pageHead" class="head">
+				<div class="pic">
+					<img src="../../images/product/banner_product.png">
+				</div>
+				<div class="product">
+					<ul class="flex-center">
+						<li class="product-hr">
+							<a href="#tradition">
+								<div>一般应用领域</div>
+								<div>
+									<hr />
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#passengerCar">
+								<div>专属应用领域</div>
+								<div>
+									<hr />
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div>
+				<!-- <div class="content_map" id="tradition" name="tradition">
+						<div class="title-font map-title mb30"><span class="f32 f_500">传统导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">路线规划</li>
+								<li>安全提示</li>
+								<li>路况</li>
+								<li>路口实景图</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/tradition/tradition_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/tradition/tradition_02.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/tradition/tradition_03.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/tradition/tradition_04.png">
+								</div>
+							</div>
+						</div>
+					</div> -->
+				<div class="flex-center" id="tradition" name="tradition">
+					<div class="products_list">
+						<div class="flex">
+							<div class="pic">
+								<img src="../../images/product/Navigation/tradition/tradition_01.png" width="100%">
+							</div>
+							<div class="text">
+								<div class="title">传统导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>提供系统推荐、高速优先、躲避拥堵等多种路线规划服务。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>实时路况信息，交通状况一目了然。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>安全提示：包括限速、限行、转弯、上下陡坡等安全提示。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>在复杂路口和易出错路口建立实景路口图，给用户在岔路口进行直观引导。</li>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="precision" name="precision">
+					<div class="products_list">
+						<div class="flex">
+							<div class="text">
+								<div class="title">高精度导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>显示三维高清实景城市、立体道路、车道等信息。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>车道切换提醒更精准，实景高清诱导，道路空间关系更清晰。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>基于车道级路线规划、路况提醒、躲避拥堵。</li>
+								</div>
+							</div>
+							<div class="pic">
+								<img src="../../images/product/Navigation/highPrecision/highPrecision_01.png"
+									width="100%">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="phone" name="phone">
+					<div class="products_list">
+						<div class="flex">
+							<div class="pic">
+								<img src="../../images/product/Navigation/phone/phone_01.png" width="100%">
+							</div>
+							<div class="text">
+								<div class="title">手机导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>多种路线模式选择：包括步行、骑行、公交、车辆导航等多种导航模式。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>语音诱导：包括直行、左右转弯、掉头、电子眼、限速、限行等安全提示。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>路口实景图：在复杂路口和易出错路口建立实景路口图，给用户在岔路口进行直观引导。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>K友结伴游：同路K友结伴游，可创建车队和加入车队，支持实时语音对讲。</li>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="parking" name="parking">
+					<div class="products_list">
+						<div class="flex">
+							<div class="text">
+								<div class="title">停车场导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>显示停车场室内地图，包括楼层、停车位、电梯、楼梯、出入口、室内道路等信息。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>可选择具体车位为目的地规划路线并导航至目标车位。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>用户可通过反向寻车功能快速查找车辆所在位置，并通过步行诱导至停车位。</li>
+								</div>
+							</div>
+							<div class="pic">
+								<img src="../../images/product/Navigation/parkingLot/parkingLot_01.png" width="100%">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="dashboard" name="dashboard">
+					<div class="products_list">
+						<div class="flex">
+							<div class="pic">
+								<video src="../../images/product/Navigation/dashBoard/dashBoard_01.mp4" muted="muted"
+									autoplay="autoplay" loop style="width:640px;height: 410px;"></video>
+							</div>
+							<div class="text">
+								<div class="title">仪表盘导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>UI适配：可适配不同分辨率仪表盘。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>语音诱导：包括直行、左右转弯、掉头、电子眼、限速、限行等安全提示。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>安全提示：包括限速、限行、转弯、上下陡坡等安全提示。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>地图表达：地图表达可定制，风格样式可根据用户需求定制。</li>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="AR" name="AR">
+					<div class="products_list">
+						<div class="flex">
+							<div class="text">
+								<div class="title">AR导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>影像融合：支持将传感器提供的车道信息和高精度地图数据相结合，在影像上投射转弯、直行，掉头、切车道等诱导信息的导航方式。
+									</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>精准诱导：车道级诱导，智能感知周边环境。</li>
+								</div>
+							</div>
+							<div class="pic">
+								<img src="../../images/product/Navigation/AR/AR_01.png" width="100%">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="passengerCar" name="passengerCar">
+					<div class="products_list">
+						<div class="flex">
+							<div class="pic">
+								<img src="../../images/product/Navigation/passengerCar/passengerCar_01.png"
+									width="100%">
+							</div>
+							<div class="text">
+								<div class="title">乘用车导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>面向小汽车用户，以驾驶安全为核心，符合驾驶位视角和驾车操作习惯，导航流程极简易操作。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>根据实时路况为用户避开拥堵路段。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>智能巡航：无路线时，全新智能巡航模式，动态车速、电子眼、当前路名、路况播报。</li>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="freight" name="freight">
+					<div class="products_list">
+						<div class="flex">
+							<div class="text">
+								<div class="title">货车导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>货车POI数据专项采集，突出货车导航专题数据，全国范围覆盖。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>避开禁行、限行，高架、窄路等路段，减少大车掉头或不适宜通行的道路。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>货车电子眼提醒、窄小道路提醒等驾驶安全提醒。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>连接物流企业、货主，实时监控管理车辆，上传位置信息和行驶轨迹，配合企业调度。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>动态提醒货车行驶路线上的限行和限时限行路段，实时规划躲避限行的路径。</li>
+								</div>
+							</div>
+							<div class="pic">
+								<img src="../../images/product/Navigation/truck/truck_01.png" width="100%">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="energy" name="energy">
+					<div class="products_list">
+						<div class="flex">
+							<div class="pic">
+								<img src="../../images/product/Navigation/newEnergy/newEnergy_01.png" width="100%">
+							</div>
+							<div class="text">
+								<div class="title">新能源汽车导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>综合算路：新能源综合算路规划，计算合理的节省电量的路线，计算合理的充电经由地路线。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>智能寻桩：获取可达里程，充电桩动态，及交通动态信息，智能选择充电桩。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>专题数据：定制新能源专题数据，提升充电站的显示层级，专属的地图表达。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>服务闭环：新能源一站式智能出行服务闭环，充电地图、网点搜寻、预约下单、在线支付、车辆监控及用户运营等。</li>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="cerv" name="cerv">
+					<div class="products_list">
+						<div class="flex">
+							<div class="text">
+								<div class="title">特种车导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>北斗定位：使用北斗定位系统与特有的短报文通讯，安全性高。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>离线地图：离线加载中国全境地图，地图数据支持外置SD卡存储。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>实时监控：车辆位置实时监控，指挥中心可实时查看车辆所在位置与行车轨迹。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>专属路线：支持多点路线规划，路线由指挥中心规划及下发，支持分段下发。</li>
+								</div>
+							</div>
+							<div class="pic">
+								<img src="../../images/product/Navigation/specialVehicle/specialVehicle_01.png"
+									width="100%">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="mudTruck" name="mudTruck">
+					<div class="products_list">
+						<div class="flex">
+							<div class="pic">
+								<video src="../../images/product/Navigation/mudTruck/mudTruck_01.mp4" muted="muted"
+									autoplay="autoplay" loop style="width:640px;height: 410px;"></video>
+							</div>
+							<div class="text">
+								<div class="title">泥头车导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>偏移路线提醒：行车途中车辆偏移规划路线行驶时会实时提醒司机偏离规划的行驶路线，并引导行驶回规划路线。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>隐患点提醒：泥头车企业可在通行路线上自行标注事故隐患点，司机行车过程中系统会语音播报提醒，如盲区、上下陡坡、急弯等。
+									</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>通行路线查询：泥头车司机可在地图上查看通行证路线。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>专属路线规划：可通过泥头车施工合同点、渣土受纳场、停车场等POI规划专属路线。</li>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-center" id="wear" name="wear">
+					<div class="products_list">
+						<div class="flex">
+							<div class="text">
+								<div class="title">智能穿戴设备导航</div>
+								<div class="content">
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>多种路线模式选择：包括步行、骑行、公交、车辆导航等多种导航模式。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>语音诱导：解放双眼，行车更安全。</li>
+									<li><img src="../../images/product/Navigation/poi.png" width="30"
+											height="30"></img>K友结伴游：同路K友结伴游，可创建车队和加入车队，支持实时语音对讲。</li>
+								</div>
+							</div>
+							<div class="pic">
+								<img src="../../images/product/Navigation/smartDevices/smartDevices_01.png"
+									width="100%">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="content_map content_map_bcg" id="precision" name="precision">
+						<div class="title-font map-title mb30"><span class="f32 f_500">高精度导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">高精显示</li>
+								<li>精准诱导</li>
+								<li>车道级路线规划</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/highPrecision/highPrecision_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/highPrecision/highPrecision_02.png">
+								</div>
+								<div class="layui-tab-item tc">
+									 <img src="../../images/product/Navigation/highPrecision/highPrecision_03.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map" id="phone" name="phone">
+						<div class="title-font map-title mb30"><span class="f32 f_500">手机导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">多种路线模式</li>
+								<li>语音诱导</li>
+								<li>路口实景图</li>
+								<li>K友结伴游备份</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/phone/phone_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/phone/phone_02.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/phone/phone_03.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/phone/phone_04.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map content_map_bcg" id="parking" name="parking">
+						<div class="title-font map-title mb30"><span class="f32 f_500">停车场导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">停车场地图</li>
+								<li>导航至停车位</li>
+								<li>反向寻车</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/parkingLot/parkingLot_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/parkingLot/parkingLot_03.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/parkingLot/parkingLot_02.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map" id="dashboard" name="dashboard">
+						<div class="title-font map-title mb30"><span class="f32 f_500">仪表盘导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">UI适配</li>
+								<li>语音诱导</li>
+								<li>安全提示</li>
+								<li>底图表达</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<video src="../../images/product/Navigation/dashBoard/dashBoard_01.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/dashBoard/dashBoard_02.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/dashBoard/dashBoard_03.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/dashBoard/dashBoard_04.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map content_map_bcg" id="AR" name="AR">
+						<div class="title-font map-title mb30"><span class="f32 f_500">AR导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">影像融合</li>
+								<li>精准诱导</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/AR/AR_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/AR/AR_02.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map" id="passengerCar" name="passengerCar">
+						<div class="title-font map-title mb30"><span class="f32 f_500">乘用车导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">简洁易操作</li>
+								<li>实时路况躲避拥堵</li>
+								<li>智能巡航</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/passengerCar/passengerCar_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/passengerCar/passengerCar_02.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/passengerCar/passengerCar_03.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map content_map_bcg" id="freight" name="freight">
+						<div class="title-font map-title mb30"><span class="f32 f_500">货车导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">专题数据</li>
+								<li>专属路线</li>
+								<li>安全驾驶</li>
+								<li>连接物流企业</li>
+								<li>连接物流平台</li>
+								<li>动态规划与提醒</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/truck/truck_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/truck/truck_02.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/truck/truck_03.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/truck/truck_04.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/truck/truck_05.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/truck/truck_06.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map" id="energy" name="energy">
+						<div class="title-font map-title mb30"><span class="f32 f_500">新能源汽车导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">综合算路</li>
+								<li>智能寻桩</li>
+								<li>专题数据</li>
+								<li>服务闭环</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/newEnergy/newEnergy_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/newEnergy/newEnergy_02.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/newEnergy/newEnergy_03.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/newEnergy/newEnergy_04.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map content_map_bcg" id="cerv" name="cerv">
+						<div class="title-font map-title mb30"><span class="f32 f_500">特种车导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">北斗定位</li>
+								<li>离线地图</li>
+								<li>安全监控</li>
+								<li>专属路线</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/specialVehicle/specialVehicle_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/specialVehicle/specialVehicle_02.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/specialVehicle/specialVehicle_03.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/specialVehicle/specialVehicle_04.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map" id="mudTruck" name="mudTruck">
+						<div class="title-font map-title mb30"><span class="f32 f_500">泥头车导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">偏移路线提醒</li>
+								<li>隐患点提醒</li>
+								<li>通行路线查询</li>
+								<li>专属路线规划</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<video src="../../images/product/Navigation/mudTruck/mudTruck_01.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<video src="../../images/product/Navigation/mudTruck/mudTruck_02.mp4" muted="muted" autoplay="autoplay" loop style="width:1024px;"></video>
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/mudTruck/mudTruck_03.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/mudTruck/mudTruck_04.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="content_map content_map_bcg" id="wear" name="wear">
+						<div class="title-font map-title mb30"><span class="f32 f_500">智能穿戴设备导航</span></div>
+						<div class="layui-tab layui-tab-brief" lay-filter="tableService">
+							<ul class="layui-tab-title flex-center">
+								<li class="layui-this">多种路线模式</li>
+								<li>语音诱导</li>
+								<li>K友结伴游</li>
+							</ul>
+							<div class="layui-tab-content mt20" style="height: 500px;box-sizing: border-box;">
+								<div class="layui-tab-item layui-show tc">
+									<img src="../../images/product/Navigation/smartDevices/smartDevices_01.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/smartDevices/smartDevices_02.png">
+								</div>
+								<div class="layui-tab-item tc">
+									<img src="../../images/product/Navigation/smartDevices/smartDevices_03.png">
+								</div>
+							</div>
+						</div>
+					</div> -->
+			</div>
+		</div>
+
+
+		<!-- 底部-->
+		<div id="page-foot" class="page_foot">
+			<!-- <iframe width="100%" height="550px" src="../common/foot.html" frameborder="no" border="0" marginwidth="0"
+				 marginheight="0" scrolling="no"></iframe> -->
+			<iframe width="100%" height="350px" src="../common/foot.html" frameborder="no" border="0" marginwidth="0"
+				marginheight="0" scrolling="no"></iframe>
+		</div>
+		<!-- <div style="width:100%;height:150px;background-color: #050912;"></div> -->
+	</div>
+</body>
+<script type="text/javascript" src="../../js/product/navigationProduct.js"></script>
+
+</html>

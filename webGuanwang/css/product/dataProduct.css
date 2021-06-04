@@ -115,14 +115,14 @@ a{
 
 .page-content .head .product >ul{
     margin: 0 auto;
-    width: 1000px !important;
+    width: 1280px !important;
 }
 
 .page-content .head .product >ul >li{
     float: left;
     position: relative;
     margin: 0 50px;
-	width: 120px !important;
+	width: auto !important;
 }
 
 .page-content .head .product hr{
@@ -362,7 +362,7 @@ AR导航
 .list_show{
 	display: block;
 }
-.content_left_first,.content_left_second,.content_left_third{
+.content_left_first,.content_left_second,.content_left_third,.content_left_fourth{
 	width:200px;
 	background-color: #EEEEEE !important;
 }
@@ -405,7 +405,7 @@ AR导航
 	margin: 0 auto;
 	box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.16);
 }
-.content_right_first,.content_right_second,.content_right_third{
+.content_right_first,.content_right_second,.content_right_third,.content_right_fourth{
 	text-align: left;
 	box-sizing: border-box;
 	padding: 30px 50px;
@@ -428,6 +428,12 @@ AR导航
 	display: none;
 }
 .content_right_third .content_show{
+	display: block;
+}
+.content_right_fourth>div{
+	display: none;
+}
+.content_right_fourth .content_show{
 	display: block;
 }
 .content_tile{
@@ -454,9 +460,9 @@ AR导航
 	text-align: center;
 }
 .layui-table thead tr th{
-	background-color: #0091FF !important;
+	background-color: #CCCCCC !important;
 	text-align: center !important;
-	color: #FFFFFF;
+	color: #161923;
 }
 .layui-table tbody tr td:first-child{
 	text-align: center;

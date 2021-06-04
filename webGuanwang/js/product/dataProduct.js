@@ -28,6 +28,10 @@ $(function(){
                     updateCss(".content_left_third li a",index,"active_show");
                     updateCss(".content_right_third div",index,"content_show");
                     break;
+                case 3:
+                    updateCss(".content_left_fourth li a",index,"active_show");
+                    updateCss(".content_right_fourth div",index,"content_show");
+                    break;
             }
         }
     }
@@ -59,6 +63,11 @@ $(".content_left_third li a").click(function() {
     const listIndex1=$(this).index();
     updateCss(".content_left_third li a",listIndex1,"active_show");
     updateCss(".content_right_third div",listIndex1,"content_show");
+});
+$(".content_left_fourth li a").click(function() {
+    const listIndex1=$(this).index();
+    updateCss(".content_left_fourth li a",listIndex1,"active_show");
+    updateCss(".content_right_fourth div",listIndex1,"content_show");
 });
 // 滑动滚动条
 $(window).scroll(function(){

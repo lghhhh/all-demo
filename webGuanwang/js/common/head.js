@@ -3,7 +3,7 @@ url['index'] = "";
 url['aboutUs'] = "../";
 url['information'] = "../";
 url['navigationProduct'] = "../../";
-url['navigationProductcopy'] = "../../";
+url['visualization'] = "../../";
 url['upgrade'] = "../../";
 url['product'] = "../../";
 url['register'] = "../../";
@@ -25,116 +25,120 @@ function pageName() {
 }
 var pagename = pageName();
 var head_url = url[pagename];
-document.writeln("<!DOCTYPE html>");
-document.writeln("<html lang=\'en\'>");
-document.writeln("<head>");
-document.writeln("    <meta charset=\'UTF-8\'>");
-document.writeln("    <title>头部</title>");
-document.writeln("    <link rel=\'stylesheet\' href=\'" + head_url + "css/common/head.css\' type=\'text/css\'>");
-document.writeln("    <script src=\'" + head_url + "js/jar/jquery-1.10.2.min.js\'></script>");
-document.writeln("</head>");
-document.writeln("<body>");
-document.writeln("<div id='container_head' class=\'container_head\'>");
-document.writeln("    <div class=\'sub\'>");
-document.writeln("    <ul>");
-document.writeln("        <li class=\'pic-company\'><a href=\'" + head_url + "index.html\' ><img border=\'0\' src=\'" + head_url + "images/common/carelandLogo.png\' alt=\'回到首页\'/></a></li>");
-document.writeln("        <li class=\'sub-menu2\'>");
-document.writeln("            <ul class=\'menu-first\'>");
-document.writeln("                <li class=\'func\'>");
-document.writeln("                    <a  href=\'" + head_url + "html/product/product.html\' >产品中心</a>");
-document.writeln("                    <div>");
-document.writeln("                        <ul class=\'sub-func\'>");
-document.writeln("                            <!--<em></em>-->");
-document.writeln("                            <li class=\'product-1\'>");
-document.writeln("                                <span>数据产品</span>");
-document.writeln("                                <ul class=\'detail\'>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/dataProduct.html?tab=0\' >综合数据产品</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/dataProduct.html?tab=1\' >专题数据产品</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/dataProduct.html?tab=2\'  >网点数据产品</a></li>");
-document.writeln("                                </ul>");
-document.writeln("                            </li>");
-document.writeln("                            <li>");
-document.writeln("                                <span>导航产品</span>");
-document.writeln("                                <ul class=\'detail\'>");
-// document.writeln("                                    <li class='li_title'><a>一般应用领域</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#tradition\' >传统导航</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#precision\' >高精度导航</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#phone\' >手机导航</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#parking\' >停车场导航</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#dashboard\' >仪表盘导航</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#AR\' >AR导航</a></li>");
-// document.writeln("                                    <li class='li_title'><a>专属应用领域</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#passengerCar\' >乘用车导航</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#freight\' >货运导航</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#energy\' >新能源汽车导航</a></li>");
-document.writeln("                                    <li><a href=\'\' ><a href=\'" + head_url + "html/product/navigationProduct.html#cerv\' >特种车导航</a></li>");
-document.writeln("                                    <li><a href=\'\' ><a href=\'" + head_url + "html/product/navigationProduct.html#mudTruck' >泥头车导航</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/navigationProduct.html#wear\' >智能穿戴设备导航</a></li>");
-document.writeln("                                </ul>");
-document.writeln("                            </li>");
-document.writeln("                            <li>");
-document.writeln("                                <span>政企产品</span>");
-document.writeln("                                <ul class=\'detail\'>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/product.html?tab=0#detail-government\' >地图数据</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/product.html?tab=1#detail-government\' >web地图</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/product.html?tab=2#detail-government\'  >监控类产品</a></li>");
-document.writeln("                                    <li><a href=\'" + head_url + "html/product/product.html?tab=3#detail-government\'  >定制型行业应用</a></li>");
-document.writeln("                                </ul>");
-document.writeln("                            </li>");
-document.writeln("                        </ul>");
-document.writeln("                    </div>");
-document.writeln("                </li>");
-document.writeln("                <li class=\'func \'>");
-document.writeln("                    <a  href=\'" + head_url + "html/service/service.html\' >服务与支持</a>");
-document.writeln("                    <div class=\' choice func-1\'>");
-document.writeln("                        <ul class=\'detail\'>");
-document.writeln("                            <!--<em></em>-->");
-document.writeln("                            <li><a href=\'" + head_url + "html/service/faq.html\' >常见问题解答</a></li>");
-document.writeln("                        </ul>");
-document.writeln("                    </div>");
-document.writeln("                </li>");
-document.writeln("                <li class=\'func\'>");
-document.writeln("                    <a  href=\'" + head_url + "html/register/register.html\' >注册与激活</a>");
-document.writeln("                    <div class=\'choice func-2\'>");
-document.writeln("                        <ul class=\'detail\'>");
-document.writeln("                            <!--<em></em>-->");
-document.writeln("                            <li><a href=\'" + head_url + "html/register/genuineVerification.html\' target=\'_blank\'>产品正版验证</a></li>");
-document.writeln("                            <li><a href=\'http://channel.careland.com.cn/do.php?m=user&a=login\' target=\'_blank\'>渠道专区</a></li>");
-document.writeln("                            <li><a href=\'http://boss.careland.com.cn/oem/index2.php\' target=\'_blank\'>OEM厂商</a></li>");
-// document.writeln("                            <li><a href=\'https://www.careland.com.cn/service/oembindzone/oemactivate.php\' target=\'_blank\'>单品牌升级卡激活专区</a></li>");
-// document.writeln("                            <li><a href=\'https://www.careland.com.cn/service/xugang/action1.php\' target=\'_blank\'>上海大众NW502专区</a></li>");
-// document.writeln("                            <li><a href=\'https://www.careland.com.cn/service/hangsheng/server.php?act=action\' target=\'_blank\'>绵阳金杯激活专区</a></li>");
-document.writeln("                            <li><a href=\'https://map.careland.com.cn/?usercancel=1\' target=\'_blank\'>账号注销</a></li>");
-document.writeln("                        </ul>");
-document.writeln("                    </div>");
-document.writeln("                </li>");
-document.writeln("                <li class=\'func\'><a  href=\'" + head_url + "html/information.html?tab=0\' >资讯与公告</a>");
-document.writeln("                    <div class=\'choice func-3\'>");
-document.writeln("                        <ul class=\'detail\'>");
-document.writeln("                            <!--<em></em>-->");
-document.writeln("                            <li><a href=\'" + head_url + "html/information.html?tab=1\' >凯立德资讯</a></li>");
-document.writeln("                            <li><a href=\'" + head_url + "html/information.html?tab=2\' >凯立德公告</a></li>");
-document.writeln("                            <li><a href=\'" + head_url + "html/information.html?tab=3\' >行业资讯</a></li>");
-document.writeln("                        </ul>");
-document.writeln("                    </div>");
-document.writeln("                </li>");
-document.writeln("                <li class=\'func\' >");
-document.writeln("                    <a  href=\'" + head_url + "html/aboutUs.html\' >关于我们</a>");
-document.writeln("                    <div class=\'choice func-4\'>");
-document.writeln("                        <ul class=\'detail\'>");
-document.writeln("                            <!--<em></em>-->");
-document.writeln("                            <li><a href=\'" + head_url + "html/aboutUs.html#companyProfile\' >公司简介</a></li>");
-document.writeln("                            <li><a href=\'" + head_url + "html/aboutUs.html#corporateCulture\' >企业文化</a></li>");
-document.writeln("                            <li><a href=\'" + head_url + "html/aboutUs.html#advantage\' >优势</a></li>");
-document.writeln("                            <li><a href=\'" + head_url + "html/aboutUs.html#contactUs\' >联系我们</a></li>");
-document.writeln("                        </ul>");
-document.writeln("                    </div>");
-document.writeln("                </li>");
-document.writeln("            </ul>");
-document.writeln("        </li>");
-document.writeln("        <li class=\'sub-menu3\'><a href=\'https://open.careland.com.cn/docs/\' target=\'_blank\'>开放平台</a></li>");
-document.writeln("    </ul>");
-document.writeln("</div>");
-document.writeln("</div>");
-document.writeln("</body>");
-document.writeln("</html>");
+const htmlTemplate=`
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>头部</title>
+    <link rel='stylesheet' href='${head_url}css/common/head.css' type='text/css'>
+    <script src='${head_url}js/jar/jquery-1.10.2.min.js'></script>
+</head>
+<body>
+<div id='container_head' class='container_head'>
+    <div class='sub'>
+    <ul>
+        <li class='pic-company'><a href='${head_url}index.html' ><img border='0' src='${head_url}images/common/carelandLogo.png' alt='回到首页'/></a></li>
+        <li class='sub-menu2'>
+            <ul class='menu-first'>
+                <li class='func'>
+                    <a  href='${head_url}html/product/product.html' >产品中心</a>
+                    <div>
+                        <ul class='sub-func'>
+                            <!--<em></em>-->
+                            <li class='product-1'>
+                                <span>地图服务</span>
+                                <ul class='detail'>
+                                    <li><a href='${head_url}html/product/product.html?#tab=1' >地图渲染</a></li>
+                                    <li><a href='${head_url}html/product/product.html?#tab=2' >定位</a></li>
+                                    <li><a href='${head_url}html/product/product.html?#tab=3' >搜索</a></li>
+                                    <li><a href='${head_url}html/product/product.html?#tab=4' >路径规划</a></li>
+                                    <li><a href='${head_url}html/product/product.html?#tab=5' >轨迹</a></li>
+                                    <li><a href='${head_url}html/product/product.html?#tab=6' >路况</a></li>
+                                    <li><a href='${head_url}html/product/product.html?#tab=7' >自定义地图</a></li>
+                                    <li><a href='${head_url}html/product/product.html?#tab=8' >数据可视化</a></li>
+                                </ul>
+                            </li>
+                            <li >
+                                <span>数据产品</span>
+                                <ul class='detail'>
+                                    <li><a href='${head_url}html/product/dataProduct.html?tab=0' >高精度数据产品</a></li>
+                                    <li><a href='${head_url}html/product/dataProduct.html?tab=1' >综合数据产品</a></li>
+                                    <li><a href='${head_url}html/product/dataProduct.html?tab=2' >专题数据产品</a></li>
+                                    <li><a href='${head_url}html/product/dataProduct.html?tab=3'  >网点数据产品</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>导航产品</span>
+                                <ul class='detail'>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#tradition' >传统导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#precision' >高精度导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#phone' >手机导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#parking' >停车场导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#dashboard' >仪表盘导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#AR' >AR导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#passengerCar' >乘用车导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#freight' >货运导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#energy' >新能源汽车导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#cerv' >特种车导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#mudTruck' >泥头车导航</a></li>
+                                    <li><a href='${head_url}html/product/navigationProduct.html#wear' >智能穿戴设备导航</a></li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </li>
+                <li class='func '>
+                    <a  href='${head_url}html/service/service.html' >服务与支持</a>
+                    <div class=' choice func-1'>
+                        <ul class='detail'>
+                            <!--<em></em>-->
+                            <li><a href='${head_url}html/service/faq.html' >常见问题解答</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class='func'>
+                    <a  href='${head_url}html/register/register.html' >注册与激活</a>
+                    <div class='choice func-2'>
+                        <ul class='detail'>
+                            <!--<em></em>-->
+                            <li><a href='${head_url}html/register/genuineVerification.html' target='_blank'>产品正版验证</a></li>
+                            <li><a href='http://channel.careland.com.cn/do.php?m=user&a=login' target='_blank'>渠道专区</a></li>
+                            <li><a href='http://boss.careland.com.cn/oem/index2.php' target='_blank'>OEM厂商</a></li>
+                            <li><a href='https://map.careland.com.cn/?usercancel=1' target='_blank'>账号注销</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class='func'><a  href='${head_url}html/information.html?tab=0' >资讯与公告</a>
+                    <div class='choice func-3'>
+                        <ul class='detail'>
+                            <!--<em></em>-->
+                            <li><a href='${head_url}html/information.html?tab=1' >凯立德资讯</a></li>
+                            <li><a href='${head_url}html/information.html?tab=2' >凯立德公告</a></li>
+                            <li><a href='${head_url}html/information.html?tab=3' >行业资讯</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class='func' >
+                    <a  href='${head_url}html/aboutUs.html' >关于我们</a>
+                    <div class='choice func-4'>
+                        <ul class='detail'>
+                            <!--<em></em>-->
+                            <li><a href='${head_url}html/aboutUs.html#companyProfile' >公司简介</a></li>
+                            <li><a href='${head_url}html/aboutUs.html#corporateCulture' >企业文化</a></li>
+                            <li><a href='${head_url}html/aboutUs.html#advantage' >优势</a></li>
+                            <li><a href='${head_url}html/aboutUs.html#contactUs' >联系我们</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class='sub-menu3'><a href='https://open.careland.com.cn/docs/' target='_blank'>开放平台</a></li>
+    </ul>
+</div>
+</div>
+</body>
+</html>
+`
+document.write(htmlTemplate)
