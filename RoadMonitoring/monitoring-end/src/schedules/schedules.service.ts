@@ -130,7 +130,9 @@ export class SchedulesService {
       CityName,
       UnBlockageRatio: rationData.cityUnBlockRatio,
       UnBlockageRatio4Kld: rationData.src2UnBlockRatio,
+      UnBlockageRatio4KldSelf: rationData.src2UnBlockRatioSelf,
       UnBlockageRatio4Opponent: rationData.src32UnBlockRatio,
+      UnBlockageRatio4OpponentSelf: rationData.src32UnBlockRatioSelf,
       UnBlockageRatio4History: rationData.src14UnBlockRatio,
       Date: DATE,
       Time: TIME,
@@ -161,9 +163,9 @@ export class SchedulesService {
     let src32NE4 = 0; // api  竟品道路总长 --- 非畅通
     let src32Count = 0;
 
-    let src14TotalLen = 0; // api 来源1、4道路总长
+    // let src14TotalLen = 0; // api 来源1、4道路总长
     let src14NE4 = 0; // api 来源1、4道路总长 --- 非畅通
-    let src14Count = 0;
+    // let src14Count = 0;
     for (const data of arrs) {
       const uid = data.uid;
       const roadlen = roadLenArrs[uid];
@@ -184,8 +186,8 @@ export class SchedulesService {
           break;
         case 1:
         case 4:
-          src14TotalLen += roadlen;
-          src14Count++;
+          // src14TotalLen += roadlen;
+          // src14Count++;
           if (data.status != 4) src14NE4 += roadlen;
           break;
         default:
@@ -212,15 +214,15 @@ export class SchedulesService {
       ? 0
       : Number(((src14NE4 / srcAllCount) * 100).toFixed(3));
     // ------------------- 计算比例分母 不固定--------------
-    // //浮动车非畅通占比
-    // const src2UnBlockRatio = !(src2TotalLen && src2Count > 10)
-    //   ? 0
-    //   : Number(((src2NE4 / src2TotalLen) * 100).toFixed(3));
+    //浮动车非畅通占比
+    const src2UnBlockRatioSelf = !(src2TotalLen && src2Count > 10)
+      ? 0
+      : Number(((src2NE4 / src2TotalLen) * 100).toFixed(3));
 
-    // // 竞品数据来源 非畅通占比
-    // const src32UnBlockRatio = !(src32TotalLen && src32Count > 10)
-    //   ? 0
-    //   : Number(((src32NE4 / src32TotalLen) * 100).toFixed(3));
+    // 竞品数据来源 非畅通占比
+    const src32UnBlockRatioSelf = !(src32TotalLen && src32Count > 10)
+      ? 0
+      : Number(((src32NE4 / src32TotalLen) * 100).toFixed(3));
 
     // // 14来源数据非畅通占比
     // const src14UnBlockRatio = !(src14TotalLen && src14Count > 10)
@@ -230,7 +232,9 @@ export class SchedulesService {
     return {
       cityUnBlockRatio,
       src2UnBlockRatio,
+      src2UnBlockRatioSelf,
       src32UnBlockRatio,
+      src32UnBlockRatioSelf,
       src14UnBlockRatio,
     };
   }

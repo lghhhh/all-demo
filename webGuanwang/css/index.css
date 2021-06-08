@@ -212,6 +212,7 @@ a{
 	line-height: 40px;
 }
 .detail-item-text-btn:hover{
+    border: 1px solid #0091FF;
 	background-color: #0091FF;
 
 }

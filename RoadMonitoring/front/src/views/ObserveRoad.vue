@@ -37,7 +37,8 @@ import { defineComponent } from 'vue';
 import { getAllCityData, getRoadObserveData } from '@/api/road-data';
 import { notification } from 'ant-design-vue';
 
-import { Line } from '@antv/g2plot';
+import { Chart } from '@antv/g2';
+
 import moment from 'moment';
 
 const ObserveData = defineComponent({
@@ -59,12 +60,17 @@ const ObserveData = defineComponent({
 
     };
   },
-  // watch: {
-  //   observeData() {
-
-  //     // this.observeContainer.render();
-  //   },
-  // },
+  watch: {
+    observeData(newData) {
+      const formatData = newData.map((obj) => {
+        const data = obj;
+        const formatTime = `${this.timeValue?.format('YYYY-MM-DD')} ${obj.time}:00`;
+        data.time = formatTime;
+        return data;
+      });
+      this.observeContainer.changeData(formatData);
+    },
+  },
   created() {
     getAllCityData().then((res) => {
       this.allCityData = res.data;
@@ -73,17 +79,88 @@ const ObserveData = defineComponent({
   },
   mounted() {
     this.loadObserveData();
-    this.observeContainer = new Line('container', {
-      data: this.observeData,
-      padding: 'auto',
-      xField: 'time',
-      yField: 'ratio',
-      seriesField: 'dataSource',
-      smooth: true,
-    });
-    this.observeContainer.render();
+    this.chartinit();
+    // 创建图表
+    // this.observeContainer = new Line('container', {
+    //   data: this.observeData,
+    //   padding: 'auto',
+    //   xField: 'time',
+    //   yField: 'ratio',
+    //   seriesField: 'dataSource',
+    //   smooth: true,
+    // });
+    // this.observeContainer.render();
   },
   methods: {
+    chartinit() {
+      // const time24 = [
+      //   '00:00',
+      //   '01:00',
+      //   '02:00',
+      //   '03:00',
+      //   '04:00',
+      //   '05:00',
+      //   '06:00',
+      //   '07:00',
+      //   '08:00',
+      //   '09:00',
+      //   '10:00',
+      //   '11:00',
+      //   '12:00',
+      //   '13:00',
+      //   '14:00',
+      //   '15:00',
+      //   '16:00',
+      //   '17:00',
+      //   '18:00',
+      //   '19:00',
+      //   '20:00',
+      //   '21:00',
+      //   '22:00',
+      //   '23:00',
+      //   '24:00',
+      // ];
+      // const ticks = time24.map((time) => `${this.timeValue?.format('YYYY-MM-DD')} ${time}:00`);
+
+      this.observeContainer = new Chart({
+        container: 'container',
+        autoFit: true,
+        height: 500,
+      });
+
+      this.observeContainer.scale({
+        time: {
+          type: 'time',
+          mask: 'HH:mm',
+          showLast: true,
+          // tickCount: 24,
+          // ticks: time24,
+          // maxTickCount: 2,
+          tickInterval: 3600000,
+        },
+        ratio: {
+          nice: true,
+        },
+      });
+      this.observeContainer.axis('ratio', {
+        label: {
+          formatter: (val) => `${val} %`,
+        },
+      });
+
+      this.observeContainer.tooltip({
+        showCrosshairs: true,
+        shared: true,
+      });
+      this.observeContainer
+        .line()
+        .position('time*ratio')
+        .color('dataSource')
+        .shape('line'); // line  smooth
+      this.observeContainer.data([]);
+
+      this.observeContainer.render();
+    },
     CityFilter(inputValue, path) {
       return path.some((option) => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
     },
@@ -97,9 +174,6 @@ const ObserveData = defineComponent({
       const time = this.timeValue?.format('YYYY-MM-DD');
       getRoadObserveData(cityid, time).then((res) => {
         this.observeData = res?.data?.data;
-        this.observeContainer.update({
-          data: this.observeData,
-        });
       }).catch(() => this.openNotification('数据加载失败'));
     },
     openNotification(message) {

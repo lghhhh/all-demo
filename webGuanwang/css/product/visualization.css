@@ -178,6 +178,7 @@ a {
 }
 .tab-content-item-btn:hover{
 	background-color: #0091FF;
+	border: 1px solid #0091FF;
 	color: #FFFFFF;
 
 }
@@ -306,6 +307,14 @@ line-height: 32px;
 	background: #0091FF;
 	color: #FFFFFF !important;
 }
+.layui-this:after{
+	border-bottom: 2px solid rgb(0, 145, 255) !important
+}
 .layui-tab-content{
 	margin: 40px auto 100px auto !important;
+}
+
+/* ------------------- */
+.to-be-continue{
+	display: none;
 }

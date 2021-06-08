@@ -18,7 +18,13 @@ export class CityRoad {
   UnBlockageRatio4Kld: number;
 
   @Column({ type: 'float' })
+  UnBlockageRatio4KldSelf: number;
+
+  @Column({ type: 'float' })
   UnBlockageRatio4Opponent: number;
+
+  @Column({ type: 'float' })
+  UnBlockageRatio4OpponentSelf: number;
 
   @Column({ type: 'float' })
   UnBlockageRatio4History: number;

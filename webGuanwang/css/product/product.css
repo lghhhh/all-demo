@@ -187,6 +187,7 @@ a {
 }
 .map-item-text-btn:hover{
 	background-color: #0091FF;
+	border: 1px solid #0091FF;
 	color: #FFFFFF;
 
 }
@@ -446,7 +447,10 @@ a {
 	height: 350px;
 }
 
-
+/* ------------------- */
+.to-be-continue{
+	display: none;
+}
 /*
 ie css设置
  */
