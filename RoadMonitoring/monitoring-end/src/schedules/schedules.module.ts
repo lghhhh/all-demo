@@ -9,7 +9,9 @@ import { SchedulesService } from './schedules.service';
 
 @Module({
   imports: [
-    HttpModule,
+    HttpModule.register({
+      timeout: 60 * 1000,
+    }),
     RoadinfoModule,
     CityCodeInfoModule,
     OriginalRoadInfoModule,

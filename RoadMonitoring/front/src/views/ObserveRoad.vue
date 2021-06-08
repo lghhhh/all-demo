@@ -140,6 +140,7 @@ const ObserveData = defineComponent({
         },
         ratio: {
           nice: true,
+          formatter: (value) => Number(value).toFixed(3),
         },
       });
       this.observeContainer.axis('ratio', {
