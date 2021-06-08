@@ -67,7 +67,7 @@ export class RoadinfoService {
       );
       data.push(
         {
-          ratio: 0,
+          ratio: null,
           time: beforeTimeStr,
           dataSource: '城市总数据',
         },
@@ -92,7 +92,7 @@ export class RoadinfoService {
           dataSource: '竞品数据(/竞品总路长)',
         },
         {
-          ratio: 0,
+          ratio: null,
           time: beforeTimeStr,
           dataSource: '历史推算+实时衰减数据',
         },

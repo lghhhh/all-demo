@@ -31,7 +31,7 @@ export class SchedulesService {
   handleInterval() {
     this.main();
   }
-  // 定时获取全国城市路况数据
+  // 定时检查路况数据
   @Cron('0 */5 * * * *')
   checkData() {
     this.observeRoadData();
@@ -255,16 +255,20 @@ export class SchedulesService {
       const startTime = observeObj.MonitorTimeStart;
       const endTime = observeObj.MonitorTimeEnd;
       const fluctuationRang = observeObj.MonitorFluctuationRange;
-      const startRatio = await this.roadinfoService.getMonitorDataGtDate(
-        cityId,
-        DATE,
-        startTime,
-      );
-      const endRatio = await this.roadinfoService.getMonitorDataLtDate(
-        cityId,
-        DATE,
-        endTime,
-      );
+      const startRatio = await this.roadinfoService
+        .getMonitorDataGtDate(cityId, DATE, startTime)
+        .then((data) => {
+          if (data.length) {
+            return data[0]['UnBlockageRatio'];
+          }
+        });
+      const endRatio = await this.roadinfoService
+        .getMonitorDataLtDate(cityId, DATE, endTime)
+        .then((data) => {
+          if (data.length) {
+            return data[0]['UnBlockageRatio'];
+          }
+        });
 
       if (Math.abs(startRatio - endRatio) > fluctuationRang) {
         this.emailService.sendWarnningEmail(cityName, TIME);
