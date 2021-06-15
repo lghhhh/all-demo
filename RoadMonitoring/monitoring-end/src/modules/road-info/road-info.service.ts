@@ -119,10 +119,9 @@ export class RoadinfoService {
           Time.getMinutes() < 10 ? '0' + Time.getMinutes() : Time.getMinutes()
         }`;
         // 填充数据
-
-        data.push(...this.genFillData(null, addStartTimeStr));
+        data.push(...this.genFillData(0, addStartTimeStr));
         if (addStartTimeStr !== addEndTimeStr) {
-          data.push(...this.genFillData(null, addEndTimeStr));
+          data.push(...this.genFillData(0, addEndTimeStr));
         }
       }
       data.push(
