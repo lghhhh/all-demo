@@ -146,7 +146,12 @@ export class SchedulesService {
       .get('http://navi1.careland.com.cn/rti/php/api/get_fussts_bycity.php', {
         params: { rsformat: 1, districtid: cityId },
       })
-      .toPromise();
+      .toPromise()
+      .catch((e) => {
+        console.log(`请求错误，城市编号：${cityId}`);
+        console.log('错误信息', e);
+        throw e;
+      });
     return response.data.data;
   }
 
