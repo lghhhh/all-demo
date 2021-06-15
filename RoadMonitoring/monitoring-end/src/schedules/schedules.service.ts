@@ -70,6 +70,31 @@ export class SchedulesService {
       this.processSingleCityData(CityId, CityName, DATE, TIME);
     }
   }
+  // // 同步的方式逐个遍历
+  // mian2() {
+  //   // 同一批数据 使用相同 日期时间
+  //   const { DATE, TIME } = this.getDataAndTime();
+  //   // const allCityIds: Array<{ CityId: number; CityName: string }> = [];
+  //   //获取 等待遍历的城市Id列表
+  //   if (!this.allCity) {
+  //     this.cityCodeInfoService
+  //       .getAllCityCode()
+  //       .then((data) => {
+  //         this.allCity = data;
+
+  //       })
+  //       .catch(() => console.log('获取城市列表失败'));
+  //   } else {
+  //     const cityData = [...this.allCity];
+
+  //     new Promise((resolve,reject)=>{
+
+  //     })
+
+  //     this.processSingleCityData(CityId, CityName, DATE, TIME);
+
+  //   }
+  // }
 
   // 单个城市数据入库处理修成
   async processSingleCityData(
@@ -151,6 +176,7 @@ export class SchedulesService {
         console.log(`请求错误，城市编号：${cityId}`);
         console.log('错误信息', e);
         throw e;
+        // return [];
       });
     return response.data.data;
   }
