@@ -12,7 +12,7 @@ export class CityCodeInfoService {
 
   getAllCityCode() {
     const result = this.ciytCodeInfoResopsitory.query(
-      'select CityId,CityName from CityCode',
+      'select CityId,CityName from CityCode where IsObserveFlag = 1',
     );
     return result;
   }
@@ -20,7 +20,7 @@ export class CityCodeInfoService {
   async getCityTreeData() {
     // 编写前段时再编写
     const result = await this.ciytCodeInfoResopsitory.query(
-      'select CityId,CityName,ProvinceId,ProvinceName from CityCode',
+      'select CityId,CityName,ProvinceId,ProvinceName from CityCode ',
     );
     const ProvinceInfo = {};
     const cityInfo = {};

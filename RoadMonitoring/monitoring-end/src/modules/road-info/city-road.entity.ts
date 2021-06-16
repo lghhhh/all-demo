@@ -34,9 +34,4 @@ export class CityRoad {
 
   @Column()
   Time: string;
-
-  // @CreateDateColumn()
-  // CreateDate?;
-  // @UpdateDateColumn()
-  // UpdateDate?;
 }

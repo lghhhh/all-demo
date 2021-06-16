@@ -14,7 +14,7 @@ export class OriginalInfoService {
 
   getCityRoadTotalLen(cityId: number): Promise<any> {
     const result = this.originalDataRespository.query(
-      `select districtid,SUM(len) as len from road_attr where districtid = ${cityId} group by districtid`,
+      `select districtid,SUM(len) as len from road_attr where districtid = ${cityId} AND posflag=posflag|512 group by districtid`,
     );
     return result;
   }

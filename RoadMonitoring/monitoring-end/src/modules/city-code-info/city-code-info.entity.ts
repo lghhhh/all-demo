@@ -16,4 +16,7 @@ export class CityCodeInfo {
 
   @Column()
   CityRoadsLen: number;
+
+  @Column()
+  IsObserveFlag: number;
 }

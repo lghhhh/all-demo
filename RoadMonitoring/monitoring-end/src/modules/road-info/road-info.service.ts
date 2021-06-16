@@ -55,42 +55,6 @@ export class RoadinfoService {
         data.push(...this.genFillData(null, afterTimeStr));
       }
     }
-
-    // result.forEach((ele) => {
-    //   data.push(
-    //     {
-    //       ratio: ele.UnBlockageRatio,
-    //       time: ele.Time,
-    //       dataSource: '城市总数据',
-    //     },
-    //     {
-    //       ratio: ele.UnBlockageRatio4Kld,
-    //       time: ele.Time,
-    //       dataSource: '浮动车数据(/全市总路长)',
-    //     },
-    //     {
-    //       ratio: ele.UnBlockageRatio4KldSelf,
-    //       time: ele.Time,
-    //       dataSource: '浮动车数据(/浮动车总路长)',
-    //     },
-    //     {
-    //       ratio: ele.UnBlockageRatio4Opponent,
-    //       time: ele.Time,
-    //       dataSource: '竞品数据(/全市总路长)',
-    //     },
-    //     {
-    //       ratio: ele.UnBlockageRatio4OpponentSelf,
-    //       time: ele.Time,
-    //       dataSource: '竞品数据(/竞品总路长)',
-    //     },
-    //     {
-    //       ratio: ele.UnBlockageRatio4History,
-    //       time: ele.Time,
-    //       dataSource: '历史推算+实时衰减数据',
-    //     },
-    //   );
-    // });
-
     if (!result.length) return [];
 
     let preTime = null;
