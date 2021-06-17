@@ -12,7 +12,7 @@ export class CityCodeInfoService {
 
   getAllCityCode() {
     const result = this.ciytCodeInfoResopsitory.query(
-      'select CityId,CityName from CityCode where IsObserveFlag = 1',
+      'select CityId,CityName from CityCode where IsObserveFlag = 1 and CityId= 10000',
     );
     return result;
   }
