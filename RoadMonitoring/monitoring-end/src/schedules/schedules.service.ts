@@ -109,7 +109,7 @@ export class SchedulesService {
     const lastNoDataTime = this.noDataMonitorObj?.[cityId]?.['lastNoDataTime'];
     //城市查询无数据添加到记录中（如果无记录）,判断是否超过半小时，超时发邮件警告
     if (!data.length) {
-      console.log(`${CityName} ${TIME}  数据中断`);
+      console.log(` ${TIME}  数据中断 ${CityName}`);
       if (!timeOrFlag) {
         this.noDataMonitorObj[cityId] = {
           firstBroken: TIME,
