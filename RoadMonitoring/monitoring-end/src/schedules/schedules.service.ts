@@ -61,7 +61,7 @@ export class SchedulesService {
     if (!this.allCity) {
       this.allCity = await this.cityCodeInfoService
         .getAllCityCode()
-        .catch(() => console.log('获取城市列表失败'));
+        .catch(() => console.log(`${TIME}获取城市列表失败`));
     }
     // allCityIds.forEach((obj) => {
     //   this.processSingleCityData(obj.CityId, obj.CityName, DATE, TIME);
@@ -109,6 +109,7 @@ export class SchedulesService {
     const lastNoDataTime = this.noDataMonitorObj?.[cityId]?.['lastNoDataTime'];
     //城市查询无数据添加到记录中（如果无记录）,判断是否超过半小时，超时发邮件警告
     if (!data.length) {
+      console.log(`${CityName} ${TIME}  数据中断`);
       if (!timeOrFlag) {
         this.noDataMonitorObj[cityId] = {
           firstBroken: TIME,
@@ -139,7 +140,7 @@ export class SchedulesService {
         this.emailService.sendDataBorkenEmail(
           CityName,
           TIME,
-          '数据已恢复（持续10分钟以上）',
+          `${CityName}数据已恢复（持续10分钟以上），最后一次中断时间${lastNoDataTime}`,
         ); //发送数据终端警告
         delete this.noDataMonitorObj[cityId];
       }
@@ -198,7 +199,7 @@ export class SchedulesService {
       })
       .toPromise()
       .catch((e) => {
-        console.log(`请求错误，城市编号：${cityId}`);
+        console.log(`请求错误，城市编号：${cityId} ${new Date()}`);
         console.log('错误信息', e);
         throw e;
         // return [];
