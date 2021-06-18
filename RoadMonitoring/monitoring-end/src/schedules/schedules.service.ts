@@ -107,44 +107,45 @@ export class SchedulesService {
     const data = await this.getRoadData(cityId);
     const timeOrFlag = this.noDataMonitorObj?.[cityId]?.['firstBroken'];
     const lastNoDataTime = this.noDataMonitorObj?.[cityId]?.['lastNoDataTime'];
-    //城市查询无数据添加到记录中（如果无记录）,判断是否超过半小时，超时发邮件警告
-    if (!data.length) {
-      console.log(` ${TIME}  数据中断 ${CityName}`);
-      if (!timeOrFlag) {
-        this.noDataMonitorObj[cityId] = {
-          firstBroken: TIME,
-          lastNoDataTime: TIME,
-        };
-        return;
-      } else if (timeOrFlag === 'noData') {
-        this.noDataMonitorObj[cityId]['lastNoDataTime'] = TIME;
-        return;
-      }
+    // //城市查询无数据添加到记录中（如果无记录）,判断是否超过半小时，超时发邮件警告
+    // if (!data.length) {
+    //   console.log(` ${TIME}  数据中断 ${CityName}`);
+    //   if (!timeOrFlag) {
+    //     this.noDataMonitorObj[cityId] = {
+    //       firstBroken: TIME,
+    //       lastNoDataTime: TIME,
+    //     };
+    //     return;
+    //   } else if (timeOrFlag === 'noData') {
+    //     this.noDataMonitorObj[cityId]['lastNoDataTime'] = TIME;
+    //     return;
+    //   }
 
-      if (this.isTimeOutofHalfAnHours(timeOrFlag, TIME, 30)) {
-        this.emailService.sendDataBorkenEmail(
-          CityName,
-          TIME,
-          '连续半小时无数据',
-        ); //发送数据终端警告
-        // this.noDataMonitorObj[cityId]['firstBroken'] = 'noData'; //已经超过半小是无数据私改数据状态
-        this.noDataMonitorObj[cityId] = {
-          firstBroken: 'noData',
-          lastNoDataTime: TIME,
-        };
-      }
-      return;
-    } else if (lastNoDataTime) {
-      // 中断后数据恢复10分钟
-      if (this.isTimeOutofHalfAnHours(lastNoDataTime, TIME, 10)) {
-        this.emailService.sendDataBorkenEmail(
-          CityName,
-          TIME,
-          `${CityName}数据已恢复（持续10分钟以上），最后一次中断时间${lastNoDataTime}`,
-        ); //发送数据终端警告
-        delete this.noDataMonitorObj[cityId];
-      }
-    }
+    //   if (this.isTimeOutofHalfAnHours(timeOrFlag, TIME, 30)) {
+    //     this.emailService.sendDataBorkenEmail(
+    //       CityName,
+    //       TIME,
+    //       '连续半小时无数据',
+    //     ); //发送数据终端警告
+    //     // this.noDataMonitorObj[cityId]['firstBroken'] = 'noData'; //已经超过半小是无数据私改数据状态
+    //     this.noDataMonitorObj[cityId] = {
+    //       firstBroken: 'noData',
+    //       lastNoDataTime: TIME,
+    //     };
+    //   }
+    //   this.noDataMonitorObj[cityId]['lastNoDataTime'] = TIME;
+    //   return;
+    // } else if (lastNoDataTime) {
+    //   // 中断后数据恢复10分钟
+    //   if (this.isTimeOutofHalfAnHours(lastNoDataTime, TIME, 10)) {
+    //     this.emailService.sendDataBorkenEmail(
+    //       CityName,
+    //       TIME,
+    //       `${CityName}数据已恢复（持续10分钟以上），最后一次中断时间${lastNoDataTime}`,
+    //     ); //发送数据终端警告
+    //     delete this.noDataMonitorObj[cityId];
+    //   }
+    // }
     // const cityRoadUidArrs: Set<number> = new Set(data.map((obj) => obj.uid));
 
     //城市道路总长
