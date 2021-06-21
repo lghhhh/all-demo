@@ -18,6 +18,7 @@ export class SchedulesService {
 
   constructor(
     private readonly httpService: HttpService,
+    // private readonly schdeuleLogger: LoggerService,
     private readonly emailService: EmailService, //邮件服务
     private readonly roadinfoService: RoadinfoService, // 用于存储 计算后的数据
     private readonly cityCodeInfoService: CityCodeInfoService, // 用于获取城市编码
@@ -66,35 +67,17 @@ export class SchedulesService {
     // allCityIds.forEach((obj) => {
     //   this.processSingleCityData(obj.CityId, obj.CityName, DATE, TIME);
     // });
-    for await (const { CityId, CityName } of this.allCity) {
-      this.processSingleCityData(CityId, CityName, DATE, TIME);
+    for await (const { CityId, CityName, IsObserveNoDataFlag } of this
+      .allCity) {
+      this.processSingleCityData(
+        CityId,
+        CityName,
+        DATE,
+        TIME,
+        IsObserveNoDataFlag,
+      );
     }
   }
-  // // 同步的方式逐个遍历
-  // mian2() {
-  //   // 同一批数据 使用相同 日期时间
-  //   const { DATE, TIME } = this.getDataAndTime();
-  //   // const allCityIds: Array<{ CityId: number; CityName: string }> = [];
-  //   //获取 等待遍历的城市Id列表
-  //   if (!this.allCity) {
-  //     this.cityCodeInfoService
-  //       .getAllCityCode()
-  //       .then((data) => {
-  //         this.allCity = data;
-
-  //       })
-  //       .catch(() => console.log('获取城市列表失败'));
-  //   } else {
-  //     const cityData = [...this.allCity];
-
-  //     new Promise((resolve,reject)=>{
-
-  //     })
-
-  //     this.processSingleCityData(CityId, CityName, DATE, TIME);
-
-  //   }
-  // }
 
   // 单个城市数据入库处理修成
   async processSingleCityData(
@@ -102,57 +85,58 @@ export class SchedulesService {
     CityName: string,
     DATE: string,
     TIME: string,
+    ObserveNoDataFlag: number,
   ) {
     //获取内存中的数据
     const data = await this.getRoadData(cityId);
     const timeOrFlag = this.noDataMonitorObj?.[cityId]?.['firstBroken'];
     const lastNoDataTime = this.noDataMonitorObj?.[cityId]?.['lastNoDataTime'];
-    // //城市查询无数据添加到记录中（如果无记录）,判断是否超过半小时，超时发邮件警告
-    // if (!data.length) {
-    //   console.log(` ${TIME}  数据中断 ${CityName}`);
-    //   if (!timeOrFlag) {
-    //     this.noDataMonitorObj[cityId] = {
-    //       firstBroken: TIME,
-    //       lastNoDataTime: TIME,
-    //     };
-    //     return;
-    //   } else if (timeOrFlag === 'noData') {
-    //     this.noDataMonitorObj[cityId]['lastNoDataTime'] = TIME;
-    //     return;
-    //   }
+    //城市查询无数据添加到记录中（如果无记录）,判断是否超过半小时，超时发邮件警告
+    if (ObserveNoDataFlag === 1 && !data.length) {
+      this.logger.log(`数据中断---${DATE}-${TIME}-${CityName}`);
+      if (!timeOrFlag) {
+        this.noDataMonitorObj[cityId] = {
+          firstBroken: TIME,
+          lastNoDataTime: TIME,
+        };
+        return;
+      } else if (timeOrFlag === 'noData') {
+        this.noDataMonitorObj[cityId]['lastNoDataTime'] = TIME;
+        return;
+      }
 
-    //   if (this.isTimeOutofHalfAnHours(timeOrFlag, TIME, 30)) {
-    //     this.emailService.sendDataBorkenEmail(
-    //       CityName,
-    //       TIME,
-    //       '连续半小时无数据',
-    //     ); //发送数据终端警告
-    //     // this.noDataMonitorObj[cityId]['firstBroken'] = 'noData'; //已经超过半小是无数据私改数据状态
-    //     this.noDataMonitorObj[cityId] = {
-    //       firstBroken: 'noData',
-    //       lastNoDataTime: TIME,
-    //     };
-    //   }
-    //   this.noDataMonitorObj[cityId]['lastNoDataTime'] = TIME;
-    //   return;
-    // } else if (lastNoDataTime) {
-    //   // 中断后数据恢复10分钟
-    //   if (this.isTimeOutofHalfAnHours(lastNoDataTime, TIME, 10)) {
-    //     this.emailService.sendDataBorkenEmail(
-    //       CityName,
-    //       TIME,
-    //       `${CityName}数据已恢复（持续10分钟以上），最后一次中断时间${lastNoDataTime}`,
-    //     ); //发送数据终端警告
-    //     delete this.noDataMonitorObj[cityId];
-    //   }
-    // }
+      if (this.isTimeOutofHalfAnHours(timeOrFlag, TIME, 30)) {
+        this.emailService.sendDataBorkenEmail(
+          CityName,
+          TIME,
+          '连续半小时无数据',
+        ); //发送数据终端警告
+        // this.noDataMonitorObj[cityId]['firstBroken'] = 'noData'; //已经超过半小是无数据私改数据状态
+        this.noDataMonitorObj[cityId] = {
+          firstBroken: 'noData',
+          lastNoDataTime: TIME,
+        };
+      }
+      this.noDataMonitorObj[cityId]['lastNoDataTime'] = TIME;
+      return;
+    } else if (lastNoDataTime) {
+      // 中断后数据恢复10分钟
+      if (this.isTimeOutofHalfAnHours(lastNoDataTime, TIME, 10)) {
+        this.emailService.sendDataBorkenEmail(
+          CityName,
+          TIME,
+          `${CityName}数据已恢复（持续10分钟以上），最后一次中断时间${lastNoDataTime}`,
+        ); //发送数据终端警告
+        delete this.noDataMonitorObj[cityId];
+      }
+    }
     // const cityRoadUidArrs: Set<number> = new Set(data.map((obj) => obj.uid));
 
     //城市道路总长
     if (!this.cityTotalLen[cityId]) {
       const cityTotalLen = await this.originalInfoService
         .getCityRoadTotalLen(cityId)
-        .then((data) => data[0].len);
+        .then((data) => data?.[0]?.len);
       this.cityTotalLen[cityId] = cityTotalLen;
     }
 
@@ -164,7 +148,7 @@ export class SchedulesService {
         .then((data) => {
           const roadLenObject = {};
           data.forEach((ele) => {
-            roadLenObject[ele.roaduid] = ele.len;
+            roadLenObject[ele?.roaduid] = ele?.len;
           });
           return roadLenObject;
         });
@@ -200,8 +184,11 @@ export class SchedulesService {
       })
       .toPromise()
       .catch((e) => {
-        console.log(`请求错误，城市编号：${cityId} ${new Date()}`);
-        console.log('错误信息', e);
+        this.logger.log(
+          `请求错误，城市编号：${cityId} ${new Date()} 错误信息：${JSON.stringify(
+            e,
+          )}`,
+        );
         throw e;
         // return [];
       });

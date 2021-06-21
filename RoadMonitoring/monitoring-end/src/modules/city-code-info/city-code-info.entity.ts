@@ -19,4 +19,7 @@ export class CityCodeInfo {
 
   @Column()
   IsObserveFlag: number;
+
+  @Column()
+  IsObserveNoDataFlag: number;
 }

@@ -135,7 +135,7 @@ export class RoadinfoService {
   // 删除一周前的数据
   async deleteDdtaWeekAgo(date: string) {
     const result = await this.roadInfoRespository.query(
-      `DELETE from CityRoadData WHERE Date > '${date}'`,
+      `DELETE from CityRoadData WHERE Date < '${date}'`,
     );
     return result;
   }

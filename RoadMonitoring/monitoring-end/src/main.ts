@@ -1,11 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    logger: console,
+    logger: false,
   });
+  app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
   app.enableCors(); //允许跨域
   // 设置swagger文档相关配置
   const swaggerOptions = new DocumentBuilder()

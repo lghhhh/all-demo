@@ -4,9 +4,12 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { SchedulesModule } from './schedules/schedules.module'; //定时任务
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
-import { EjsAdapter } from '@nestjs-modules/mailer/dist/adapters/ejs.adapter';
-//全国道路基本信息库实体
+import { EjsAdapter } from '@nestjs-modules/mailer/dist/adapters/ejs.adapter'; //邮件ejs解析的库
+// 日志系统
+import { WinstonModule } from 'nest-winston';
+import * as winston from 'winston';
 
+//全国道路基本信息库实体
 import { MonitorSettingModule } from './modules/monitor-setting/monitor-setting.module';
 import { RoadinfoModule } from './modules/road-info/road-info.module';
 import { EmailModule } from './modules/email/email.module';
@@ -14,10 +17,33 @@ import { CityCodeInfoModule } from './modules/city-code-info/city-code-info.modu
 
 @Module({
   imports: [
+    //---------------------日志系统------------
+    WinstonModule.forRoot({
+      exitOnError: false,
+      level: 'info',
+      format: winston.format.json(),
+      // defaultMeta: { service: 'user-service' },
+      transports: [
+        // - Write all logs with level `error` and below to `error.log`
+        // - Write all logs with level `info` and below to `combined.log`
+        //
+        new winston.transports.File({
+          filename: join(__dirname, '/logs/', 'error.log'),
+          level: 'error',
+        }),
+        new winston.transports.File({
+          filename: join(__dirname, '/logs/', 'schedules.log'),
+        }),
+      ],
+      exceptionHandlers: [
+        new winston.transports.File({
+          filename: join(__dirname, '/logs/', 'exception.log'),
+        }),
+      ],
+    }),
     //---------------------定时器------------
     ScheduleModule.forRoot(),
     SchedulesModule,
-
     //---------------------数据库------------
     TypeOrmModule.forRoot({
       //道路监控数据库
