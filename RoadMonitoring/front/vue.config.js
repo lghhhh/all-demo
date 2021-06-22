@@ -25,6 +25,13 @@ module.exports = {
       .set('components', resolve('src/components'))
       .set('views', resolve('src/views'));
     // set第一个参数：设置的别名，第二个参数：设置的路径
+
+    config.plugin('html')
+      .tap((args) => {
+        // eslint-disable-next-line no-param-reassign
+        args[0].title = '路况监控';
+        return args;
+      });
   },
 
 };
