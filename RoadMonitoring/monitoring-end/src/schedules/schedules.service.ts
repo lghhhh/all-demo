@@ -160,6 +160,11 @@ export class SchedulesService {
       this.allCityRoadLen[cityId],
       this.cityTotalLen[cityId],
     );
+    //添加日志
+    if (rationData.cityUnBlockRatio === 0) {
+      this.logger.error(`城市数据为0，${CityName}, 计算数据如下
+      ${JSON.stringify(data)}`);
+    }
     const insertData: CityRoad = {
       // id: 1, //需要地上id 否者无法通过类型检查，但是TypeORM的entity设定了自动递增 所以设置了值也没有用
       CityId: cityId,
