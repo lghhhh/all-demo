@@ -189,11 +189,12 @@ export class SchedulesService {
       })
       .toPromise()
       .catch((e) => {
-        this.logger.log(
-          `请求错误，城市编号：${cityId} ${new Date()} 错误信息：${JSON.stringify(
-            e,
-          )}`,
-        );
+        this.logger.log(`请求错误，城市编号：${cityId} ${new Date()}`);
+        // this.logger.log(
+        //   `请求错误，城市编号：${cityId} ${new Date()} 错误信息：${JSON.stringify(
+        //     e,
+        //   )}`,
+        // );
         throw e;
         // return [];
       });
